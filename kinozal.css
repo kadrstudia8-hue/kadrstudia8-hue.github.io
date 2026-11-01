@@ -1,0 +1,45 @@
+/* KADR Studio site — «Кинозал», the same look as the app (ui/kinozal.css): warm dark, gold, a film still behind the
+   headline, Cormorant Garamond headings over Manrope. Loaded after each page's own <style>. */
+:root{
+  --bg:#0e0c0a; --bg2:#15120e; --text:#f3e9d2; --muted:#b8ad97;
+  --violet:#d9b26f; --pink:#c98a4b; --cyan:#ebc98b;
+  --glass:rgba(243,233,210,.045); --line:rgba(243,233,210,.12);
+  --gold:#d9b26f; --gold-grad:linear-gradient(135deg,#e9c684,#c9964f); --ink:#1a140c;
+  --serif:'Cormorant Garamond',Georgia,serif;
+}
+body{background:var(--bg);color:var(--text)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:0}
+h2{font-size:clamp(34px,4.6vw,52px);font-weight:500}
+h3{font-size:24px}
+.grad{background:none;color:var(--gold);-webkit-text-fill-color:currentColor;font-style:italic}
+.tag{color:var(--gold);letter-spacing:.18em}
+.card{background:rgba(243,233,210,.035);border-color:var(--line);backdrop-filter:none;-webkit-backdrop-filter:none}
+.btn-main{background:var(--gold-grad);color:var(--ink);box-shadow:0 10px 34px rgba(201,150,79,.35)}
+.btn-main:hover{box-shadow:0 14px 44px rgba(201,150,79,.5)}
+.btn-ghost{border-color:rgba(243,233,210,.25);background:transparent}
+.btn-ghost:hover{border-color:var(--gold)}
+nav{background:rgba(14,12,10,.86)}
+.logo{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:.02em}
+.logo em{font-style:italic;color:var(--gold);font-weight:500}
+.logo i{background:radial-gradient(circle at 35% 30%,#fff7e6,#f2d39b 30%,#c9964f 70%,#4a3014);box-shadow:0 0 16px rgba(217,178,111,.6)}
+
+/* hero: a film still from a real KADR video behind the headline */
+.hero{position:relative;text-align:left;padding:120px 0 80px;
+  background:linear-gradient(90deg,rgba(14,12,10,.95) 0%,rgba(14,12,10,.7) 50%,rgba(14,12,10,.35) 100%),url("img/hero.jpg") center 35%/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:160px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.hero .orb{display:none}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:500;line-height:1.02;margin:12px 0 22px;max-width:980px}
+.hero p.lead{margin:0 0 34px;color:#e2d6bd}
+.hero .cta-row{justify-content:flex-start}
+.hero .prompt{margin-left:0;border-color:rgba(217,178,111,.35);background:rgba(14,12,10,.7)}
+.hero .prompt b{background:var(--gold-grad);color:var(--ink)}
+.hero .note{text-align:left}
+
+/* looks strip */
+.looks{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:28px}
+.looks figure{margin:0;display:grid;gap:8px}
+.looks img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px;border:1px solid var(--line)}
+.looks figcaption{font-size:15px;color:var(--muted)}
+.looks figure:first-child img{outline:2px solid var(--gold);outline-offset:3px}
+.looks figure:first-child figcaption{color:var(--text);font-weight:700}
+@media(max-width:860px){.looks{grid-template-columns:repeat(3,minmax(0,1fr))}}
