@@ -3,11 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KADR Studio</title>
-<meta name="description" content="KADR Studio — программа для Windows и macOS: пишете идею, получаете готовое видео со сценарием, озвучкой, кадрами, музыкой и субтитрами.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>KADR Studio — одна фраза, готовый ролик</title>
+<meta name="description" content="KADR Studio для Windows и macOS: напишите идею — получите готовое видео со сценарием, озвучкой, кадрами, живыми сценами, музыкой и субтитрами.">
+<meta name="theme-color" content="#0e0c0a">
+<link rel="canonical" href="https://kadrstudia8-hue.github.io/">
+<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/">
+<link rel="alternate" hreflang="en" href="https://kadrstudia8-hue.github.io/landing-en.html">
+<link rel="alternate" hreflang="x-default" href="https://kadrstudia8-hue.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KADR Studio">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://kadrstudia8-hue.github.io/">
+<meta property="og:title" content="KADR Studio — одна фраза, готовый ролик">
+<meta property="og:description" content="KADR Studio для Windows и macOS: напишите идею — получите готовое видео со сценарием, озвучкой, кадрами, живыми сценами, музыкой и субтитрами.">
+<meta property="og:image" content="https://kadrstudia8-hue.github.io/media/reel-ru.jpg">
+<meta property="og:image:width" content="960">
+<meta property="og:image:height" content="540">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
 <style>
 :root{
   --bg:#0a0a13; --bg2:#10101c; --text:#ececf5; --muted:#9a9ab3;
@@ -45,7 +59,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .logo i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,var(--cyan) 18%,var(--violet) 55%,var(--pink) 100%);box-shadow:0 0 16px var(--violet)}
 .links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
 .links a{text-decoration:none}.links a:hover{color:var(--text)}
-@media(max-width:760px){.links{display:none}}
+@media(max-width:760px){.links a:not([hreflang]){display:none}}
 
 /* hero */
 .hero{padding:96px 0 72px;text-align:center;overflow:hidden}
@@ -111,11 +125,16 @@ details p{color:var(--muted);margin-top:10px;font-size:15px}
 
 footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.flinks{display:flex;gap:14px;flex-wrap:wrap}.flinks a{color:var(--muted)}.flinks a:hover{color:var(--text)}
+.dl-card.soon{cursor:default}.dl-card.soon:hover{transform:none;border-color:var(--line)}
+:focus-visible{outline:2px solid #d9b26f;outline-offset:3px}
 .dl-card{display:grid;gap:6px;text-decoration:none;transition:border-color .2s,transform .2s}.dl-card:hover{border-color:var(--violet);transform:translateY(-2px)}
 .dl-card b{font-size:19px}.dl-card span{color:var(--muted);font-size:14px}.dl-card em{font-style:normal;color:var(--cyan);font-weight:700;margin-top:6px}
 .shots{grid-template-columns:2fr 2fr 1fr}.shot-tall img{max-height:420px;width:auto;margin:0 auto}@media(max-width:860px){.shots{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="kinozal.css">
+<link rel="stylesheet" href="site.css">
+<link rel="preload" as="image" href="media/hero-ru.jpg">
 </head>
 <body>
 
@@ -123,56 +142,137 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <a class="logo" href="#top"><i></i>KADR <em>studio</em></a>
     <div class="links">
+      <a href="#proof">Примеры</a>
       <a href="#how">Как это работает</a>
-      <a href="#features">Возможности</a>
-      <a href="#download">Скачать</a>
-      <a href="#req">Требования</a>
+      <a href="#who">Для кого</a>
+      <a href="#req">Без видеокарты</a>
       <a href="#pricing">Цены</a>
       <a href="#faq">FAQ</a>
       <a href="landing-en.html" hreflang="en" lang="en">EN</a>
     </div>
-    <a class="btn btn-ghost" href="#pricing" style="padding:9px 18px;font-size:14px">Купить</a>
+    <a class="btn btn-ghost" href="#download" style="padding:9px 18px;font-size:14px">Скачать</a>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="orb" aria-hidden="true"></div>
+<header class="hero hero2" id="top">
   <div class="wrap">
-    <span class="tag">Программа для Windows и macOS</span>
-    <h1>Напишите идею — получите <span class="grad">готовое видео</span></h1>
-    <p class="lead">KADR Studio сама пишет сценарий, озвучивает, рисует каждый кадр — на вашей видеокарте или в облаке, — добавляет музыку и субтитры и собирает MP4 для Shorts, TikTok, Reels или YouTube.</p>
-    <div class="cta-row">
-      <a class="btn btn-main" href="#pricing">Получить KADR Studio ➤</a>
-      <a class="btn btn-ghost" href="#download">Скачать для Windows или Mac</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="tag">Программа для Windows и macOS</span>
+        <h1><span class="nw">Одна фраза —</span> <span class="grad">готовый ролик</span></h1>
+        <p class="lead">Напишите идею — KADR Studio сама сделает сценарий, голос, кадры, живые сцены, музыку и субтитры и соберёт MP4 для TikTok, Shorts, Reels и YouTube.</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="#download" data-os-cta>Скачать KADR Studio</a>
+          <a class="btn btn-ghost" href="#reel">▶ Шоурил, 25 с</a>
+        </div>
+        <p class="note">Mac — можно скачать сейчас · Windows — скоро · без рекламы и телеметрии</p>
+        <p class="mobile-hint">KADR Studio — программа для компьютера. Откройте сайт на Mac или ПК — или <button type="button" data-share>отправьте ссылку себе</button>.</p>
+      </div>
+      <div class="hero-film">
+        <figure class="frame sprockets">
+          <video data-loop muted loop playsinline preload="none" poster="media/hero-ru.jpg" width="1280" height="720" aria-label="Кадры фильма «Почему сны кажутся реальными?», сделанного в KADR Studio"><source data-src="media/hero-ru.mp4" type="video/mp4"></video>
+        </figure>
+        <p class="cap frame-cap">Это не стоковое видео: кадры из фильма «Почему сны кажутся реальными?» (17 минут), который KADR Studio собрала из одного ТЗ. Русская версия — на тех же кадрах, что и английская.</p>
+      </div>
     </div>
-    <div class="prompt" aria-hidden="true">
-      <span>«3 факта о PlayStation, ностальгично, 30 секунд»</span><b>➤</b>
-    </div>
-    <p class="note">Ролики делаются на вашем компьютере. Без рекламы и телеметрии.</p>
-
-    <div class="shots">
-      <figure class="shot">
-        <img src="img/home.jpg" alt="Главный экран KADR Studio: строка для идеи, форматы и шаблоны" loading="lazy">
-        <figcaption>Главный экран: идея, формат, шаблон — и ➤</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="img/studio.jpg" alt="Монтаж KADR Studio: сцены, голос, субтитры и карточка «Ролик готов»" loading="lazy">
-        <figcaption>Монтаж: сцены, голос, субтитры, проверка готового ролика</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="img/video-frame.jpg" alt="Кадр готового ролика: крупные слова на живом фоне" loading="lazy">
-        <figcaption>Ролик без единого ключа: голос и крупные слова на живом фоне</figcaption>
-      </figure>
-    </div>
+    <ul class="facts">
+      <li><b>15 секунд — 30 минут</b></li>
+      <li><b>9:16 · 16:9 · 1:1 · 4:5</b></li>
+      <li>голоса <b>UK · RU · EN</b></li>
+      <li>работает <b>без ключей</b></li>
+      <li>отключили свет — <b>продолжит с того же места</b></li>
+    </ul>
   </div>
 </header>
 
-<section id="looks">
+<main id="main">
+<section id="proof">
   <div class="wrap">
-    <span class="tag">Как будет выглядеть</span>
-    <h2>Стиль картинки — в один клик</h2>
-    <p class="lead">12 направлений: от кино и документального фото до аниме и 3D-мультфильма. Один и тот же кадр в разных стилях:</p>
-    <div class="looks"><figure><img src="img/look-cinema.jpg" alt="Кино" loading="lazy"><figcaption>Кино</figcaption></figure><figure><img src="img/look-anime.jpg" alt="Аниме" loading="lazy"><figcaption>Аниме</figcaption></figure><figure><img src="img/look-cartoon3d.jpg" alt="3D-мультфильм" loading="lazy"><figcaption>3D-мультфильм</figcaption></figure><figure><img src="img/look-watercolor.jpg" alt="Акварель" loading="lazy"><figcaption>Акварель</figcaption></figure><figure><img src="img/look-neon.jpg" alt="Неон-нуар" loading="lazy"><figcaption>Неон-нуар</figcaption></figure><figure><img src="img/look-studio.jpg" alt="Реклама" loading="lazy"><figcaption>Реклама</figcaption></figure></div>
+    <span class="tag">Настоящие примеры</span>
+    <h2>Одна фраза → ролик</h2>
+    <p class="lead">Это настоящие запросы из проектов и ролики, которые из них собрала KADR Studio. Нажмите на любой.</p>
+    <div class="demo" data-demo>
+      <div>
+        <div class="demo-tabs" role="tablist" aria-label="Примеры запросов">
+          <button type="button" role="tab" aria-selected="true" aria-controls="demo-panel" data-video="media/oleg.mp4" data-poster="media/oleg.jpg" data-shape="v" data-alt="Shorts: таксист Олег и торт, забытый пассажиром" data-meta="Shorts 9:16|30 секунд|голос и субтитры по словам" data-prompt="Таксист Олег рассказывает смешную историю про пассажира, который забыл в машине торт на день рождения">Таксист и торт</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/oleg-tips.mp4" data-poster="media/oleg-tips.jpg" data-shape="v" data-alt="Shorts: таксист Олег рассказывает лайфхаки" data-meta="Shorts 9:16|32 секунды|тот же герой в каждом кадре" data-prompt="Таксист Олег рассказывает 3 лайфхака, как дешевле ездить на такси по городу">3 лайфхака</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/cafe.mp4" data-poster="media/cafe.jpg" data-shape="v" data-alt="Реклама кофейни: круассаны и кофе" data-meta="Реклама 9:16|28 секунд|крупный текст на экране" data-prompt="Короткая реклама уютной кофейни у дома: утро, аромат свежего кофе, круассаны, бариста улыбается, в конце приглашение зайти сегодня">Реклама кофейни</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/ocean.mp4" data-poster="media/ocean.jpg" data-shape="h" data-alt="Ролик про океан: медуза и Голубая дыра" data-meta="YouTube 16:9|26 секунд|живые сцены" data-prompt="Ролик про океан: самые удивительные места и существа, которые мало кто видел">Океан</button>
+        </div>
+        <div class="demo-prompt" aria-live="polite"><p>Таксист Олег рассказывает смешную историю про пассажира, который забыл в машине торт на день рождения</p><b aria-hidden="true">➤</b></div>
+        <ul class="demo-meta"><li>Shorts 9:16</li><li>30 секунд</li><li>голос и субтитры по словам</li></ul>
+        <p class="demo-note">Видео без звука, отрывок. Целиком и со звуком — в шоуриле ниже.</p>
+      </div>
+      <div class="demo-stage" id="demo-panel" role="tabpanel">
+        <figure class="frame v"><img src="media/oleg.jpg" alt="Shorts: таксист Олег и торт, забытый пассажиром" width="404" height="720" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reel">
+  <div class="wrap">
+    <span class="tag">Шоурил</span>
+    <h2>25 секунд настоящих выпусков</h2>
+    <p class="lead">Только то, что собрала программа: фильм о снах, Shorts с таксистом Олегом, реклама кофейни, ролик про океан. Включите звук — голос и музыка из самих роликов.</p>
+    <div class="reel">
+      <figure class="frame">
+        <video data-reel controls playsinline preload="none" poster="media/reel-ru.jpg" width="960" height="540" aria-label="Шоурил KADR Studio, 25 секунд, со звуком"><source data-src="media/reel-ru.mp4" type="video/mp4"></video>
+      </figure>
+      <p class="cap reel-cap"><span>Отрывки ровно такие, как вышли из программы, — склеены для сайта.</span><span>2 МБ · со звуком</span></p>
+    </div>
+    <div class="cta-row" style="justify-content:flex-start;margin-top:26px">
+      <a class="btn btn-main" href="#download">Скачать KADR Studio</a>
+      <a class="btn btn-ghost" href="#how">Как это работает</a>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <span class="tag">Для кого</span>
+    <h2>Кому подойдёт KADR Studio</h2>
+    <div class="uses">
+      <article class="card use">
+        <div class="use-media trio">
+          <video data-loop muted loop playsinline preload="none" poster="media/short-1.jpg" width="404" height="720" aria-label="Short из фильма о снах: светящийся портрет"><source data-src="media/short-1.mp4" type="video/mp4"></video>
+          <video data-loop muted loop playsinline preload="none" poster="media/short-2.jpg" width="404" height="720" aria-label="Short из фильма о снах: светящийся мозг"><source data-src="media/short-2.mp4" type="video/mp4"></video>
+          <video data-loop muted loop playsinline preload="none" poster="media/short-3.jpg" width="404" height="720" aria-label="Short из фильма о снах: крупный план глаза"><source data-src="media/short-3.mp4" type="video/mp4"></video>
+        </div>
+        <div class="use-body">
+          <h3>Авторам TikTok, Shorts и Reels</h3>
+          <p>Регулярные вертикальные ролики без съёмок и монтажа. «Нарезать Shorts» делает из длинного фильма 3–8 клипов: заголовок-крючок, кадр по лицу, текст и хэштеги к каждому.</p>
+          <span class="src">Пример: 7 Shorts из одного фильма о снах</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media solo"><img src="media/cafe.jpg" alt="Кадр рекламы кофейни: круассаны и крупный текст" width="404" height="720" loading="lazy"></div>
+        <div class="use-body">
+          <h3>Малому бизнесу</h3>
+          <p>Короткая реклама кафе, магазина или услуги в 9:16, 1:1 или 4:5. Товар или героя можно задать по фото — он будет одинаковым в каждом кадре. Есть шаблон «Реклама товара».</p>
+          <span class="src">Пример: реклама кофейни из одной фразы, 28 секунд</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media"><video data-loop muted loop playsinline preload="none" poster="media/film.jpg" width="960" height="540" aria-label="Фрагмент фильма о снах"><source data-src="media/film.mp4" type="video/mp4"></video></div>
+        <div class="use-body">
+          <h3>YouTube и каналам без лица</h3>
+          <p>Объясняющие ролики и фильмы до 30 минут с главами: ИИ-режиссёр пишет сценарий с крючком, выбирает планы и ракурсы. Тексты для публикации — название, описание с главами, хэштеги.</p>
+          <span class="src">Пример: фильм о снах, 17 минут, из одного ТЗ</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media pair">
+          <figure><img src="media/lang-en.jpg" alt="Кадр фильма с английскими субтитрами" width="800" height="450" loading="lazy"><span class="badge">EN</span></figure>
+          <figure><img src="media/lang-ru.jpg" alt="Тот же кадр с русскими субтитрами" width="800" height="450" loading="lazy"><span class="badge">RU</span></figure>
+        </div>
+        <div class="use-body">
+          <h3>На нескольких языках</h3>
+          <p>Тот же видеоряд — на другом языке: голос диктора этого языка и переведённые субтитры. Озвучка — бесплатные нейроголоса (украинский, русский, английский) или ElevenLabs по ключу, включая ваш клонированный голос.</p>
+          <span class="src">Пример: фильм о снах на английском и на русском</span>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -185,20 +285,68 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="card">
         <div class="step-n">1</div>
         <h3>Напишите идею</h3>
-        <p>Одна фраза вроде «Помнишь Денди?» или свой готовый текст. Выберите формат — 9:16, 16:9, 1:1 или 4:5 — и длительность от 15 секунд до 30 минут. Можно вставить целое ТЗ или статью — до 30 000 символов.</p>
+        <p>Одна фраза вроде «Помнишь Денди?» или свой текст — до 30 000 символов. Формат 9:16, 16:9, 1:1 или 4:5, длина от 15 секунд до 30 минут. Можно взять шаблон: Факты, Топ-5, История, Реклама товара, Обучение.</p>
       </div>
       <div class="card">
         <div class="step-n">2</div>
         <h3>Нажмите ➤</h3>
-        <p>KADR пишет сценарий (Claude, OpenAI или Gemini по вашему ключу), озвучивает, рисует кадры, пишет фоновую музыку и расставляет субтитры по словам.</p>
+        <p>KADR пишет сценарий (Claude, OpenAI или Gemini по вашему ключу), озвучивает, рисует кадры, оживляет ключевые сцены, пишет музыку и расставляет субтитры по словам. Хотите сначала посмотреть кадры — включите раскадровку.</p>
       </div>
       <div class="card">
         <div class="step-n">3</div>
         <h3>Заберите готовое видео</h3>
-        <p>MP4 с выровненной громкостью под соцсети. Хотите правок — попросите встроенного AI-ассистента и нажмите «Применить».</p>
+        <p>MP4 с громкостью под соцсети. Программа сама проверит ролик и скажет простыми словами, что поправить; любой кадр перерисовывается одной кнопкой.</p>
       </div>
     </div>
     <p class="note" style="margin-top:22px">Ориентир по времени на RTX 3060: кадр — около минуты, живая сцена — около 2,5 минут, фильм на 20 минут — около 4 часов. Без ключей и видеокарты ролик из вашего текста собирается за минуту-две.</p>
+    <figure class="frame how-shot"><img src="img/home.jpg" alt="Главный экран KADR Studio: строка для идеи, форматы и шаблоны" width="1600" height="846" loading="lazy"></figure>
+    <p class="cap frame-cap">Главный экран программы: строка для идеи, формат, шаблон — и ➤.</p>
+  </div>
+</section>
+
+<section id="looks">
+  <div class="wrap">
+    <span class="tag">Как будет выглядеть</span>
+    <h2>Стиль картинки — в один клик</h2>
+    <p class="lead">12 направлений: от кино и документального фото до аниме и 3D-мультфильма. Один и тот же кадр в разных стилях:</p>
+    <div class="looks"><figure><img src="img/look-cinema.jpg" alt="Кино" loading="lazy"><figcaption>Кино</figcaption></figure><figure><img src="img/look-anime.jpg" alt="Аниме" loading="lazy"><figcaption>Аниме</figcaption></figure><figure><img src="img/look-cartoon3d.jpg" alt="3D-мультфильм" loading="lazy"><figcaption>3D-мультфильм</figcaption></figure><figure><img src="img/look-watercolor.jpg" alt="Акварель" loading="lazy"><figcaption>Акварель</figcaption></figure><figure><img src="img/look-neon.jpg" alt="Неон-нуар" loading="lazy"><figcaption>Неон-нуар</figcaption></figure><figure><img src="img/look-studio.jpg" alt="Реклама" loading="lazy"><figcaption>Реклама</figcaption></figure></div>
+  </div>
+</section>
+
+<section id="req">
+  <div class="wrap">
+    <span class="tag">Честно о железе</span>
+    <h2>Без видеокарты тоже можно</h2>
+    <p class="lead">Что получится на вашем компьютере — без обещаний сверх того, что программа делает сегодня.</p>
+    <div class="tiers">
+      <div class="card tier">
+        <span class="who">ПК С NVIDIA 8–12 ГБ</span>
+        <h3>Всё на вашем компьютере</h3>
+        <p>Кадры, живые сцены и музыка считаются на вашей видеокарте — без оплаты за каждую картинку. Генератор (~28 ГБ) программа скачает и поставит сама.</p>
+        <p>Windows 10/11, 64-бит. Версия для Windows — скоро.</p>
+      </div>
+      <div class="card tier">
+        <span class="who">MAC С APPLE M1–M4</span>
+        <h3>Кадры рисует сам Mac</h3>
+        <p>При памяти от 16 ГБ — кадры на самом Mac; на остальных Mac их делают сервисы по ключу. Живых сцен на Mac пока нет.</p>
+        <p>Голос, субтитры, монтаж и сборка — на любом Mac с macOS 12 и новее, включая Intel.</p>
+      </div>
+      <div class="card tier">
+        <span class="who">ЛЮБОЙ КОМПЬЮТЕР</span>
+        <h3>Ролик даже без ключей</h3>
+        <p>Без ключей ваш текст читает бесплатный нейроголос, на экране — крупные слова на живом фоне; ролик собирается за минуту-две.</p>
+        <p>С ключами сценарий пишет ИИ, кадры — сервисы по ключу или бесплатные фото Pexels и Pixabay. Облако KADR на видеокартах RTX 5090 — скоро.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3>Что стоит знать заранее</h3>
+      <ul class="clean warn">
+        <li>Скорость зависит от видеокарты: на RTX 3060 кадр — около минуты, фильм на 20 минут — около 4 часов.</li>
+        <li>Отключили свет — работа не пропадёт: программа продолжит с того же места.</li>
+        <li>Сценарий от ИИ и голоса ElevenLabs работают через ваши собственные ключи — их тарифы оплачиваются у самих сервисов. Ключ Gemini бесплатный.</li>
+        <li>На Mac первый запуск: macOS спросит про неизвестного разработчика — «Системные настройки» → «Конфиденциальность и безопасность» → «Всё равно открыть». Это один раз.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -207,40 +355,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <span class="tag">Что вы получаете</span>
     <h2>Вся видеопродукция в одном окне</h2>
     <p class="lead" style="margin-bottom:36px">Каждый этап можно делать бесплатно на своём железе или подключить свои ключи к сервисам.</p>
-    <div class="grid g2">
-      <div class="card feat"><div class="ic">✎</div><div><h3>Сценарий от AI</h3><p>Claude, OpenAI или Gemini с вашим ключом. Без ключа — ваш собственный текст становится сценарием.</p></div></div>
-      <div class="card feat"><div class="ic">♪</div><div><h3>Озвучка</h3><p>ElevenLabs по вашему ключу, включая ваши клонированные голоса, или бесплатные нейроголоса на украинском, русском и английском, или голоса Windows. Выбор с прослушиванием.</p></div></div>
-      <div class="card feat"><div class="ic">▣</div><div><h3>Кадры бесплатно на GPU</h3><p>Каждый кадр рисуется на вашей видеокарте NVIDIA (RealVisXL). Генератор ставится внутри программы одной кнопкой. Платить за картинки не нужно.</p></div></div>
-      <div class="card feat"><div class="ic">▶</div><div><h3>Живые сцены</h3><p>Ключевые моменты оживают на вашей видеокарте (Wan 2.2): около 2,5 минут на сцену на RTX 3060.</p></div></div>
-      <div class="card feat"><div class="ic">♫</div><div><h3>Фоновая музыка</h3><p>Пишется на вашей видеокарте с помощью ACE-Step 1.5 — без поиска треков в стоках.</p></div></div>
-      <div class="card feat"><div class="ic">Aa</div><div><h3>Субтитры и звук</h3><p>Субтитры по словам и громкость, выровненная под соцсети. Готовый MP4 сразу к публикации.</p></div></div>
-      <div class="card feat"><div class="ic">✦</div><div><h3>AI-ассистент</h3><p>Встроенный чат меняет сцены и стиль — предложения применяются кнопкой «Применить».</p></div></div>
-      <div class="card feat"><div class="ic">✂</div><div><h3>Нарезка Shorts</h3><p>Из длинного фильма — 3–8 вертикальных клипов: сильный первый кадр с заголовком, кадрирование по лицу, текст и хэштеги к каждому.</p></div></div>
-      <div class="card feat"><div class="ic">☺</div><div><h3>Свои персонажи</h3><p>Герой, стиль или товар — по описанию или по фото. Видеокарта запоминает его, и он одинаковый в каждом кадре.</p></div></div>
-      <div class="card feat"><div class="ic">文</div><div><h3>Версии на других языках</h3><p>Тот же видеоряд на другом языке — с голосом диктора этого языка и переведёнными субтитрами.</p></div></div>
-      <div class="card feat"><div class="ic">✉</div><div><h3>Тексты для публикации</h3><p>Название, описание с главами, хэштеги и закреплённый комментарий — копируются одной кнопкой.</p></div></div>
-      <div class="card feat"><div class="ic">⚿</div><div><h3>Простая настройка</h3><p>Вставьте ключ — программа сама определит сервис и подберёт модели. Ключи шифруются средствами системы.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="who" class="aud">
-  <div class="wrap">
-    <span class="tag">Для кого</span>
-    <h2>Кому подойдёт KADR Studio</h2>
-    <div class="grid g3" style="margin-top:30px">
-      <div class="card">
-        <h3>Блогерам</h3>
-        <p>Регулярные Shorts, TikTok и Reels без съёмок и ручного монтажа. Например, ностальгические ролики про игры: «5 игр после школы», «3 факта о PlayStation», «Помнишь Денди?» — сделаны в KADR.</p>
-      </div>
-      <div class="card">
-        <h3>Малому бизнесу</h3>
-        <p>Короткая реклама для кафе, магазина или услуги в вертикальном или квадратном формате. Один из реальных примеров — рекламный ролик кафе.</p>
-      </div>
-      <div class="card">
-        <h3>Каналам без лица</h3>
-        <p>Видео с голосом за кадром, иллюстрациями и музыкой — от 15 секунд до 30 минут, с главами, в том числе с вашим клонированным голосом из ElevenLabs.</p>
-      </div>
+    <div class="grid feats">
+      <div class="card feat"><div class="ic">✎</div><div><h3>Сценарий от ИИ</h3><p>Claude, OpenAI или Gemini с вашим ключом. Без ключа — ваш собственный текст становится сценарием.</p></div></div>
+      <div class="card feat"><div class="ic">♪</div><div><h3>Озвучка</h3><p>ElevenLabs по ключу, включая клонированные голоса, бесплатные нейроголоса (UK, RU, EN) или голоса системы. Один голос на весь ролик.</p></div></div>
+      <div class="card feat"><div class="ic">▣</div><div><h3>Кадры на видеокарте</h3><p>RealVisXL на вашей NVIDIA, генератор ставится одной кнопкой. Платить за картинки не нужно.</p></div></div>
+      <div class="card feat"><div class="ic">▶</div><div><h3>Живые сцены</h3><p>Ключевые моменты оживают (Wan 2.2): около 2,5 минут на сцену на RTX 3060.</p></div></div>
+      <div class="card feat"><div class="ic">♫</div><div><h3>Фоновая музыка</h3><p>Пишется на вашей видеокарте (ACE-Step) — без поиска треков в стоках.</p></div></div>
+      <div class="card feat"><div class="ic">Aa</div><div><h3>Субтитры и звук</h3><p>Субтитры по словам и громкость под соцсети. MP4 сразу к публикации.</p></div></div>
+      <div class="card feat"><div class="ic">✂</div><div><h3>Нарезка Shorts</h3><p>3–8 вертикальных клипов из длинного фильма, кадр по лицу, текст и хэштеги.</p></div></div>
+      <div class="card feat"><div class="ic">☺</div><div><h3>Свои и готовые персонажи</h3><p>Герой, стиль или товар по описанию или фото — одинаковый в каждом кадре. Плюс 12 готовых героев со своим голосом.</p></div></div>
+      <div class="card feat"><div class="ic">文</div><div><h3>Версии на других языках</h3><p>Тот же видеоряд, голос диктора этого языка и переведённые субтитры.</p></div></div>
+      <div class="card feat"><div class="ic">✉</div><div><h3>Тексты для публикации</h3><p>Название, описание с главами, хэштеги и закреплённый комментарий — одной кнопкой.</p></div></div>
+      <div class="card feat"><div class="ic">✦</div><div><h3>ИИ-ассистент и варианты</h3><p>Чат меняет сцены и стиль; перед созданием ИИ предлагает 3 разных варианта ролика.</p></div></div>
+      <div class="card feat"><div class="ic">⚿</div><div><h3>Простая настройка</h3><p>Вставьте ключ — программа сама определит сервис. Ключи шифруются средствами системы.</p></div></div>
     </div>
   </div>
 </section>
@@ -251,83 +378,45 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <h2>Для Windows и Mac</h2>
     <p class="lead">Одна программа — на обоих компьютерах. После установки она сама предлагает обновления.</p>
     <div class="grid g3 dl" style="margin-top:30px">
-      <a class="card dl-card" href="[ССЫЛКА — Windows-установщик после сборки на ПК]"><b>Windows</b><span>10 и 11, 64-бит · установщик .exe</span><em>Скачать для Windows</em></a>
+      <!-- Когда KADR-Studio-Setup-3.0.exe загружен в релиз: заменить этот div на
+      <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-Setup-3.0.exe"><b>Windows</b><span>10 и 11, 64-бит · установщик .exe</span><em>Скачать для Windows</em></a> -->
+      <div class="card dl-card soon" aria-disabled="true"><b>Windows</b><span>10 и 11, 64-бит · установщик .exe</span><em>Скоро — версия для Windows готовится</em></div>
       <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-arm64.dmg"><b>Mac с Apple M1–M4</b><span>macOS 12 и новее · .dmg</span><em>Скачать для Mac (M-чип)</em></a>
       <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-x86_64.dmg"><b>Mac с Intel</b><span>macOS 12 и новее · .dmg</span><em>Скачать для Mac (Intel)</em></a>
     </div>
-    <p class="note" style="margin-top:14px">Какой у меня Mac? Яблоко в левом верхнем углу → «Об этом Mac»: «Чип Apple M…» — первая кнопка, «Процессор Intel» — вторая.</p>
-  </div>
-</section>
-
-<section id="req">
-  <div class="wrap">
-    <span class="tag">Честно о требованиях</span>
-    <h2>Что нужно, чтобы всё работало</h2>
-    <div class="grid g2" style="margin-top:30px">
-      <div class="card">
-        <h3>Обязательно</h3>
-        <ul class="clean">
-          <li>Windows 10 или 11 (64-бит) или macOS 12 Monterey и новее — Mac с Apple M1–M4 или Intel.</li>
-          <li>Для бесплатных кадров, музыки и живых сцен — видеокарта NVIDIA с 8–12 ГБ видеопамяти. Генератор (~28 ГБ) программа скачает и установит сама.</li>
-          <li>Mac с Apple M1–M4 и от 16 ГБ памяти рисует кадры сам; на остальных Mac кадры делают онлайн-сервисы.</li>
-          <li>Без подходящей видеокарты можно использовать платные API для картинок или облако KADR.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Что стоит знать заранее</h3>
-        <ul class="clean warn">
-          <li>Скорость зависит от видеокарты: на RTX 3060 кадр — около минуты, фильм на 20 минут — около 4 часов.</li>
-          <li>Отключили свет — работа не пропадёт: программа продолжит с того же места.</li>
-          <li>Сценарий от AI и голоса ElevenLabs работают через ваши собственные ключи — их тарифы оплачиваются у самих сервисов.</li>
-          <li>На Mac первый запуск: macOS спросит про неизвестного разработчика — «Системные настройки» → «Конфиденциальность и безопасность» → «Всё равно открыть». Это один раз.</li>
-        </ul>
-      </div>
-    </div>
+    <p class="note" style="margin-top:14px">Какой у меня Mac? Яблоко в левом верхнем углу → «Об этом Mac»: «Чип Apple M…» — первая кнопка, «Процессор Intel» — вторая. Ждёте Windows? <a href="#notify">Сообщим, когда выйдет</a>.</p>
   </div>
 </section>
 
 <section id="pricing" class="price">
   <div class="wrap">
     <span class="tag">Цены</span>
-    <h2>Выберите вариант</h2>
-    <p class="lead" style="margin-bottom:36px">Цены указаны как заглушки и будут уточнены перед запуском.</p>
+    <h2>Скоро: цены</h2>
+    <p class="lead" style="margin-bottom:36px">Цены ещё не утверждены, и на сайте мы пока ничего не продаём. Что уже точно:</p>
     <div class="grid g3">
       <div class="card">
-        <h3>Месяц</h3>
-        <div class="amount ph">[ЦЕНА]</div>
-        <div class="per">в месяц · [ВАЛЮТА]</div>
-        <ul class="clean">
-          <li>Полная версия программы</li>
-          <li>Обновления, пока активна подписка</li>
-          <li>Отмена в любой момент</li>
-        </ul>
-        <a class="btn btn-ghost" href="#contact">[ССЫЛКА НА ОПЛАТУ]</a>
-      </div>
-      <div class="card hot">
-        <span class="tag" style="color:var(--pink)">Рекомендуем</span>
-        <h3>Пожизненная лицензия</h3>
-        <div class="amount ph">[ЦЕНА]</div>
-        <div class="per">разовый платёж · [ВАЛЮТА]</div>
-        <ul class="clean">
-          <li>Полная версия навсегда на [N] ПК</li>
-          <li>Обновления в течение [СРОК]</li>
-          <li>Поддержка: [КАНАЛ]</li>
-        </ul>
-        <a class="btn btn-main" href="#contact">[ССЫЛКА НА ОПЛАТУ]</a>
+        <h3>Своя видеокарта</h3>
+        <p>NVIDIA 8–12 ГБ или Mac на Apple M от 16 ГБ: кадры (а на NVIDIA — ещё живые сцены и музыка) считаются на вашем компьютере, без оплаты за каждую картинку.</p>
       </div>
       <div class="card">
-        <h3>Установка «под ключ»</h3>
-        <div class="amount ph">[ЦЕНА]</div>
-        <div class="per">лицензия + помощь с настройкой</div>
-        <ul class="clean">
-          <li>Лицензия на программу</li>
-          <li>Помощь с установкой генератора и ключей по удалённому доступу</li>
-          <li>Первое видео вместе</li>
-        </ul>
-        <a class="btn btn-ghost" href="#contact">[ССЫЛКА / КОНТАКТ]</a>
+        <h3>Свои ключи — по желанию</h3>
+        <p>Claude, OpenAI, Gemini и ElevenLabs оплачиваются у самих сервисов, если вы их подключаете. Без ключей программа тоже собирает ролик.</p>
+      </div>
+      <div class="card hot">
+        <h3>Облако KADR — скоро</h3>
+        <p>Для Mac и ПК без видеокарты: кадры, живые сцены и музыка на арендованной RTX 5090. Цену ролика покажем до старта.</p>
       </div>
     </div>
-    <p class="note" style="margin-top:20px">Ключи к AI-сервисам (Claude, OpenAI, Gemini, ElevenLabs) в стоимость не входят и оплачиваются у этих сервисов отдельно — по желанию.</p>
+    <form class="notify" id="notify" data-notify novalidate>
+      <!-- [PLACEHOLDER: приём заявок не подключён — форма ничего не отправляет. Подключить свой обработчик (без сторонних скриптов) в site.js] -->
+      <label for="nf-contact">Сообщить о запуске Windows-версии, облака и цен</label>
+      <div class="notify-row">
+        <input id="nf-contact" name="contact" type="text" inputmode="email" autocomplete="email" placeholder="почта или @telegram" required>
+        <button class="btn btn-main" type="submit">Сообщить мне</button>
+      </div>
+      <p class="note" data-notify-msg role="status" aria-live="polite">Только сообщение о запуске. Без рассылок и трекеров.</p>
+    </form>
+    <p class="note" style="margin-top:20px"><a href="terms.html">Условия</a> · <a href="refund.html">Возврат</a></p>
   </div>
 </section>
 
@@ -337,32 +426,44 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <h2>Частые вопросы</h2>
     <div style="margin-top:28px">
       <details open>
-        <summary>Как получить доступ к программе?</summary>
-        <p>Скачайте KADR Studio для своего компьютера и зарегистрируйтесь в ней по почте. Затем напишите менеджеру поддержки — он активирует ваш аккаунт, и все функции откроются. Обычно это занимает несколько минут в рабочее время. <span class="ph">[КОНТАКТ ПОДДЕРЖКИ И ЧАСЫ РАБОТЫ]</span></p>
+        <summary>Это сложно?</summary>
+        <p>Нет. Строка для идеи, формат, длина — и ➤. Есть шаблоны (Факты, Топ-5, История, Реклама товара, Обучение), 12 стилей картинки и 12 готовых персонажей. Ключ просто вставляется — программа сама поймёт, от какого он сервиса. Генератор кадров ставится внутри программы одной кнопкой.</p>
       </details>
       <details>
-        <summary>Что такое токены и баланс?</summary>
-        <p>Если у вас нет мощной видеокарты, кадры, живые сцены и музыку можно делать в облаке KADR: программа сама арендует видеокарту на время ролика и списывает токены с баланса. Баланс пополняется прямо в программе. Сколько стоит токен и сколько токенов уходит на ролик — <span class="ph">[ЦЕНЫ ТОКЕНОВ — заполнить]</span>. Со своей видеокартой NVIDIA (или Mac на чипе Apple от 16 ГБ) кадры рисуются бесплатно и токены не нужны.</p>
+        <summary>Нужна ли видеокарта NVIDIA?</summary>
+        <p>Для бесплатных кадров, музыки и живых сцен — да, NVIDIA с 8–12 ГБ видеопамяти (на Mac с Apple M и памятью от 16 ГБ кадры рисует сам Mac). Без неё кадры рисуют сервисы по ключу или берутся бесплатные фото из Pexels и Pixabay, а без ключей вообще — ваш текст читает бесплатный голос на живом цветном фоне. Облако KADR для компьютеров без видеокарты — скоро.</p>
+      </details>
+      <details>
+        <summary>Не выйдет ли «ИИ-мыло»?</summary>
+        <p>Посмотрите шоурил выше — это то, что выходит из программы. Перед сборкой можно включить раскадровку и перерисовать любой кадр. После сборки «Проверка ролика» находит недочёты и называет их простыми словами, а грубый брак перерисовывает сама один раз. Живые сцены с ключом Gemini проверяет ИИ: брак переснимается, а после двух неудач сцена остаётся красивой картинкой.</p>
+      </details>
+      <details>
+        <summary>Сколько ждать готовый ролик?</summary>
+        <p>Зависит от видеокарты. На RTX 3060: кадр — около минуты, живая сцена — около 2,5 минут, фильм на 20 минут — около 4 часов. Без ключей и видеокарты ролик из вашего текста собирается за минуту-две.</p>
+      </details>
+      <details>
+        <summary>Сколько стоит?</summary>
+        <p>Цены ещё не утверждены — объявим перед запуском, <a href="#notify">можно подписаться</a>. Уже сейчас: со своей видеокартой кадры не стоят ничего за штуку, а ключи к ИИ-сервисам (по желанию) оплачиваются у самих сервисов.</p>
+      </details>
+      <details>
+        <summary>Как получить доступ к программе?</summary>
+        <p>Скачайте KADR Studio для своего компьютера и зарегистрируйтесь в ней по почте. Затем напишите менеджеру поддержки — он активирует ваш аккаунт, и все функции откроются. Обычно это занимает несколько минут в рабочее время. Контакты — на странице <a href="support.html">«Поддержка»</a>.</p>
+      </details>
+      <details>
+        <summary>Что такое Энергия ⚡?</summary>
+        <p>⚡ — внутренняя единица KADR для облака: без мощной видеокарты программа арендует видеокарту на время ролика и списывает ⚡ по готовности кадров и сцен, цена видна до старта. ⚡ — не деньги и не криптовалюта, их нельзя передать другому. Со своей видеокартой NVIDIA (или Mac на чипе Apple от 16 ГБ) кадры рисуются бесплатно, ⚡ не нужны. Облако и цены ⚡ — скоро.</p>
       </details>
       <details>
         <summary>Работает ли на Mac?</summary>
-        <p>Да: macOS 12 и новее, Mac с чипом Apple M1–M4 или Intel. На Mac с чипом Apple и памятью от 16 ГБ кадры рисует сам компьютер; на остальных — облако KADR или сервисы по ключу. Голос, субтитры, музыка по ключу, монтаж и сборка видео работают на любом Mac. При первом запуске macOS один раз спросит разрешение — «Системные настройки» → «Конфиденциальность и безопасность» → «Всё равно открыть».</p>
+        <p>Да: macOS 12 и новее, Mac с чипом Apple M1–M4 или Intel. На Mac с чипом Apple и памятью от 16 ГБ кадры рисует сам компьютер; на остальных — сервисы по ключу, а скоро и облако KADR. Живые сцены на Mac пока не делаются. Голос, субтитры, монтаж и сборка видео работают на любом Mac. При первом запуске macOS один раз спросит разрешение — «Системные настройки» → «Конфиденциальность и безопасность» → «Всё равно открыть».</p>
       </details>
       <details>
-        <summary>Нужны ли платные ключи к AI?</summary>
-        <p>Нет. Без ключей ваш собственный текст становится сценарием, а озвучку делают бесплатные нейроголоса (украинский, русский, английский) или голоса Windows. Ключи Claude, OpenAI или Gemini нужны, чтобы AI писал сценарий за вас; ключ ElevenLabs — для голосов ElevenLabs, включая ваши клонированные.</p>
-      </details>
-      <details>
-        <summary>Как подключить ключ?</summary>
-        <p>Просто вставьте его в программу — она сама определит, от какого он сервиса, и подберёт модели.</p>
-      </details>
-      <details>
-        <summary>Какая нужна видеокарта?</summary>
-        <p>Для бесплатной генерации кадров, музыки и анимации — NVIDIA с 8–12 ГБ видеопамяти — генератор программа установит сама. Без такой карты кадры рисуют сервисы по ключу или берутся бесплатные фото из Pexels и Pixabay, а без ключей вообще — ваш текст читает бесплатный голос на живом цветном фоне.</p>
+        <summary>Нужны ли платные ключи к ИИ?</summary>
+        <p>Нет. Без ключей ваш собственный текст становится сценарием, а озвучку делают бесплатные нейроголоса (украинский, русский, английский) или голоса системы. Ключи Claude, OpenAI или Gemini (у Gemini ключ бесплатный) нужны, чтобы ИИ писал сценарий за вас; ключ ElevenLabs — для голосов ElevenLabs, включая ваши клонированные.</p>
       </details>
       <details>
         <summary>Куда уходят мои данные и ключи?</summary>
-        <p>Ролики, сценарии и проекты хранятся на вашем компьютере. Аккаунт нужен только для активации программы и баланса токенов, телеметрии нет. Ключи хранятся в зашифрованном виде: на Windows — средствами системы (DPAPI), на Mac — в Связке ключей. Если вы подключаете внешние сервисы (Claude, OpenAI, Gemini, ElevenLabs), текст запросов уходит напрямую в эти сервисы по вашему ключу.</p>
+        <p>Ролики, сценарии и проекты хранятся на вашем компьютере. Аккаунт нужен только для активации программы и баланса ⚡, телеметрии нет. Ключи хранятся в зашифрованном виде: на Windows — средствами системы (DPAPI), на Mac — в Связке ключей. Если вы подключаете внешние сервисы (Claude, OpenAI, Gemini, ElevenLabs), текст запросов уходит напрямую в эти сервисы по вашему ключу. Подробнее — <a href="privacy.html">Политика конфиденциальности</a>.</p>
       </details>
       <details>
         <summary>Какие форматы и длительность?</summary>
@@ -370,7 +471,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </details>
       <details>
         <summary>Можно ли вернуть деньги?</summary>
-        <p><span class="ph">[УСЛОВИЯ ВОЗВРАТА — заполнить перед запуском: срок, порядок, контакт]</span></p>
+        <p>Условия возврата — на странице <a href="refund.html">«Политика возврата»</a>.</p>
       </details>
     </div>
   </div>
@@ -378,24 +479,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <section id="contact">
   <div class="wrap">
-    <div class="card" style="text-align:center;padding:48px 24px">
-      <span class="tag">Контакты</span>
-      <h2>Остались вопросы?</h2>
-      <p class="lead" style="margin:0 auto 26px">Напишите — отвечу лично.</p>
+    <div class="card final">
+      <span class="tag">Попробуйте на своей идее</span>
+      <h2>Одна фраза — и ➤</h2>
+      <p class="lead">Скачайте KADR Studio, напишите, о чём ролик, и посмотрите, что получится. Остались вопросы — напишите, ответим лично.</p>
       <div class="cta-row">
-        <a class="btn btn-main" href="#">Telegram: <span>[@USERNAME]</span></a>
-        <a class="btn btn-ghost" href="#">Email: <span>[EMAIL]</span></a>
+        <a class="btn btn-main" href="#download" data-os-cta>Скачать KADR Studio</a>
+        <a class="btn btn-ghost" href="support.html">Написать в поддержку</a>
       </div>
     </div>
   </div>
 </section>
+</main>
+
+<div class="mcta" aria-label="Быстрые действия"><a class="btn btn-main" href="#download">Скачать</a><a class="btn btn-ghost" href="#reel">▶ Шоурил</a></div>
 
 <footer>
   <div class="wrap">
-    <span>© [ГОД] KADR Studio · [ИМЯ / ФОП]</span>
-    <span>Windows 10/11 и macOS 12+ · Ролики делаются на вашем компьютере · Без телеметрии</span>
+    <span>© 2026 KADR Studio</span>
+    <span class="flinks"><a href="terms.html">Условия</a> <a href="privacy.html">Конфиденциальность</a> <a href="refund.html">Возврат</a> <a href="licenses.html">Лицензии</a> <a href="support.html">Поддержка</a></span>
+    <span>Windows 10/11 и macOS 12+ · Без телеметрии</span>
   </div>
 </footer>
 
+<script src="site.js" defer></script>
 </body>
 </html>

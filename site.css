@@ -1,0 +1,142 @@
+/* KADR Studio site — proof blocks (hero film, «одна фраза → ролик», showreel, use cases, honesty, notify).
+   Same «Кинозал» tokens as kinozal.css; loaded after it. No third-party code. */
+
+/* film frame: a still/loop in a thin gold frame with sprocket strips */
+.frame{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#000;
+  border:1px solid rgba(217,178,111,.38);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(201,150,79,.14)}
+.frame video,.frame img{display:block;width:100%;height:100%;object-fit:cover}
+.frame.sprockets{padding:14px 0}
+.frame.sprockets::before,.frame.sprockets::after{content:"";position:absolute;left:0;right:0;height:14px;z-index:1;
+  background:#0b0907 repeating-linear-gradient(90deg,transparent 0 10px,rgba(243,233,210,.16) 10px 20px,transparent 20px 30px) center/30px 6px repeat-x}
+.frame.sprockets::before{top:0}.frame.sprockets::after{bottom:0}
+.frame figcaption,.cap{font-size:13px;color:var(--muted);line-height:1.45}
+.frame-cap{margin-top:12px}
+
+/* hero */
+.hero.hero2{background:radial-gradient(60% 70% at 78% 40%,rgba(201,150,79,.16),transparent 70%),var(--bg);padding:72px 0 56px}
+.hero2::after{display:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:48px;align-items:center}
+.hero2 h1{font-size:clamp(44px,6.2vw,80px);margin:10px 0 18px}
+.hero2 p.lead{max-width:540px;margin:0 0 28px}
+.hero-film .frame{aspect-ratio:16/9}
+.hero-film .frame.sprockets{aspect-ratio:auto}
+.hero-film video{aspect-ratio:16/9}
+.hero-film .frame-cap{max-width:560px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;list-style:none;margin:40px 0 0;padding:20px 0 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.facts b{color:var(--text);font-weight:700}
+.mobile-hint{display:none;margin-top:14px;font-size:14px;color:var(--muted)}
+.mobile-hint button{font:inherit;color:var(--gold);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.is-mobile .mobile-hint{display:block}
+@media(max-width:900px){
+  .hero.hero2{padding:36px 0 40px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero2 h1{font-size:clamp(40px,11vw,56px)}
+  .hero2 p.lead{font-size:17px}
+  .facts{margin-top:28px;gap:8px 16px;font-size:13px}
+}
+
+/* «одна фраза → ролик» */
+.demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:34px}
+.demo-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.demo-tabs button{font:600 14px/1 Manrope,system-ui,sans-serif;color:var(--muted);background:transparent;border:1px solid var(--line);
+  border-radius:999px;padding:10px 14px;cursor:pointer;min-height:40px}
+.demo-tabs button[aria-selected="true"]{color:var(--ink);background:var(--gold-grad);border-color:transparent}
+.demo-tabs button:hover{border-color:var(--gold)}
+.demo-prompt{display:flex;gap:14px;align-items:flex-start;padding:18px 18px 18px 22px;border-radius:22px;background:rgba(14,12,10,.7);
+  border:1px solid rgba(217,178,111,.4);box-shadow:0 0 40px rgba(217,178,111,.14);min-height:128px}
+.demo-prompt p{flex:1;font-size:17px;line-height:1.5;color:var(--text);margin:0}
+.demo-prompt p::after{content:"";display:inline-block;width:2px;height:1.1em;margin-left:2px;vertical-align:-.15em;background:var(--gold);animation:caret 1s steps(1) infinite}
+.demo-prompt.done p::after{display:none}
+@keyframes caret{50%{opacity:0}}
+.demo-prompt b{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--gold-grad);color:var(--ink);font-size:18px;transition:transform .2s}
+.demo-prompt.done b{transform:scale(1.08)}
+.demo-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;list-style:none;padding:0}
+.demo-meta li{font-size:13px;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.demo-note{margin-top:14px;font-size:13px;color:var(--muted)}
+.demo-stage{display:grid;place-items:center;min-height:520px}
+.demo-stage .frame{width:100%}
+.demo-stage .frame.v{width:min(292px,100%);aspect-ratio:404/720}
+.demo-stage .frame.h{aspect-ratio:16/9}
+.demo-stage .arrow{display:none}
+@media(max-width:900px){
+  .demo{grid-template-columns:1fr;gap:22px}
+  .demo-stage{min-height:0}
+  .demo-stage .frame.v{width:min(250px,72vw)}
+  .demo-prompt{min-height:0}
+  .demo-prompt p{font-size:16px}
+}
+
+/* showreel */
+.reel{margin-top:30px}
+.reel .frame{aspect-ratio:16/9;max-width:980px}
+.reel video{background:#000}
+.reel-cap{max-width:980px;margin-top:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* use cases */
+.uses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.use{display:grid;grid-template-rows:auto 1fr;gap:0;padding:0;overflow:hidden}
+.use-media{position:relative;aspect-ratio:16/9;background:#0b0907;overflow:hidden;border-bottom:1px solid var(--line)}
+.use-media img,.use-media video{width:100%;height:100%;object-fit:cover;display:block}
+.use-media.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px;aspect-ratio:16/9}
+.use-media.trio video,.use-media.trio img{border-radius:8px;height:100%;object-fit:cover}
+.use-media.pair{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.use-media.pair figure{margin:0;position:relative}
+.use-media .badge{position:absolute;left:10px;top:10px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink);background:var(--gold-grad);border-radius:999px;padding:4px 9px}
+.use-media.solo{display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(201,150,79,.18),transparent 70%),#0b0907}
+.use-media.solo img{width:auto;height:100%;max-height:100%;aspect-ratio:404/720;object-fit:cover}
+.use-body{padding:22px 24px 26px}
+.use-body h3{margin-bottom:8px}
+.use-body p{color:var(--muted);font-size:15px}
+.use-body .src{display:block;margin-top:10px;font-size:13px;color:var(--gold)}
+@media(max-width:860px){.uses{grid-template-columns:1fr}}
+
+/* honest tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.tier h3{font-size:22px;margin-bottom:6px}
+.tier .who{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.06em;margin-bottom:10px;display:block}
+.tier p{color:var(--muted);font-size:15px}
+.tier p+p{margin-top:8px}
+@media(max-width:860px){.tiers{grid-template-columns:1fr}}
+
+/* compact features */
+.feats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.feats .card{padding:20px}
+.feats .card p{font-size:14px}
+@media(max-width:860px){.feats{grid-template-columns:1fr}.feats .card{padding:16px 18px}}
+
+/* prices soon */
+.soon-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.price .card h3{margin-bottom:8px}
+
+/* notify (placeholder: sends nothing yet) */
+.notify{margin-top:28px;max-width:640px}
+.notify label{display:block;font-weight:700;margin-bottom:8px}
+.notify-row{display:flex;gap:10px;flex-wrap:wrap}
+.notify input{flex:1 1 240px;min-height:52px;border-radius:999px;border:1px solid rgba(243,233,210,.25);background:rgba(14,12,10,.7);
+  color:var(--text);font:16px Manrope,system-ui,sans-serif;padding:0 20px}
+.notify input:focus{outline:2px solid var(--gold);outline-offset:2px;border-color:transparent}
+.notify .btn{border:0;cursor:pointer;font-family:inherit}
+.notify [data-notify-msg]{margin-top:10px}
+.notify.sent [data-notify-msg]{color:var(--text)}
+
+/* final call */
+.final{text-align:center;padding:56px 24px;background:radial-gradient(70% 90% at 50% 0%,rgba(201,150,79,.16),transparent 70%),rgba(243,233,210,.03)}
+.final .lead{margin:0 auto 26px}
+.final .cta-row{justify-content:center}
+
+/* sticky call on phones */
+.mcta{display:none}
+@media(max-width:760px){
+  .mcta{display:flex;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;padding:8px;border-radius:999px;
+    background:rgba(14,12,10,.92);border:1px solid rgba(217,178,111,.35);box-shadow:0 10px 30px rgba(0,0,0,.5);
+    transform:translateY(140%);transition:transform .25s}
+  .mcta.on{transform:none}
+  .mcta .btn{flex:1;justify-content:center;padding:12px 14px;font-size:15px}
+  body{padding-bottom:84px}
+  nav .btn{padding:8px 14px!important}
+}
+@media(prefers-reduced-motion:reduce){.mcta{transition:none}.demo-prompt p::after{animation:none}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.how-shot{margin-top:30px;max-width:980px}
+.how-shot img{height:auto}
+.nw{white-space:nowrap}

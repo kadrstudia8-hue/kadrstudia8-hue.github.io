@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Licences — KADR Studio</title>
+<meta name="description" content="Open models, software and fonts in KADR Studio and their licences: RealVisXL (OpenRAIL++-M), Wan 2.2, ACE-Step and more.">
+<meta name="theme-color" content="#0e0c0a">
+<link rel="canonical" href="https://kadrstudia8-hue.github.io/licenses-en.html">
+<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/licenses.html">
+<link rel="alternate" hreflang="en" href="https://kadrstudia8-hue.github.io/licenses-en.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KADR Studio">
+<meta property="og:title" content="Licences — KADR Studio">
+<meta property="og:description" content="Open models, software and fonts in KADR Studio and their licences: RealVisXL (OpenRAIL++-M), Wan 2.2, ACE-Step and more.">
+<meta property="og:image" content="https://kadrstudia8-hue.github.io/img/hero.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="landing-en.html"><i></i>KADR <em>studio</em></a>
+    <div class="links"><a href="terms-en.html">Terms of Use</a> <a href="privacy-en.html">Privacy Policy</a> <a href="refund-en.html">Refunds</a> <a href="licenses-en.html" aria-current="page">Licences</a> <a href="support-en.html">Support</a> <a href="licenses.html" hreflang="ru" lang="ru">RU</a></div>
+  </div>
+</nav>
+<main id="main" class="wrap doc">
+<span class="tag">Legal</span>
+<h1>Licences and open components</h1>
+<p class="meta">Models, software and fonts KADR Studio runs on · Version of <span class="ph">[PLACEHOLDER: date]</span></p>
+
+<p>KADR Studio is built from open components. The generator (ComfyUI) and the models are downloaded to your computer from their official sources by the "Install generator" button; some libraries ship in the installer. Each component is distributed under its own licence, whose terms apply to you directly. Rows marked <span class="ph">[verify]</span> are checked by the owner against the original source before launch.</p>
+
+<h2 id="models">1. AI models</h2>
+<div class="scroll"><table>
+  <tr><th>Model</th><th>What it does</th><th>Licence</th><th>Note</th></tr>
+  <tr><td>RealVisXL V5.0 (based on Stable Diffusion XL)</td><td>Frames</td><td>CreativeML OpenRAIL++-M</td><td>Use restrictions bind you — <a href="#openrail">below</a> and in the <a href="terms-en.html#rules">Terms, section 9</a></td></tr>
+  <tr><td>Wan 2.2 TI2V-5B and I2V-A14B (Wan-AI)</td><td>Live scenes</td><td>Apache-2.0</td><td>The authors claim no rights in outputs; the user is responsible for their use</td></tr>
+  <tr><td>Wan 2.2 A14B in GGUF format (community quantisation)</td><td>Live scenes on 12–24 GB</td><td>Apache-2.0 (as the base model) <span class="ph">[verify]</span></td><td></td></tr>
+  <tr><td>Wan 2.2 Lightning LoRA (lightx2v)</td><td>Fast live scenes (4 steps)</td><td>Apache-2.0 <span class="ph">[verify]</span></td><td></td></tr>
+  <tr><td>FastWan 2.2 (FastVideo, Hao AI Lab)</td><td>Fast 5B live scenes</td><td><span class="ph">[PLACEHOLDER: weights licence not stated clearly — confirm with the authors or replace]</span></td><td>Until confirmed, do not promise commercial use of this model</td></tr>
+  <tr><td>UMT5-XXL (Google), Wan VAE</td><td>Text understanding and video encoding for Wan</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>ACE-Step 1.5</td><td>Background music</td><td>Apache-2.0 <span class="ph">[verify for version 1.5]</span></td><td>Music may accidentally resemble existing tracks — check before publishing</td></tr>
+  <tr><td>Real-ESRGAN x4plus</td><td>Upscaling and frame detail</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>RIFE v4.26 (Practical-RIFE)</td><td>Smooth motion</td><td>MIT</td><td></td></tr>
+  <tr><td>YuNet (OpenCV Zoo)</td><td>Face detection for Shorts framing</td><td>MIT</td><td></td></tr>
+</table></div>
+
+<h2 id="software">2. Software and libraries</h2>
+<div class="scroll"><table>
+  <tr><th>Component</th><th>Where</th><th>Licence</th><th>Note</th></tr>
+  <tr><td>ComfyUI</td><td>Generator, downloaded separately</td><td>GPL-3.0</td><td>Source — github.com/comfyanonymous/ComfyUI</td></tr>
+  <tr><td>ComfyUI-GGUF (city96)</td><td>Generator</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>ComfyUI Frame Interpolation</td><td>Generator (RIFE)</td><td>MIT <span class="ph">[verify]</span></td><td></td></tr>
+  <tr><td>PyTorch</td><td>Generator</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>MLX (Apple)</td><td>Frames on Mac</td><td>MIT</td><td></td></tr>
+  <tr><td>FFmpeg</td><td>In the installer</td><td>GPL (the build used) / LGPL</td><td><span class="ph">[PLACEHOLDER: link to the source code of the exact FFmpeg builds in the installers (Windows and Mac) — required by the GPL; or switch to an LGPL build]</span></td></tr>
+  <tr><td>Qt 6 / PySide6</td><td>In the installer (app window)</td><td>LGPL-3.0</td><td>You may replace the Qt libraries with your own build; source — download.qt.io <span class="ph">[PLACEHOLDER: check how it is offered]</span></td></tr>
+  <tr><td>Python</td><td>In the installer</td><td>PSF License</td><td></td></tr>
+  <tr><td>PyInstaller</td><td>Build</td><td>GPL-2.0 with bootloader exception</td><td>Does not extend to the App</td></tr>
+  <tr><td>edge-tts</td><td>Free neural voices</td><td>LGPL-3.0 <span class="ph">[verify]</span></td><td>The voices are a Microsoft online service; <span class="ph">[PLACEHOLDER: check whether Microsoft allows commercial use of this service]</span></td></tr>
+  <tr><td>OpenCV</td><td>In the installer</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>cryptography</td><td>In the installer</td><td>Apache-2.0 / BSD</td><td></td></tr>
+  <tr><td>NumPy</td><td>In the installer</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>Pillow</td><td>In the installer</td><td>MIT-CMU (HPND)</td><td></td></tr>
+  <tr><td>uv (Astral)</td><td>Generator install on Mac</td><td>Apache-2.0 / MIT</td><td></td></tr>
+  <tr><td>7-Zip (7zr)</td><td>Unpacking the generator on Windows</td><td>LGPL-2.1+</td><td></td></tr>
+</table></div>
+<p><span class="ph">[PLACEHOLDER: before selling, generate the exact version list (SBOM) from the build and ship the licence texts in the installer — see THIRD_PARTY_NOTICES.md]</span></p>
+
+<h2 id="fonts">3. Fonts</h2>
+<p>Cormorant Garamond and Manrope — SIL Open Font License 1.1. Bundled in the App and the website.</p>
+
+<h2 id="services">4. Services with your keys, and content</h2>
+<p>Claude (Anthropic), OpenAI, Gemini (Google), ElevenLabs — with your keys and under their terms. Pexels and Pixabay photos and videos — under those sites' licences (usually free for commercial use, but you may not sell them unaltered or show identifiable people in an offensive context).</p>
+
+<h2 id="openrail">5. CreativeML OpenRAIL++-M — use restrictions</h2>
+<p>The SDXL and RealVisXL models are distributed under the CreativeML OpenRAIL++-M licence. Its paragraph 5 requires the use restrictions (Attachment A) to be passed on to every user. They are included in our <a href="terms-en.html#rules">Terms, section 9</a>. In short, the model and its outputs may not be used:</p>
+<ul>
+  <li>in violation of the law;</li>
+  <li>to exploit or harm minors;</li>
+  <li>to generate or spread verifiably false information to harm others;</li>
+  <li>to generate or spread personal information to harm a person;</li>
+  <li>to defame, disparage or harass others;</li>
+  <li>for fully automated decisions that adversely affect a person's legal rights;</li>
+  <li>to discriminate based on behaviour, personal characteristics or legally protected characteristics;</li>
+  <li>to exploit the vulnerabilities of groups of people (age, social, physical, mental circumstances) to their harm;</li>
+  <li>to give medical advice or interpret medical results;</li>
+  <li>for the administration of justice, law enforcement, immigration or asylum decisions.</li>
+</ul>
+<p>Full licence text: <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md" rel="noopener">huggingface.co/stabilityai/stable-diffusion-xl-base-1.0 — LICENSE.md</a>. The licence gives the model's developers no rights in your outputs; the user is responsible for how outputs are used.</p>
+
+<h2 id="apache">6. Apache-2.0, MIT, BSD</h2>
+<p>These licences allow commercial use and require keeping copyright notices and the licence text. Texts: <a href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener">Apache-2.0</a>, <a href="https://opensource.org/license/mit" rel="noopener">MIT</a>, <a href="https://opensource.org/license/bsd-3-clause" rel="noopener">BSD-3-Clause</a>, <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">GPL-3.0</a>, <a href="https://www.gnu.org/licenses/lgpl-3.0.html" rel="noopener">LGPL-3.0</a>, <a href="https://openfontlicense.org" rel="noopener">SIL OFL 1.1</a>.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: name / company]</span></span>
+    <div class="flinks"><a href="terms-en.html">Terms of Use</a> <a href="privacy-en.html">Privacy Policy</a> <a href="refund-en.html">Refunds</a> <a href="licenses-en.html">Licences</a> <a href="support-en.html">Support</a></div>
+  </div>
+</footer>
+</body>
+</html>

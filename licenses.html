@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лицензии — KADR Studio</title>
+<meta name="description" content="Открытые модели, программы и шрифты в KADR Studio и их лицензии: RealVisXL (OpenRAIL++-M), Wan 2.2, ACE-Step и другие.">
+<meta name="theme-color" content="#0e0c0a">
+<link rel="canonical" href="https://kadrstudia8-hue.github.io/licenses.html">
+<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/licenses.html">
+<link rel="alternate" hreflang="en" href="https://kadrstudia8-hue.github.io/licenses-en.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KADR Studio">
+<meta property="og:title" content="Лицензии — KADR Studio">
+<meta property="og:description" content="Открытые модели, программы и шрифты в KADR Studio и их лицензии: RealVisXL (OpenRAIL++-M), Wan 2.2, ACE-Step и другие.">
+<meta property="og:image" content="https://kadrstudia8-hue.github.io/img/hero.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="landing.html"><i></i>KADR <em>studio</em></a>
+    <div class="links"><a href="terms.html">Условия использования</a> <a href="privacy.html">Конфиденциальность</a> <a href="refund.html">Возврат денег</a> <a href="licenses.html" aria-current="page">Лицензии</a> <a href="support.html">Поддержка</a> <a href="licenses-en.html" hreflang="en" lang="en">EN</a></div>
+  </div>
+</nav>
+<main id="main" class="wrap doc">
+<span class="tag">Документы</span>
+<h1>Лицензии и открытые компоненты</h1>
+<p class="meta">Модели, программы и шрифты, на которых работает KADR Studio · Редакция от <span class="ph">[PLACEHOLDER: дата]</span></p>
+
+<p>KADR Studio собрана из открытых компонентов. Генератор (ComfyUI) и модели программа скачивает на ваш компьютер из их официальных источников по кнопке «Установить генератор»; часть библиотек входит в установщик. Каждый компонент распространяется по своей лицензии; её условия действуют для вас напрямую. Строки с пометкой <span class="ph">[проверить]</span> владелец сверяет с первоисточником перед запуском.</p>
+
+<h2 id="models">1. Модели ИИ</h2>
+<div class="scroll"><table>
+  <tr><th>Модель</th><th>Что делает</th><th>Лицензия</th><th>Важно</th></tr>
+  <tr><td>RealVisXL V5.0 (на основе Stable Diffusion XL)</td><td>Кадры</td><td>CreativeML OpenRAIL++-M</td><td>Ограничения использования обязательны для вас — <a href="#openrail">ниже</a> и в <a href="terms.html#rules">Условиях, раздел 9</a></td></tr>
+  <tr><td>Wan 2.2 TI2V-5B и I2V-A14B (Wan-AI)</td><td>Живые сцены</td><td>Apache-2.0</td><td>Авторы не претендуют на созданное, ответственность за использование — на пользователе</td></tr>
+  <tr><td>Wan 2.2 A14B в формате GGUF (квантование сообщества)</td><td>Живые сцены на 12–24 ГБ</td><td>Apache-2.0 (как у исходной модели) <span class="ph">[проверить]</span></td><td></td></tr>
+  <tr><td>Wan 2.2 Lightning LoRA (lightx2v)</td><td>Быстрые живые сцены (4 шага)</td><td>Apache-2.0 <span class="ph">[проверить]</span></td><td></td></tr>
+  <tr><td>FastWan 2.2 (FastVideo, Hao AI Lab)</td><td>Быстрые живые сцены 5B</td><td><span class="ph">[PLACEHOLDER: лицензия весов не указана явно — уточнить у авторов или заменить]</span></td><td>До подтверждения лицензии — не обещать коммерческое использование этой модели</td></tr>
+  <tr><td>UMT5-XXL (Google), Wan VAE</td><td>Понимание текста и кодирование видео для Wan</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>ACE-Step 1.5</td><td>Фоновая музыка</td><td>Apache-2.0 <span class="ph">[проверить для версии 1.5]</span></td><td>Музыка может случайно напоминать существующие треки — проверяйте перед публикацией</td></tr>
+  <tr><td>Real-ESRGAN x4plus</td><td>Увеличение и детали кадров</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>RIFE v4.26 (Practical-RIFE)</td><td>Плавность движения</td><td>MIT</td><td></td></tr>
+  <tr><td>YuNet (OpenCV Zoo)</td><td>Поиск лица для кадрирования Shorts</td><td>MIT</td><td></td></tr>
+</table></div>
+
+<h2 id="software">2. Программы и библиотеки</h2>
+<div class="scroll"><table>
+  <tr><th>Компонент</th><th>Где</th><th>Лицензия</th><th>Важно</th></tr>
+  <tr><td>ComfyUI</td><td>Генератор, скачивается отдельно</td><td>GPL-3.0</td><td>Исходный код — github.com/comfyanonymous/ComfyUI</td></tr>
+  <tr><td>ComfyUI-GGUF (city96)</td><td>Генератор</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>ComfyUI Frame Interpolation</td><td>Генератор (RIFE)</td><td>MIT <span class="ph">[проверить]</span></td><td></td></tr>
+  <tr><td>PyTorch</td><td>Генератор</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>MLX (Apple)</td><td>Кадры на Mac</td><td>MIT</td><td></td></tr>
+  <tr><td>FFmpeg</td><td>В установщике</td><td>GPL (используемая сборка) / LGPL</td><td><span class="ph">[PLACEHOLDER: ссылка на исходный код именно той сборки FFmpeg, что в установщике (Windows и Mac), — обязательна для GPL; или перейти на LGPL-сборку]</span></td></tr>
+  <tr><td>Qt 6 / PySide6</td><td>В установщике (окно программы)</td><td>LGPL-3.0</td><td>Вы вправе заменить библиотеки Qt своей версией; исходный код — download.qt.io <span class="ph">[PLACEHOLDER: проверить порядок предоставления]</span></td></tr>
+  <tr><td>Python</td><td>В установщике</td><td>PSF License</td><td></td></tr>
+  <tr><td>PyInstaller</td><td>Сборка</td><td>GPL-2.0 с исключением для загрузчика</td><td>Не распространяется на программу</td></tr>
+  <tr><td>edge-tts</td><td>Бесплатные нейроголоса</td><td>LGPL-3.0 <span class="ph">[проверить]</span></td><td>Голоса — онлайн-сервис Microsoft; <span class="ph">[PLACEHOLDER: проверить, допускает ли Microsoft коммерческое использование этого сервиса]</span></td></tr>
+  <tr><td>OpenCV</td><td>В установщике</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>cryptography</td><td>В установщике</td><td>Apache-2.0 / BSD</td><td></td></tr>
+  <tr><td>NumPy</td><td>В установщике</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>Pillow</td><td>В установщике</td><td>MIT-CMU (HPND)</td><td></td></tr>
+  <tr><td>uv (Astral)</td><td>Установка генератора на Mac</td><td>Apache-2.0 / MIT</td><td></td></tr>
+  <tr><td>7-Zip (7zr)</td><td>Распаковка генератора на Windows</td><td>LGPL-2.1+</td><td></td></tr>
+</table></div>
+<p><span class="ph">[PLACEHOLDER: перед продажей сгенерировать точный список версий (SBOM) из сборки и положить тексты лицензий в установщик — см. THIRD_PARTY_NOTICES.md]</span></p>
+
+<h2 id="fonts">3. Шрифты</h2>
+<p>Cormorant Garamond и Manrope — SIL Open Font License 1.1. Встроены в программу и сайт.</p>
+
+<h2 id="services">4. Сервисы по вашим ключам и контент</h2>
+<p>Claude (Anthropic), OpenAI, Gemini (Google), ElevenLabs — по вашим ключам и их условиям. Фото и видео Pexels и Pixabay — по лицензиям этих сайтов (обычно бесплатно для коммерческого использования, но нельзя продавать их без изменений и показывать узнаваемых людей в неуместном контексте).</p>
+
+<h2 id="openrail">5. CreativeML OpenRAIL++-M — ограничения использования</h2>
+<p>Модели SDXL и RealVisXL распространяются по лицензии CreativeML OpenRAIL++-M. Её пункт 5 требует, чтобы ограничения использования (Приложение A) передавались каждому пользователю. Они включены в наши <a href="terms.html#rules">Условия, раздел 9</a>. Кратко — модель и её результаты нельзя использовать:</p>
+<ul>
+  <li>с нарушением закона;</li>
+  <li>чтобы эксплуатировать или вредить несовершеннолетним;</li>
+  <li>чтобы создавать или распространять заведомо ложную информацию во вред другим;</li>
+  <li>чтобы создавать или распространять персональные данные во вред человеку;</li>
+  <li>чтобы порочить, унижать или преследовать других;</li>
+  <li>для полностью автоматических решений, ухудшающих законные права человека;</li>
+  <li>для дискриминации по поведению, личным характеристикам или защищённым законом признакам;</li>
+  <li>чтобы использовать уязвимость групп людей (возраст, социальное, физическое, психическое положение) во вред им;</li>
+  <li>для медицинских советов и толкования медицинских результатов;</li>
+  <li>для правосудия, правоохранительных, миграционных и иммиграционных решений.</li>
+</ul>
+<p>Полный текст лицензии: <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md" rel="noopener">huggingface.co/stabilityai/stable-diffusion-xl-base-1.0 — LICENSE.md</a>. Лицензия не даёт прав на ваши результаты разработчикам модели; ответственность за использование результатов — на пользователе.</p>
+
+<h2 id="apache">6. Apache-2.0, MIT, BSD</h2>
+<p>Эти лицензии разрешают коммерческое использование и требуют сохранять уведомления об авторских правах и текст лицензии. Тексты: <a href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener">Apache-2.0</a>, <a href="https://opensource.org/license/mit" rel="noopener">MIT</a>, <a href="https://opensource.org/license/bsd-3-clause" rel="noopener">BSD-3-Clause</a>, <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">GPL-3.0</a>, <a href="https://www.gnu.org/licenses/lgpl-3.0.html" rel="noopener">LGPL-3.0</a>, <a href="https://openfontlicense.org" rel="noopener">SIL OFL 1.1</a>.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: ФИО / ФОП]</span></span>
+    <div class="flinks"><a href="terms.html">Условия использования</a> <a href="privacy.html">Конфиденциальность</a> <a href="refund.html">Возврат денег</a> <a href="licenses.html">Лицензии</a> <a href="support.html">Поддержка</a></div>
+  </div>
+</footer>
+</body>
+</html>
