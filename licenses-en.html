@@ -42,7 +42,7 @@
   <tr><td>Wan 2.2 Lightning LoRA (lightx2v)</td><td>Fast live scenes (4 steps)</td><td>Apache-2.0 <span class="ph">[verify]</span></td><td></td></tr>
   <tr><td>FastWan 2.2 (FastVideo, Hao AI Lab)</td><td>Fast 5B live scenes</td><td><span class="ph">[PLACEHOLDER: weights licence not stated clearly — confirm with the authors or replace]</span></td><td>Until confirmed, do not promise commercial use of this model</td></tr>
   <tr><td>UMT5-XXL (Google), Wan VAE</td><td>Text understanding and video encoding for Wan</td><td>Apache-2.0</td><td></td></tr>
-  <tr><td>ACE-Step 1.5</td><td>Background music</td><td>Apache-2.0 <span class="ph">[verify for version 1.5]</span></td><td>Music may accidentally resemble existing tracks — check before publishing</td></tr>
+  <tr><td>ACE-Step 1.5</td><td>Background music</td><td>MIT (code and weights; the model card allows commercial use of the generated music)</td><td>Built-in music — <a href="#music">below</a>. Music may accidentally resemble existing tracks — check before publishing</td></tr>
   <tr><td>Real-ESRGAN x4plus</td><td>Upscaling and frame detail</td><td>BSD-3-Clause</td><td></td></tr>
   <tr><td>RIFE v4.26 (Practical-RIFE)</td><td>Smooth motion</td><td>MIT</td><td></td></tr>
   <tr><td>YuNet (OpenCV Zoo)</td><td>Face detection for Shorts framing</td><td>MIT</td><td></td></tr>
@@ -75,6 +75,13 @@
 
 <h2 id="services">4. Services with your keys, and content</h2>
 <p>Claude (Anthropic), OpenAI, Gemini (Google), ElevenLabs — with your keys and under their terms. Pexels and Pixabay photos and videos — under those sites' licences (usually free for commercial use, but you may not sell them unaltered or show identifiable people in an offensive context).</p>
+
+<h2 id="openverse">4a. Free photos without keys (Openverse)</h2>
+<p>When nothing that draws frames is connected, the app finds photos for the scenes through <a href="https://openverse.org">Openverse</a> (the WordPress Foundation's search engine for openly licensed images; no key, rate-limited). Only licences that allow commercial use and changes are taken: <b>CC0</b>, <b>Public Domain Mark</b> and <b>CC BY</b>. Not taken: NC (non-commercial), ND (no derivatives — a frame in a video is cropped and moved) and SA (share-alike would put the whole video under CC BY-SA). Photos with people are skipped unless the scene is about people: the buyer has no release from them.</p>
+<p>Attribution. For every photo the app keeps the author, title, licence and source page and adds a “Photo: author, “title”, licence — link” block to the publishing texts (YouTube description and the “… — публикация.txt” file) by itself. CC BY requires it: keep the line in the description (on TikTok/Reels — in a comment or the profile bio). Openverse does not verify licences: if a photo matters to your business, open the link and check the licence on the page. Made with Openverse; Openverse does not endorse or certify KADR Studio. Not wanted — in the video settings choose “Scene frames: No frame generation”.</p>
+
+<h2 id="music">4b. Built-in music</h2>
+<p>12 instrumental tracks by mood (calm, upbeat, cinematic, corporate, lo-fi, emotional, tension, inspiring, playful, ambient, epic, acoustic), 60–80 s, seamless loops, −16 LUFS. Made by the owner of KADR Studio with ACE-Step 1.5 (MIT) on their own GPU; the rights belong to <span class="ph">[PLACEHOLDER: owner's name / business]</span>. Buyers of the app may use them in their videos, commercially too, with no credit needed; selling or uploading the tracks on their own is not allowed. The track is chosen by template, look or the idea's words, cut or looped to the video's length and ducked under the voice.</p>
 
 <h2 id="openrail">5. CreativeML OpenRAIL++-M — use restrictions</h2>
 <p>The SDXL and RealVisXL models are distributed under the CreativeML OpenRAIL++-M licence. Its paragraph 5 requires the use restrictions (Attachment A) to be passed on to every user. They are included in our <a href="terms-en.html#rules">Terms, section 9</a>. In short, the model and its outputs may not be used:</p>

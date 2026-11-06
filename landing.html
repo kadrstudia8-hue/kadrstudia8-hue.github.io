@@ -407,15 +407,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <p>Для Mac и ПК без видеокарты: кадры, живые сцены и музыка на арендованной RTX 5090. Цену ролика покажем до старта.</p>
       </div>
     </div>
-    <form class="notify" id="notify" data-notify novalidate>
-      <!-- [PLACEHOLDER: приём заявок не подключён — форма ничего не отправляет. Подключить свой обработчик (без сторонних скриптов) в site.js] -->
-      <label for="nf-contact">Сообщить о запуске Windows-версии, облака и цен</label>
-      <div class="notify-row">
-        <input id="nf-contact" name="contact" type="text" inputmode="email" autocomplete="email" placeholder="почта или @telegram" required>
-        <button class="btn btn-main" type="submit">Сообщить мне</button>
-      </div>
-      <p class="note" data-notify-msg role="status" aria-live="polite">Только сообщение о запуске. Без рассылок и трекеров.</p>
-    </form>
+    <div class="notify" id="notify">
+      <p>Узнать о запуске Windows-версии, облака и цен или задать вопрос</p>
+      <div class="notify-row"><a class="btn btn-main" href="mailto:kadrstudia8@gmail.com">Написать нам</a></div>
+      <p class="note">Почта: kadrstudia8@gmail.com. Ответим лично, без рассылок и трекеров.</p>
+    </div>
     <p class="note" style="margin-top:20px"><a href="terms.html">Условия</a> · <a href="refund.html">Возврат</a></p>
   </div>
 </section>
@@ -443,7 +439,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </details>
       <details>
         <summary>Сколько стоит?</summary>
-        <p>Цены ещё не утверждены — объявим перед запуском, <a href="#notify">можно подписаться</a>. Уже сейчас: со своей видеокартой кадры не стоят ничего за штуку, а ключи к ИИ-сервисам (по желанию) оплачиваются у самих сервисов.</p>
+        <p>Цены ещё не утверждены — объявим перед запуском, <a href="mailto:kadrstudia8@gmail.com">напишите нам</a>. Уже сейчас: со своей видеокартой кадры не стоят ничего за штуку, а ключи к ИИ-сервисам (по желанию) оплачиваются у самих сервисов.</p>
       </details>
       <details>
         <summary>Как получить доступ к программе?</summary>
@@ -496,8 +492,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <span>© 2026 KADR Studio</span>
-    <span class="flinks"><a href="terms.html">Условия</a> <a href="privacy.html">Конфиденциальность</a> <a href="refund.html">Возврат</a> <a href="licenses.html">Лицензии</a> <a href="support.html">Поддержка</a></span>
+    <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: ФИО / ФОП]</span></span>
+    <span class="flinks"><a href="terms.html">Условия</a> <a href="privacy.html">Конфиденциальность</a> <a href="refund.html">Возврат</a> <a href="licenses.html">Лицензии</a> <a href="support.html">Поддержка</a> <a href="mailto:kadrstudia8@gmail.com">Написать нам</a></span>
     <span>Windows 10/11 и macOS 12+ · Без телеметрии</span>
   </div>
 </footer>
