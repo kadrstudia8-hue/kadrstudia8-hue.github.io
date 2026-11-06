@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KADR Studio — одна фраза, готовый ролик</title>
 <meta name="description" content="KADR Studio для Windows и macOS: напишите идею — получите готовое видео со сценарием, озвучкой, кадрами, живыми сценами, музыкой и субтитрами.">
-<meta name="theme-color" content="#0e0c0a">
-<link rel="canonical" href="https://kadrstudia8-hue.github.io/">
-<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/">
+<link rel="canonical" href="https://kadrstudia8-hue.github.io/landing.html">
+<link rel="alternate" hreflang="uk" href="https://kadrstudia8-hue.github.io/">
+<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/landing.html">
 <link rel="alternate" hreflang="en" href="https://kadrstudia8-hue.github.io/landing-en.html">
 <link rel="alternate" hreflang="x-default" href="https://kadrstudia8-hue.github.io/">
+<meta name="theme-color" content="#0e0c0a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KADR Studio">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:url" content="https://kadrstudia8-hue.github.io/">
+<meta property="og:url" content="https://kadrstudia8-hue.github.io/landing.html">
 <meta property="og:title" content="KADR Studio — одна фраза, готовый ролик">
 <meta property="og:description" content="KADR Studio для Windows и macOS: напишите идею — получите готовое видео со сценарием, озвучкой, кадрами, живыми сценами, музыкой и субтитрами.">
 <meta property="og:image" content="https://kadrstudia8-hue.github.io/media/reel-ru.jpg">
@@ -60,6 +61,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
 .links a{text-decoration:none}.links a:hover{color:var(--text)}
 @media(max-width:760px){.links a:not([hreflang]){display:none}}
+.links a[aria-current]{color:var(--text)}@media(max-width:760px){.links{gap:12px;margin:0 10px}}@media(max-width:420px){nav .wrap>.btn{display:none}}
 
 /* hero */
 .hero{padding:96px 0 72px;text-align:center;overflow:hidden}
@@ -147,8 +149,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="#who">Для кого</a>
       <a href="#req">Без видеокарты</a>
       <a href="#pricing">Цены</a>
-      <a href="#faq">FAQ</a>
-      <a href="landing-en.html" hreflang="en" lang="en">EN</a>
+      <a href="#faq">FAQ</a> <a href="landing.html" hreflang="ru" lang="ru" aria-current="true">RU</a> <a href="landing-uk.html" hreflang="uk" lang="uk">UK</a> <a href="landing-en.html" hreflang="en" lang="en">EN</a>
     </div>
     <a class="btn btn-ghost" href="#download" style="padding:9px 18px;font-size:14px">Скачать</a>
   </div>

@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KADR Studio — одна фраза, готовий ролик</title>
+<meta name="description" content="KADR Studio для Windows і macOS: напишіть ідею — отримайте готове відео зі сценарієм, озвученням, кадрами, живими сценами, музикою та субтитрами.">
+<link rel="canonical" href="https://kadrstudia8-hue.github.io/">
+<link rel="alternate" hreflang="uk" href="https://kadrstudia8-hue.github.io/">
+<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/landing.html">
+<link rel="alternate" hreflang="en" href="https://kadrstudia8-hue.github.io/landing-en.html">
+<link rel="alternate" hreflang="x-default" href="https://kadrstudia8-hue.github.io/">
+<meta name="theme-color" content="#0e0c0a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KADR Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://kadrstudia8-hue.github.io/">
+<meta property="og:title" content="KADR Studio — одна фраза, готовий ролик">
+<meta property="og:description" content="KADR Studio для Windows і macOS: напишіть ідею — отримайте готове відео зі сценарієм, озвученням, кадрами, живими сценами, музикою та субтитрами.">
+<meta property="og:image" content="https://kadrstudia8-hue.github.io/media/reel-ru.jpg">
+<meta property="og:image:width" content="960">
+<meta property="og:image:height" content="540">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root{
+  --bg:#0a0a13; --bg2:#10101c; --text:#ececf5; --muted:#9a9ab3;
+  --violet:#7c5cff; --pink:#ff4fb0; --cyan:#22d3ee;
+  --glass:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Manrope,system-ui,Segoe UI,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:88px 0;position:relative}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+.lead{color:var(--muted);font-size:18px;max-width:640px}
+.grad{background:linear-gradient(90deg,var(--violet),var(--pink) 55%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:26px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:860px){.g3,.g2{grid-template-columns:1fr}section{padding:64px 0}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;transition:transform .15s,box-shadow .2s}
+.btn-main{background:linear-gradient(90deg,var(--violet),var(--pink));color:#fff;box-shadow:0 0 30px rgba(217,178,111,.45)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(201,138,75,.55)}
+.btn-ghost{border:1px solid var(--line);background:var(--glass)}
+.btn-ghost:hover{border-color:var(--cyan)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(10,10,19,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-weight:800;font-size:19px;letter-spacing:.04em;display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,var(--cyan) 18%,var(--violet) 55%,var(--pink) 100%);box-shadow:0 0 16px var(--violet)}
+.links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+.links a{text-decoration:none}.links a:hover{color:var(--text)}
+@media(max-width:760px){.links a:not([hreflang]){display:none}}
+.links a[aria-current]{color:var(--text)}@media(max-width:760px){.links{gap:12px;margin:0 10px}}@media(max-width:420px){nav .wrap>.btn{display:none}}
+
+/* hero */
+.hero{padding:96px 0 72px;text-align:center;overflow:hidden}
+.orb{position:absolute;left:50%;top:40px;width:520px;height:520px;transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,rgba(255,255,255,.55) 0,rgba(235,201,139,.55) 12%,rgba(217,178,111,.55) 40%,rgba(201,138,75,.35) 64%,transparent 72%);
+  filter:blur(28px);opacity:.75;animation:float 9s ease-in-out infinite;z-index:0;pointer-events:none}
+@keyframes float{50%{transform:translateX(-50%) translateY(18px) scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.orb{animation:none}}
+@media(max-width:600px){.orb{width:340px;height:340px}}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(36px,6.4vw,68px);font-weight:800;margin:10px auto 20px;max-width:900px}
+.hero p.lead{margin:0 auto 34px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.prompt{margin:44px auto 0;max-width:620px;display:flex;align-items:center;gap:12px;padding:14px 14px 14px 22px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(217,178,111,.45);box-shadow:0 0 40px rgba(217,178,111,.25);text-align:left;color:var(--muted);font-size:15px}
+.prompt span{flex:1}
+.prompt b{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;font-size:18px}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* shots */
+.shots{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:56px;text-align:left}
+@media(max-width:860px){.shots{grid-template-columns:1fr}}
+.shot{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bg2);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(217,178,111,.15)}
+.shot figcaption{font-size:13px;color:var(--muted);padding:10px 14px}
+
+/* steps */
+.step-n{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:800;margin-bottom:16px;background:linear-gradient(135deg,rgba(217,178,111,.35),rgba(201,138,75,.25));border:1px solid rgba(217,178,111,.5)}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p,.card li{color:var(--muted);font-size:15px}
+
+/* features */
+.feat{display:flex;gap:14px;align-items:flex-start}
+.feat .ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(235,201,139,.1);border:1px solid rgba(235,201,139,.35);color:var(--cyan);font-weight:800;font-size:15px}
+.feat h3{font-size:16px;margin-bottom:4px}
+
+/* audience */
+.aud .card{border-top:2px solid var(--violet)}
+.aud .card:nth-child(2){border-top-color:var(--pink)}
+.aud .card:nth-child(3){border-top-color:var(--cyan)}
+
+/* requirements */
+ul.clean{list-style:none}
+ul.clean li{padding:8px 0 8px 26px;position:relative;border-bottom:1px dashed var(--line)}
+ul.clean li:last-child{border-bottom:0}
+ul.clean li::before{content:"";position:absolute;left:4px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+ul.clean.warn li::before{background:var(--pink);box-shadow:0 0 10px var(--pink)}
+
+/* pricing */
+.price .card{display:flex;flex-direction:column}
+.price .amount{font-size:38px;font-weight:800;margin:10px 0 2px}
+.price .per{color:var(--muted);font-size:14px;margin-bottom:18px}
+.price ul{margin-bottom:24px;flex:1}
+.price .hot{border-color:rgba(201,138,75,.6);box-shadow:0 0 40px rgba(201,138,75,.18)}
+.ph{color:var(--pink);font-weight:700}
+
+/* faq */
+details{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-bottom:12px}
+details[open]{border-color:rgba(217,178,111,.5)}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--cyan);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:10px;font-size:15px}
+
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.flinks{display:flex;gap:14px;flex-wrap:wrap}.flinks a{color:var(--muted)}.flinks a:hover{color:var(--text)}
+.dl-card.soon{cursor:default}.dl-card.soon:hover{transform:none;border-color:var(--line)}
+:focus-visible{outline:2px solid #d9b26f;outline-offset:3px}
+.dl-card{display:grid;gap:6px;text-decoration:none;transition:border-color .2s,transform .2s}.dl-card:hover{border-color:var(--violet);transform:translateY(-2px)}
+.dl-card b{font-size:19px}.dl-card span{color:var(--muted);font-size:14px}.dl-card em{font-style:normal;color:var(--cyan);font-weight:700;margin-top:6px}
+.shots{grid-template-columns:2fr 2fr 1fr}.shot-tall img{max-height:420px;width:auto;margin:0 auto}@media(max-width:860px){.shots{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="kinozal.css">
+<link rel="stylesheet" href="site.css">
+<link rel="preload" as="image" href="media/hero-ru.jpg">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>KADR <em>studio</em></a>
+    <div class="links">
+      <a href="#proof">Приклади</a>
+      <a href="#how">Як це працює</a>
+      <a href="#who">Для кого</a>
+      <a href="#req">Без відеокарти</a>
+      <a href="#pricing">Ціни</a>
+      <a href="#faq">FAQ</a> <a href="landing.html" hreflang="ru" lang="ru">RU</a> <a href="landing-uk.html" hreflang="uk" lang="uk" aria-current="true">UK</a> <a href="landing-en.html" hreflang="en" lang="en">EN</a>
+    </div>
+    <a class="btn btn-ghost" href="#download" style="padding:9px 18px;font-size:14px">Завантажити</a>
+  </div>
+</nav>
+
+<header class="hero hero2" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="tag">Програма для Windows і macOS</span>
+        <h1><span class="nw">Одна фраза —</span> <span class="grad">готовий ролик</span></h1>
+        <p class="lead">Напишіть ідею — KADR Studio сама створить сценарій, голос, кадри, живі сцени, музику й субтитри та збере MP4 для TikTok, Shorts, Reels і YouTube.</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="#download" data-os-cta>Завантажити KADR Studio</a>
+          <a class="btn btn-ghost" href="#reel">▶ Шоурил, 25 с</a>
+        </div>
+        <p class="note">Mac — можна завантажити вже зараз · Windows — незабаром · без реклами й телеметрії</p>
+        <p class="mobile-hint">KADR Studio — програма для комп’ютера. Відкрийте сайт на Mac або ПК — чи <button type="button" data-share>надішліть посилання собі</button>.</p>
+      </div>
+      <div class="hero-film">
+        <figure class="frame sprockets">
+          <video data-loop muted loop playsinline preload="none" poster="media/hero-ru.jpg" width="1280" height="720" aria-label="Кадри з фільму «Чому сни здаються справжніми?», створеного в KADR Studio"><source data-src="media/hero-ru.mp4" type="video/mp4"></video>
+        </figure>
+        <p class="cap frame-cap">Це не стокове відео: кадри з фільму «Чому сни здаються справжніми?» (17 хвилин), який KADR Studio зібрала з одного ТЗ. Російська версія — на тих самих кадрах, що й англійська.</p>
+      </div>
+    </div>
+    <ul class="facts">
+      <li><b>15 секунд — 30 хвилин</b></li>
+      <li><b>9:16 · 16:9 · 1:1 · 4:5</b></li>
+      <li>голоси <b>UK · RU · EN</b></li>
+      <li>працює <b>без ключів</b></li>
+      <li>вимкнули світло — <b>продовжить з того ж місця</b></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+<section id="proof">
+  <div class="wrap">
+    <span class="tag">Справжні приклади</span>
+    <h2>Одна фраза → ролик</h2>
+    <p class="lead">Це справжні запити з проєктів і ролики, які з них зібрала KADR Studio. Натисніть на будь-який.</p>
+    <div class="demo" data-demo>
+      <div>
+        <div class="demo-tabs" role="tablist" aria-label="Приклади запитів">
+          <button type="button" role="tab" aria-selected="true" aria-controls="demo-panel" data-video="media/oleg.mp4" data-poster="media/oleg.jpg" data-shape="v" data-alt="Shorts: таксист Олег і торт, який забув пасажир" data-meta="Shorts 9:16|30 секунд|голос і субтитри по словах" data-prompt="Таксист Олег розповідає смішну історію про пасажира, який забув у машині торт на день народження">Таксист і торт</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/oleg-tips.mp4" data-poster="media/oleg-tips.jpg" data-shape="v" data-alt="Shorts: таксист Олег ділиться лайфхаками" data-meta="Shorts 9:16|32 секунди|той самий герой у кожному кадрі" data-prompt="Таксист Олег розповідає 3 лайфхаки, як дешевше їздити містом на таксі">3 лайфхаки</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/cafe.mp4" data-poster="media/cafe.jpg" data-shape="v" data-alt="Реклама кав’ярні: круасани й кава" data-meta="Реклама 9:16|28 секунд|великий текст на екрані" data-prompt="Коротка реклама затишної кав’ярні біля дому: ранок, аромат свіжої кави, круасани, усміхнений бариста, наприкінці запрошення завітати сьогодні">Реклама кав’ярні</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/ocean.mp4" data-poster="media/ocean.jpg" data-shape="h" data-alt="Ролик про океан: медуза й Блакитна діра" data-meta="YouTube 16:9|26 секунд|живі сцени" data-prompt="Ролик про океан: найдивовижніші місця та істоти, яких мало хто бачив">Океан</button>
+        </div>
+        <div class="demo-prompt" aria-live="polite"><p>Таксист Олег розповідає смішну історію про пасажира, який забув у машині торт на день народження</p><b aria-hidden="true">➤</b></div>
+        <ul class="demo-meta"><li>Shorts 9:16</li><li>30 секунд</li><li>голос і субтитри по словах</li></ul>
+        <p class="demo-note">Відео без звуку, уривок. Повністю і зі звуком — у шоурилі нижче.</p>
+      </div>
+      <div class="demo-stage" id="demo-panel" role="tabpanel">
+        <figure class="frame v"><img src="media/oleg.jpg" alt="Shorts: таксист Олег і торт, який забув пасажир" width="404" height="720" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reel">
+  <div class="wrap">
+    <span class="tag">Шоурил</span>
+    <h2>25 секунд справжніх випусків</h2>
+    <p class="lead">Лише те, що зібрала програма: фільм про сни, Shorts із таксистом Олегом, реклама кав’ярні, ролик про океан. Увімкніть звук — голос і музика з самих роликів.</p>
+    <div class="reel">
+      <figure class="frame">
+        <video data-reel controls playsinline preload="none" poster="media/reel-ru.jpg" width="960" height="540" aria-label="Шоурил KADR Studio, 25 секунд, зі звуком"><source data-src="media/reel-ru.mp4" type="video/mp4"></video>
+      </figure>
+      <p class="cap reel-cap"><span>Уривки саме такі, якими вийшли з програми, — лише склеєні для сайту.</span><span>2 МБ · зі звуком</span></p>
+    </div>
+    <div class="cta-row" style="justify-content:flex-start;margin-top:26px">
+      <a class="btn btn-main" href="#download">Завантажити KADR Studio</a>
+      <a class="btn btn-ghost" href="#how">Як це працює</a>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <span class="tag">Для кого</span>
+    <h2>Кому підійде KADR Studio</h2>
+    <div class="uses">
+      <article class="card use">
+        <div class="use-media trio">
+          <video data-loop muted loop playsinline preload="none" poster="media/short-1.jpg" width="404" height="720" aria-label="Short із фільму про сни: портрет, що світиться"><source data-src="media/short-1.mp4" type="video/mp4"></video>
+          <video data-loop muted loop playsinline preload="none" poster="media/short-2.jpg" width="404" height="720" aria-label="Short із фільму про сни: мозок, що світиться"><source data-src="media/short-2.mp4" type="video/mp4"></video>
+          <video data-loop muted loop playsinline preload="none" poster="media/short-3.jpg" width="404" height="720" aria-label="Short із фільму про сни: око великим планом"><source data-src="media/short-3.mp4" type="video/mp4"></video>
+        </div>
+        <div class="use-body">
+          <h3>Авторам TikTok, Shorts і Reels</h3>
+          <p>Регулярні вертикальні ролики без зйомок і монтажу. «Нарізати Shorts» робить із довгого фільму 3–8 кліпів: заголовок-гачок, кадрування по обличчю, текст і хештеги до кожного.</p>
+          <span class="src">Приклад: 7 Shorts з одного фільму про сни</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media solo"><img src="media/cafe.jpg" alt="Кадр реклами кав’ярні: круасани й великий текст" width="404" height="720" loading="lazy"></div>
+        <div class="use-body">
+          <h3>Малому бізнесу</h3>
+          <p>Коротка реклама кафе, магазину чи послуги у 9:16, 1:1 або 4:5. Товар чи героя можна задати за фото — він буде однаковим у кожному кадрі. Є шаблон «Реклама товару».</p>
+          <span class="src">Приклад: реклама кав’ярні з однієї фрази, 28 секунд</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media"><video data-loop muted loop playsinline preload="none" poster="media/film.jpg" width="960" height="540" aria-label="Фрагмент фільму про сни"><source data-src="media/film.mp4" type="video/mp4"></video></div>
+        <div class="use-body">
+          <h3>YouTube і каналам без обличчя</h3>
+          <p>Пояснювальні ролики й фільми до 30 хвилин із розділами: ШІ-режисер пише сценарій із гачком, обирає плани й ракурси. Тексти для публікації — назва, опис із розділами, хештеги.</p>
+          <span class="src">Приклад: фільм про сни, 17 хвилин, з одного ТЗ</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media pair">
+          <figure><img src="media/lang-en.jpg" alt="Кадр фільму з англійськими субтитрами" width="800" height="450" loading="lazy"><span class="badge">EN</span></figure>
+          <figure><img src="media/lang-ru.jpg" alt="Той самий кадр із російськими субтитрами" width="800" height="450" loading="lazy"><span class="badge">RU</span></figure>
+        </div>
+        <div class="use-body">
+          <h3>Кількома мовами</h3>
+          <p>Той самий відеоряд — іншою мовою: голос диктора цієї мови й перекладені субтитри. Озвучення — безкоштовні нейроголоси (українська, російська, англійська) або ElevenLabs за ключем, зокрема ваш клонований голос.</p>
+          <span class="src">Приклад: фільм про сни англійською та російською</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <span class="tag">Як це працює</span>
+    <h2>Три кроки від ідеї до MP4</h2>
+    <p class="lead" style="margin-bottom:36px">Жодного монтажу на таймлайні. Ви описуєте, що хочете, — програма робить решту.</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="step-n">1</div>
+        <h3>Напишіть ідею</h3>
+        <p>Одна фраза на кшталт «Пам’ятаєш Денді?» або власний текст — до 30 000 символів. Формат 9:16, 16:9, 1:1 чи 4:5, тривалість від 15 секунд до 30 хвилин. Можна взяти шаблон: Факти, Топ-5, Історія, Реклама товару, Навчання.</p>
+      </div>
+      <div class="card">
+        <div class="step-n">2</div>
+        <h3>Натисніть ➤</h3>
+        <p>KADR пише сценарій (Claude, OpenAI чи Gemini за вашим ключем), озвучує, малює кадри, оживлює ключові сцени, пише музику й розставляє субтитри по словах. Хочете спершу переглянути кадри — увімкніть розкадрування.</p>
+      </div>
+      <div class="card">
+        <div class="step-n">3</div>
+        <h3>Заберіть готове відео</h3>
+        <p>MP4 із гучністю під соцмережі. Програма сама перевірить ролик і простими словами підкаже, що виправити; будь-який кадр перемальовується однією кнопкою.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:22px">Орієнтовний час на RTX 3060: кадр — близько хвилини, жива сцена — близько 2,5 хвилини, фільм на 20 хвилин — близько 4 годин. Без ключів і відеокарти ролик із вашого тексту збирається за хвилину-дві.</p>
+    <figure class="frame how-shot"><img src="img/home.jpg" alt="Головний екран KADR Studio: рядок для ідеї, формати й шаблони" width="1600" height="846" loading="lazy"></figure>
+    <p class="cap frame-cap">Головний екран програми: рядок для ідеї, формат, шаблон — і ➤.</p>
+  </div>
+</section>
+
+<section id="looks">
+  <div class="wrap">
+    <span class="tag">Як це виглядатиме</span>
+    <h2>Стиль картинки — в один клік</h2>
+    <p class="lead">12 напрямів: від кіно й документального фото до аніме та 3D-мультфільму. Той самий кадр у різних стилях:</p>
+    <div class="looks"><figure><img src="img/look-cinema.jpg" alt="Кіно" loading="lazy"><figcaption>Кіно</figcaption></figure><figure><img src="img/look-anime.jpg" alt="Аніме" loading="lazy"><figcaption>Аніме</figcaption></figure><figure><img src="img/look-cartoon3d.jpg" alt="3D-мультфільм" loading="lazy"><figcaption>3D-мультфільм</figcaption></figure><figure><img src="img/look-watercolor.jpg" alt="Акварель" loading="lazy"><figcaption>Акварель</figcaption></figure><figure><img src="img/look-neon.jpg" alt="Неон-нуар" loading="lazy"><figcaption>Неон-нуар</figcaption></figure><figure><img src="img/look-studio.jpg" alt="Реклама" loading="lazy"><figcaption>Реклама</figcaption></figure></div>
+  </div>
+</section>
+
+<section id="req">
+  <div class="wrap">
+    <span class="tag">Чесно про залізо</span>
+    <h2>Можна й без відеокарти</h2>
+    <p class="lead">Що вийде на вашому комп’ютері — без обіцянок понад те, що програма вміє вже сьогодні.</p>
+    <div class="tiers">
+      <div class="card tier">
+        <span class="who">ПК З NVIDIA 8–12 ГБ</span>
+        <h3>Усе на вашому комп’ютері</h3>
+        <p>Кадри, живі сцени й музика генеруються на вашій відеокарті — без оплати за кожну картинку. Генератор (~28 ГБ) програма завантажить і встановить сама.</p>
+        <p>Windows 10/11, 64-біт. Версія для Windows — незабаром.</p>
+      </div>
+      <div class="card tier">
+        <span class="who">MAC З APPLE M1–M4</span>
+        <h3>Кадри малює сам Mac</h3>
+        <p>Якщо пам’яті від 16 ГБ — кадри створюються на самому Mac; на інших Mac їх роблять сервіси за ключем. Живих сцен на Mac поки немає.</p>
+        <p>Голос, субтитри, монтаж і збирання — на будь-якому Mac із macOS 12 і новішою, зокрема з Intel.</p>
+      </div>
+      <div class="card tier">
+        <span class="who">БУДЬ-ЯКИЙ КОМП’ЮТЕР</span>
+        <h3>Ролик навіть без ключів</h3>
+        <p>Без ключів ваш текст читає безкоштовний нейроголос, на екрані — великі слова на живому тлі; ролик збирається за хвилину-дві.</p>
+        <p>З ключами сценарій пише ШІ, а кадри — сервіси за ключем або безкоштовні фото Pexels і Pixabay. Хмара KADR на відеокартах RTX 5090 — незабаром.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3>Що варто знати заздалегідь</h3>
+      <ul class="clean warn">
+        <li>Швидкість залежить від відеокарти: на RTX 3060 кадр — близько хвилини, фільм на 20 хвилин — близько 4 годин.</li>
+        <li>Вимкнули світло — робота не пропаде: програма продовжить з того ж місця.</li>
+        <li>Сценарій від ШІ та голоси ElevenLabs працюють через ваші власні ключі — їхні тарифи оплачуються безпосередньо в сервісах. Ключ Gemini безкоштовний.</li>
+        <li>Перший запуск на Mac: macOS запитає про невідомого розробника — «Системні параметри» → «Конфіденційність і безпека» → «Усе одно відкрити». Це лише один раз.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <span class="tag">Що ви отримуєте</span>
+    <h2>Увесь відеопродакшн в одному вікні</h2>
+    <p class="lead" style="margin-bottom:36px">Кожен етап можна виконати безкоштовно на власному залізі або підключити свої ключі до сервісів.</p>
+    <div class="grid feats">
+      <div class="card feat"><div class="ic">✎</div><div><h3>Сценарій від ШІ</h3><p>Claude, OpenAI або Gemini з вашим ключем. Без ключа сценарієм стає ваш власний текст.</p></div></div>
+      <div class="card feat"><div class="ic">♪</div><div><h3>Озвучення</h3><p>ElevenLabs за ключем, зокрема клоновані голоси, безкоштовні нейроголоси (UK, RU, EN) або системні голоси. Один голос на весь ролик.</p></div></div>
+      <div class="card feat"><div class="ic">▣</div><div><h3>Кадри на відеокарті</h3><p>RealVisXL на вашій NVIDIA, генератор встановлюється однією кнопкою. Платити за картинки не потрібно.</p></div></div>
+      <div class="card feat"><div class="ic">▶</div><div><h3>Живі сцени</h3><p>Ключові моменти оживають (Wan 2.2): близько 2,5 хвилини на сцену на RTX 3060.</p></div></div>
+      <div class="card feat"><div class="ic">♫</div><div><h3>Фонова музика</h3><p>Створюється на вашій відеокарті (ACE-Step) — без пошуку треків на стоках.</p></div></div>
+      <div class="card feat"><div class="ic">Aa</div><div><h3>Субтитри та звук</h3><p>Субтитри по словах і гучність під соцмережі. MP4 одразу готовий до публікації.</p></div></div>
+      <div class="card feat"><div class="ic">✂</div><div><h3>Нарізка Shorts</h3><p>3–8 вертикальних кліпів із довгого фільму, кадрування по обличчю, текст і хештеги.</p></div></div>
+      <div class="card feat"><div class="ic">☺</div><div><h3>Власні й готові персонажі</h3><p>Герой, стиль чи товар за описом або фото — однаковий у кожному кадрі. А ще 12 готових героїв із власним голосом.</p></div></div>
+      <div class="card feat"><div class="ic">文</div><div><h3>Версії іншими мовами</h3><p>Той самий відеоряд, голос диктора цієї мови й перекладені субтитри.</p></div></div>
+      <div class="card feat"><div class="ic">✉</div><div><h3>Тексти для публікації</h3><p>Назва, опис із розділами, хештеги й закріплений коментар — однією кнопкою.</p></div></div>
+      <div class="card feat"><div class="ic">✦</div><div><h3>ШІ-асистент і варіанти</h3><p>Чат змінює сцени та стиль; перед створенням ШІ пропонує 3 різні варіанти ролика.</p></div></div>
+      <div class="card feat"><div class="ic">⚿</div><div><h3>Просте налаштування</h3><p>Вставте ключ — програма сама визначить сервіс. Ключі шифруються засобами системи.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <span class="tag">Завантажити</span>
+    <h2>Для Windows і Mac</h2>
+    <p class="lead">Одна програма — для обох комп’ютерів. Після встановлення вона сама пропонує оновлення.</p>
+    <div class="grid g3 dl" style="margin-top:30px">
+      <!-- Коли KADR-Studio-Setup-3.0.exe завантажено в реліз: замінити цей div на
+      <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-Setup-3.0.exe"><b>Windows</b><span>10 і 11, 64-біт · інсталятор .exe</span><em>Завантажити для Windows</em></a> -->
+      <div class="card dl-card soon" aria-disabled="true"><b>Windows</b><span>10 і 11, 64-біт · інсталятор .exe</span><em>Незабаром — версія для Windows готується</em></div>
+      <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-arm64.dmg"><b>Mac з Apple M1–M4</b><span>macOS 12 і новіша · .dmg</span><em>Завантажити для Mac (M-чип)</em></a>
+      <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-x86_64.dmg"><b>Mac з Intel</b><span>macOS 12 і новіша · .dmg</span><em>Завантажити для Mac (Intel)</em></a>
+    </div>
+    <p class="note" style="margin-top:14px">Який у мене Mac? Яблуко в лівому верхньому куті → «Про цей Mac»: «Чип Apple M…» — перша кнопка, «Процесор Intel» — друга. Чекаєте на Windows? <a href="#notify">Повідомимо, щойно вийде</a>.</p>
+  </div>
+</section>
+
+<section id="pricing" class="price">
+  <div class="wrap">
+    <span class="tag">Ціни</span>
+    <h2>Незабаром: ціни</h2>
+    <p class="lead" style="margin-bottom:36px">Ціни ще не затверджені, і на сайті ми поки нічого не продаємо. Що вже відомо напевно:</p>
+    <div class="grid g3">
+      <div class="card">
+        <h3>Власна відеокарта</h3>
+        <p>NVIDIA 8–12 ГБ або Mac на Apple M від 16 ГБ: кадри (а на NVIDIA — ще й живі сцени та музика) генеруються на вашому комп’ютері, без оплати за кожну картинку.</p>
+      </div>
+      <div class="card">
+        <h3>Власні ключі — за бажанням</h3>
+        <p>Claude, OpenAI, Gemini та ElevenLabs оплачуються безпосередньо в сервісах, якщо ви їх підключаєте. Без ключів програма теж збирає ролик.</p>
+      </div>
+      <div class="card hot">
+        <h3>Хмара KADR — незабаром</h3>
+        <p>Для Mac і ПК без відеокарти: кадри, живі сцени й музика на орендованій RTX 5090. Ціну ролика покажемо до старту.</p>
+      </div>
+    </div>
+    <div class="notify" id="notify">
+      <p>Дізнатися про запуск Windows-версії, хмари й цін або поставити запитання</p>
+      <div class="notify-row"><a class="btn btn-main" href="mailto:kadrstudia8@gmail.com">Написати нам</a></div>
+      <p class="note">Пошта: kadrstudia8@gmail.com. Відповімо особисто, без розсилок і трекерів.</p>
+    </div>
+    <p class="note" style="margin-top:20px"><a href="terms-uk.html">Умови</a> · <a href="refund-uk.html">Повернення</a></p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:820px">
+    <span class="tag">FAQ</span>
+    <h2>Часті запитання</h2>
+    <div style="margin-top:28px">
+      <details open>
+        <summary>Це складно?</summary>
+        <p>Ні. Рядок для ідеї, формат, тривалість — і ➤. Є шаблони (Факти, Топ-5, Історія, Реклама товару, Навчання), 12 стилів картинки та 12 готових персонажів. Ключ просто вставляється — програма сама зрозуміє, від якого він сервісу. Генератор кадрів встановлюється всередині програми однією кнопкою.</p>
+      </details>
+      <details>
+        <summary>Чи потрібна відеокарта NVIDIA?</summary>
+        <p>Для безкоштовних кадрів, музики й живих сцен — так, NVIDIA з 8–12 ГБ відеопам’яті (на Mac з Apple M і пам’яттю від 16 ГБ кадри малює сам Mac). Без неї кадри малюють сервіси за ключем або беруться безкоштовні фото з Pexels і Pixabay, а зовсім без ключів ваш текст читає безкоштовний голос на живому кольоровому тлі. Хмара KADR для комп’ютерів без відеокарти — незабаром.</p>
+      </details>
+      <details>
+        <summary>Чи не вийде «ШІ-мило»?</summary>
+        <p>Подивіться шоурил вище — це те, що виходить із програми. Перед збиранням можна увімкнути розкадрування й перемалювати будь-який кадр. Після збирання «Перевірка ролика» знаходить недоліки й називає їх простими словами, а грубий брак один раз перемальовує сама. Живі сцени з ключем Gemini перевіряє ШІ: брак перезнімається, а після двох невдач сцена залишається гарною картинкою.</p>
+      </details>
+      <details>
+        <summary>Скільки чекати на готовий ролик?</summary>
+        <p>Залежить від відеокарти. На RTX 3060: кадр — близько хвилини, жива сцена — близько 2,5 хвилини, фільм на 20 хвилин — близько 4 годин. Без ключів і відеокарти ролик із вашого тексту збирається за хвилину-дві.</p>
+      </details>
+      <details>
+        <summary>Скільки це коштує?</summary>
+        <p>Ціни ще не затверджені — оголосимо перед запуском, <a href="mailto:kadrstudia8@gmail.com">напишіть нам</a>. Уже зараз: із власною відеокартою кадри нічого не коштують поштучно, а ключі до ШІ-сервісів (за бажанням) оплачуються безпосередньо в сервісах.</p>
+      </details>
+      <details>
+        <summary>Як отримати доступ до програми?</summary>
+        <p>Завантажте KADR Studio для свого комп’ютера й зареєструйтеся в ній за поштою. Потім напишіть менеджеру підтримки — він активує ваш акаунт, і всі функції відкриються. Зазвичай це займає кілька хвилин у робочий час. Контакти — на сторінці <a href="support-uk.html">«Підтримка»</a>.</p>
+      </details>
+      <details>
+        <summary>Що таке Енергія ⚡?</summary>
+        <p>⚡ — внутрішня одиниця KADR для хмари: без потужної відеокарти програма орендує відеокарту на час створення ролика й списує ⚡ у міру готовності кадрів і сцен, ціну видно до старту. ⚡ — не гроші й не криптовалюта, їх не можна передати іншій людині. З власною відеокартою NVIDIA (або Mac на чипі Apple від 16 ГБ) кадри малюються безкоштовно, ⚡ не потрібні. Хмара та ціни ⚡ — незабаром.</p>
+      </details>
+      <details>
+        <summary>Чи працює на Mac?</summary>
+        <p>Так: macOS 12 і новіша, Mac із чипом Apple M1–M4 або Intel. На Mac із чипом Apple і пам’яттю від 16 ГБ кадри малює сам комп’ютер; на інших — сервіси за ключем, а незабаром і хмара KADR. Живі сцени на Mac поки не створюються. Голос, субтитри, монтаж і збирання відео працюють на будь-якому Mac. Під час першого запуску macOS один раз попросить дозвіл — «Системні параметри» → «Конфіденційність і безпека» → «Усе одно відкрити».</p>
+      </details>
+      <details>
+        <summary>Чи потрібні платні ключі до ШІ?</summary>
+        <p>Ні. Без ключів сценарієм стає ваш власний текст, а озвучують його безкоштовні нейроголоси (українська, російська, англійська) або системні голоси. Ключі Claude, OpenAI чи Gemini (у Gemini ключ безкоштовний) потрібні, щоб ШІ писав сценарій за вас; ключ ElevenLabs — для голосів ElevenLabs, зокрема ваших клонованих.</p>
+      </details>
+      <details>
+        <summary>Куди потрапляють мої дані й ключі?</summary>
+        <p>Ролики, сценарії та проєкти зберігаються на вашому комп’ютері. Акаунт потрібен лише для активації програми й балансу ⚡, телеметрії немає. Ключі зберігаються в зашифрованому вигляді: на Windows — засобами системи (DPAPI), на Mac — у Зв’язці ключів. Якщо ви підключаєте зовнішні сервіси (Claude, OpenAI, Gemini, ElevenLabs), текст запитів надсилається безпосередньо в ці сервіси за вашим ключем. Докладніше — <a href="privacy-uk.html">Політика конфіденційності</a>.</p>
+      </details>
+      <details>
+        <summary>Які формати й тривалість?</summary>
+        <p>9:16 для Shorts, TikTok і Reels, 16:9 для YouTube, а також 1:1 і 4:5. Тривалість — від 15 секунд до 30 хвилин.</p>
+      </details>
+      <details>
+        <summary>Чи можна повернути гроші?</summary>
+        <p>Умови повернення — на сторінці <a href="refund-uk.html">«Політика повернення»</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="card final">
+      <span class="tag">Спробуйте на власній ідеї</span>
+      <h2>Одна фраза — і ➤</h2>
+      <p class="lead">Завантажте KADR Studio, напишіть, про що ролик, і подивіться, що вийде. Залишилися запитання — напишіть, відповімо особисто.</p>
+      <div class="cta-row">
+        <a class="btn btn-main" href="#download" data-os-cta>Завантажити KADR Studio</a>
+        <a class="btn btn-ghost" href="support-uk.html">Написати в підтримку</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="mcta" aria-label="Швидкі дії"><a class="btn btn-main" href="#download">Завантажити</a><a class="btn btn-ghost" href="#reel">▶ Шоурил</a></div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: ПІБ / ФОП]</span></span>
+    <span class="flinks"><a href="terms-uk.html">Умови</a> <a href="privacy-uk.html">Конфіденційність</a> <a href="refund-uk.html">Повернення</a> <a href="licenses-uk.html">Ліцензії</a> <a href="support-uk.html">Підтримка</a> <a href="mailto:kadrstudia8@gmail.com">Написати нам</a></span>
+    <span>Windows 10/11 і macOS 12+ · Без телеметрії</span>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>
