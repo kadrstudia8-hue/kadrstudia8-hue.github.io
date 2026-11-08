@@ -114,6 +114,7 @@ ul.clean.warn li::before{background:var(--pink);box-shadow:0 0 10px var(--pink)}
 .price .per{color:var(--muted);font-size:14px;margin-bottom:18px}
 .price ul{margin-bottom:24px;flex:1}
 .price .hot{border-color:rgba(201,138,75,.6);box-shadow:0 0 40px rgba(201,138,75,.18)}
+.price .old{font-size:20px;color:var(--muted);text-decoration:line-through;margin-right:8px;font-weight:600}.price .badge{display:inline-block;vertical-align:middle;margin-left:8px;padding:3px 10px;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--pink));color:#fff;font-size:13px;font-weight:800}.price .card .btn{justify-content:center}.price .extras{margin-top:18px}.price .extras p{margin:0}
 .ph{color:var(--pink);font-weight:700}
 
 /* faq */
@@ -392,25 +393,36 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section id="pricing" class="price">
   <div class="wrap">
     <span class="tag">Pricing</span>
-    <h2>Pricing: coming soon</h2>
-    <p class="lead" style="margin-bottom:36px">Prices are not final yet, and we don't sell anything on this site yet. What is already certain:</p>
+    <h2>Pricing</h2>
+    <p class="lead" style="margin-bottom:36px">Try it for free, buy when you like the videos. Everything runs on your own computer.</p>
     <div class="grid g3">
       <div class="card">
-        <h3>Your own GPU</h3>
-        <p>NVIDIA 8–12 GB or an Apple M Mac with 16 GB+: frames (and on NVIDIA also live scenes and music) run on your computer, with no per-image fees.</p>
-      </div>
-      <div class="card">
-        <h3>Your own keys — optional</h3>
-        <p>Claude, OpenAI, Gemini and ElevenLabs are paid to those services if you connect them. Without keys the app still makes a video.</p>
+        <h3>Trial</h3>
+        <div class="amount">Free</div><div class="per">3 videos up to 30 seconds</div>
+        <ul><li>No card, no sign-up</li><li>A small “KADR Studio” mark in a corner</li><li>Keys, your own GPU, looks and characters all work</li></ul>
+        <a class="btn btn-ghost" href="#download">Download for free</a>
       </div>
       <div class="card hot">
-        <h3>KADR Cloud — coming soon</h3>
-        <p>For Macs and PCs without a GPU: frames, live scenes and music on a rented RTX 5090. You'll see the price of a video before it starts.</p>
+        <h3>Lifetime licence <span class="badge">−40%</span></h3>
+        <div class="amount"><span class="old">$99</span>$59</div><div class="per">one-time · first 100 buyers</div>
+        <ul><li>Everything on your PC, 1 year of updates</li><li>then $99 for everyone</li><li>No mark, no limits</li><li>14-day refund if unused</li></ul>
+        <a class="btn btn-main" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Buy at the discount →</a>
+      </div>
+      <div class="card">
+        <h3>Subscription</h3>
+        <div class="amount">$9</div><div class="per">a month · or $79 a year</div>
+        <ul><li>Instead of the licence, if you need it for a while</li><li>Everything on your PC, updates while subscribed</li><li>Cancel any time</li></ul>
+        <a class="btn btn-ghost" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Subscribe</a>
       </div>
     </div>
+    <div class="grid g2 extras">
+      <div class="card"><h3>⚡ for the cloud — coming soon</h3><p>Energy packs from $10 — for Macs and PCs without a GPU: frames, live scenes and music on a rented RTX 5090. The app shows the price of a video before it starts; ⚡ never expire.</p></div>
+      <div class="card"><h3>Done-for-you setup — $99–149</h3><p>I install the app and the generator, connect your keys and we make the first video together — remotely.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">With your own GPU frames cost nothing per image; AI-service keys (optional) are paid to those services.</p>
     <div class="notify" id="notify">
-      <p>Hear about the Windows, cloud and pricing launch or ask a question</p>
-      <div class="notify-row"><a class="btn btn-main" href="mailto:kadrstudia8@gmail.com">Write to us</a></div>
+      <p>To buy, write to kadrstudia8@gmail.com — we send the payment details and activate the app. Card payment on the site is coming soon.</p>
+      <div class="notify-row"><a class="btn btn-main" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Buy: write an e-mail</a></div>
       <p class="note">E-mail: kadrstudia8@gmail.com. A personal reply, no newsletters, no trackers.</p>
     </div>
     <p class="note" style="margin-top:20px"><a href="terms-en.html">Terms</a> · <a href="refund-en.html">Refunds</a></p>
@@ -440,7 +452,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </details>
       <details>
         <summary>How much does it cost?</summary>
-        <p>Prices are not final yet — we'll announce them before launch, <a href="mailto:kadrstudia8@gmail.com">write to us</a>. Already now: with your own GPU, frames cost nothing per image, and AI-service keys (optional) are paid to those services.</p>
+        <p>The trial is free: 3 videos up to 30 seconds. A lifetime licence is <b>$59</b> for the first 100 buyers, then $99: everything on your PC, 1 year of updates. Instead of the licence — a subscription at $9 a month or $79 a year. Done-for-you setup — $99–149. The cloud (⚡ packs from $10) is coming soon. To buy, <a href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">write to kadrstudia8@gmail.com</a>; card payment is coming soon. With your own GPU frames cost nothing per image, and AI-service keys (optional) are paid to those services.</p>
       </details>
       <details>
         <summary>How do I get access?</summary>

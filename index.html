@@ -114,6 +114,7 @@ ul.clean.warn li::before{background:var(--pink);box-shadow:0 0 10px var(--pink)}
 .price .per{color:var(--muted);font-size:14px;margin-bottom:18px}
 .price ul{margin-bottom:24px;flex:1}
 .price .hot{border-color:rgba(201,138,75,.6);box-shadow:0 0 40px rgba(201,138,75,.18)}
+.price .old{font-size:20px;color:var(--muted);text-decoration:line-through;margin-right:8px;font-weight:600}.price .badge{display:inline-block;vertical-align:middle;margin-left:8px;padding:3px 10px;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--pink));color:#fff;font-size:13px;font-weight:800}.price .card .btn{justify-content:center}.price .extras{margin-top:18px}.price .extras p{margin:0}
 .ph{color:var(--pink);font-weight:700}
 
 /* faq */
@@ -392,25 +393,36 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section id="pricing" class="price">
   <div class="wrap">
     <span class="tag">Ціни</span>
-    <h2>Незабаром: ціни</h2>
-    <p class="lead" style="margin-bottom:36px">Ціни ще не затверджені, і на сайті ми поки нічого не продаємо. Що вже відомо напевно:</p>
+    <h2>Ціни</h2>
+    <p class="lead" style="margin-bottom:36px">Спробуйте безкоштовно, а купуйте, коли ролики сподобаються. Усе працює на вашому комп’ютері.</p>
     <div class="grid g3">
       <div class="card">
-        <h3>Власна відеокарта</h3>
-        <p>NVIDIA 8–12 ГБ або Mac на Apple M від 16 ГБ: кадри (а на NVIDIA — ще й живі сцени та музика) генеруються на вашому комп’ютері, без оплати за кожну картинку.</p>
-      </div>
-      <div class="card">
-        <h3>Власні ключі — за бажанням</h3>
-        <p>Claude, OpenAI, Gemini та ElevenLabs оплачуються безпосередньо в сервісах, якщо ви їх підключаєте. Без ключів програма теж збирає ролик.</p>
+        <h3>Пробний режим</h3>
+        <div class="amount">Безкоштовно</div><div class="per">3 ролики до 30 секунд</div>
+        <ul><li>Без картки й без реєстрації</li><li>Маленький знак «KADR Studio» у куті</li><li>Ключі, власна відеокарта, стилі й персонажі працюють</li></ul>
+        <a class="btn btn-ghost" href="#download">Завантажити безкоштовно</a>
       </div>
       <div class="card hot">
-        <h3>Хмара KADR — незабаром</h3>
-        <p>Для Mac і ПК без відеокарти: кадри, живі сцени й музика на орендованій RTX 5090. Ціну ролика покажемо до старту.</p>
+        <h3>Ліцензія назавжди <span class="badge">−40%</span></h3>
+        <div class="amount"><span class="old">$99</span>$59</div><div class="per">назавжди · перші 100 покупців</div>
+        <ul><li>Усе на своєму ПК, оновлення 1 рік</li><li>≈ 2 400 грн, потім $99 (≈ 4 000 грн)</li><li>Без знака й без обмежень</li><li>Повернення 14 днів, якщо не користувалися</li></ul>
+        <a class="btn btn-main" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Купити зі знижкою →</a>
+      </div>
+      <div class="card">
+        <h3>Підписка</h3>
+        <div class="amount">$9</div><div class="per">на місяць · або $79 на рік</div>
+        <ul><li>Замість ліцензії, якщо потрібно на певний час</li><li>Усе на своєму ПК, оновлення, поки підписка діє</li><li>Скасувати можна будь-коли</li></ul>
+        <a class="btn btn-ghost" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Оформити підписку</a>
       </div>
     </div>
+    <div class="grid g2 extras">
+      <div class="card"><h3>⚡ для хмари — незабаром</h3><p>Пакети Енергії від $10 — для Mac і ПК без відеокарти: кадри, живі сцени й музика на орендованій RTX 5090. Ціну ролика програма покаже до старту; ⚡ не згорають.</p></div>
+      <div class="card"><h3>«Налаштую під ключ» — $99–149</h3><p>Встановлю програму й генератор, підключу ключі та зробимо перший ролик разом — віддалено.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">Із власною відеокартою кадри нічого не коштують поштучно; ключі до ШІ-сервісів (за бажанням) оплачуються в самих сервісах.</p>
     <div class="notify" id="notify">
-      <p>Дізнатися про запуск Windows-версії, хмари й цін або поставити запитання</p>
-      <div class="notify-row"><a class="btn btn-main" href="mailto:kadrstudia8@gmail.com">Написати нам</a></div>
+      <p>Купити: напишіть на kadrstudia8@gmail.com — надішлемо реквізити й активуємо програму. Оплата карткою на сайті — незабаром.</p>
+      <div class="notify-row"><a class="btn btn-main" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Купити: написати на пошту</a></div>
       <p class="note">Пошта: kadrstudia8@gmail.com. Відповімо особисто, без розсилок і трекерів.</p>
     </div>
     <p class="note" style="margin-top:20px"><a href="terms-uk.html">Умови</a> · <a href="refund-uk.html">Повернення</a></p>
@@ -440,7 +452,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </details>
       <details>
         <summary>Скільки це коштує?</summary>
-        <p>Ціни ще не затверджені — оголосимо перед запуском, <a href="mailto:kadrstudia8@gmail.com">напишіть нам</a>. Уже зараз: із власною відеокартою кадри нічого не коштують поштучно, а ключі до ШІ-сервісів (за бажанням) оплачуються безпосередньо в сервісах.</p>
+        <p>Пробний режим — безкоштовно: 3 ролики до 30 секунд. Ліцензія назавжди — <b>$59</b> для перших 100 покупців (≈ 2 400 грн), потім $99 (≈ 4 000 грн): усе на своєму ПК, оновлення 1 рік. Замість ліцензії — підписка $9 на місяць або $79 на рік. «Налаштую під ключ» — $99–149. Хмара (пакети ⚡ від $10) — незабаром. Купити: <a href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">напишіть на kadrstudia8@gmail.com</a>; оплата карткою — незабаром. Із власною відеокартою кадри нічого не коштують поштучно, а ключі до ШІ-сервісів (за бажанням) оплачуються в самих сервісах.</p>
       </details>
       <details>
         <summary>Як отримати доступ до програми?</summary>
