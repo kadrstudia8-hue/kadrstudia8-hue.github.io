@@ -2,7 +2,13 @@
    No third-party code, no trackers, nothing is sent anywhere. */
 (function () {
   "use strict";
-  var EN = document.documentElement.lang === "en";
+  var LANG = document.documentElement.lang, EN = LANG !== "ru" && LANG !== "uk";
+  var T = {
+    mac: { ru: "Скачать для Mac", uk: "Завантажити для Mac", en: "Download for Mac", es: "Descargar para Mac", de: "Für Mac herunterladen" },
+    win: { ru: "Скачать для Windows", uk: "Завантажити для Windows", en: "Download for Windows", es: "Descargar para Windows", de: "Für Windows herunterladen" },
+    copied: { ru: "ссылка скопирована", uk: "посилання скопійовано", en: "link copied", es: "enlace copiado", de: "Link kopiert" }
+  };
+  function t(k) { return T[k][LANG] || T[k].en; }
   var calm = matchMedia("(prefers-reduced-motion: reduce)").matches ||
     (navigator.connection && navigator.connection.saveData);
   var ua = navigator.userAgent || "";
@@ -38,8 +44,8 @@
   var plat = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "").toLowerCase();
   [].forEach.call(document.querySelectorAll("[data-os-cta]"), function (a) {
     if (mobile) return;
-    if (plat.indexOf("mac") > -1) a.textContent = EN ? "Download for Mac" : "Скачать для Mac";
-    else if (plat.indexOf("win") > -1) { a.textContent = EN ? "Windows soon — notify me" : "Windows скоро — сообщить"; a.href = "#notify"; }
+    if (plat.indexOf("mac") > -1) a.textContent = t("mac");
+    else if (plat.indexOf("win") > -1) a.textContent = t("win");
   });
 
   /* phones: KADR is a computer app — send the link to yourself */
@@ -48,7 +54,7 @@
       var url = location.href.split("#")[0];
       if (navigator.share) { navigator.share({ title: "KADR Studio", url: url }).catch(function () {}); return; }
       if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () {
-        b.textContent = EN ? "link copied" : "ссылка скопирована";
+        b.textContent = t("copied");
       });
     });
   });

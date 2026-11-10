@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KADR Studio — una frase, un vídeo terminado</title>
+<meta name="description" content="KADR Studio para Windows y macOS: escribe una idea y obtén un vídeo terminado con guion, locución, imágenes, escenas animadas, música y subtítulos.">
+<link rel="canonical" href="https://kadrstudia8-hue.github.io/landing-es.html">
+<link rel="alternate" hreflang="uk" href="https://kadrstudia8-hue.github.io/">
+<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/landing.html">
+<link rel="alternate" hreflang="en" href="https://kadrstudia8-hue.github.io/landing-en.html">
+<link rel="alternate" hreflang="es" href="https://kadrstudia8-hue.github.io/landing-es.html">
+<link rel="alternate" hreflang="de" href="https://kadrstudia8-hue.github.io/landing-de.html">
+<link rel="alternate" hreflang="x-default" href="https://kadrstudia8-hue.github.io/">
+<meta name="theme-color" content="#0e0c0a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KADR Studio">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:url" content="https://kadrstudia8-hue.github.io/landing-es.html">
+<meta property="og:title" content="KADR Studio — una frase, un vídeo terminado">
+<meta property="og:description" content="KADR Studio para Windows y macOS: escribe una idea y obtén un vídeo terminado con guion, locución, imágenes, escenas animadas, música y subtítulos.">
+<meta property="og:image" content="https://kadrstudia8-hue.github.io/media/reel-en.jpg">
+<meta property="og:image:width" content="960">
+<meta property="og:image:height" content="540">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root{
+  --bg:#0a0a13; --bg2:#10101c; --text:#ececf5; --muted:#9a9ab3;
+  --violet:#7c5cff; --pink:#ff4fb0; --cyan:#22d3ee;
+  --glass:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Manrope,system-ui,Segoe UI,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:88px 0;position:relative}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+.lead{color:var(--muted);font-size:18px;max-width:640px}
+.grad{background:linear-gradient(90deg,var(--violet),var(--pink) 55%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:26px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:860px){.g3,.g2{grid-template-columns:1fr}section{padding:64px 0}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;transition:transform .15s,box-shadow .2s}
+.btn-main{background:linear-gradient(90deg,var(--violet),var(--pink));color:#fff;box-shadow:0 0 30px rgba(217,178,111,.45)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(201,138,75,.55)}
+.btn-ghost{border:1px solid var(--line);background:var(--glass)}
+.btn-ghost:hover{border-color:var(--cyan)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(10,10,19,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-weight:800;font-size:19px;letter-spacing:.04em;display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,var(--cyan) 18%,var(--violet) 55%,var(--pink) 100%);box-shadow:0 0 16px var(--violet)}
+.links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+.links a{text-decoration:none}.links a:hover{color:var(--text)}
+@media(max-width:760px){.links a:not([hreflang]){display:none}}
+.links a[aria-current]{color:var(--text)}@media(max-width:760px){.links{gap:12px;margin:0 10px}}@media(max-width:420px){nav .wrap>.btn{display:none}}
+
+/* hero */
+.hero{padding:96px 0 72px;text-align:center;overflow:hidden}
+.orb{position:absolute;left:50%;top:40px;width:520px;height:520px;transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,rgba(255,255,255,.55) 0,rgba(235,201,139,.55) 12%,rgba(217,178,111,.55) 40%,rgba(201,138,75,.35) 64%,transparent 72%);
+  filter:blur(28px);opacity:.75;animation:float 9s ease-in-out infinite;z-index:0;pointer-events:none}
+@keyframes float{50%{transform:translateX(-50%) translateY(18px) scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.orb{animation:none}}
+@media(max-width:600px){.orb{width:340px;height:340px}}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(36px,6.4vw,68px);font-weight:800;margin:10px auto 20px;max-width:900px}
+.hero p.lead{margin:0 auto 34px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.prompt{margin:44px auto 0;max-width:620px;display:flex;align-items:center;gap:12px;padding:14px 14px 14px 22px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(217,178,111,.45);box-shadow:0 0 40px rgba(217,178,111,.25);text-align:left;color:var(--muted);font-size:15px}
+.prompt span{flex:1}
+.prompt b{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;font-size:18px}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* shots */
+.shots{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:56px;text-align:left}
+@media(max-width:860px){.shots{grid-template-columns:1fr}}
+.shot{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bg2);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(217,178,111,.15)}
+.shot figcaption{font-size:13px;color:var(--muted);padding:10px 14px}
+
+/* steps */
+.step-n{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:800;margin-bottom:16px;background:linear-gradient(135deg,rgba(217,178,111,.35),rgba(201,138,75,.25));border:1px solid rgba(217,178,111,.5)}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p,.card li{color:var(--muted);font-size:15px}
+
+/* features */
+.feat{display:flex;gap:14px;align-items:flex-start}
+.feat .ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(235,201,139,.1);border:1px solid rgba(235,201,139,.35);color:var(--cyan);font-weight:800;font-size:15px}
+.feat h3{font-size:16px;margin-bottom:4px}
+
+/* audience */
+.aud .card{border-top:2px solid var(--violet)}
+.aud .card:nth-child(2){border-top-color:var(--pink)}
+.aud .card:nth-child(3){border-top-color:var(--cyan)}
+
+/* requirements */
+ul.clean{list-style:none}
+ul.clean li{padding:8px 0 8px 26px;position:relative;border-bottom:1px dashed var(--line)}
+ul.clean li:last-child{border-bottom:0}
+ul.clean li::before{content:"";position:absolute;left:4px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+ul.clean.warn li::before{background:var(--pink);box-shadow:0 0 10px var(--pink)}
+
+/* pricing */
+.price .card{display:flex;flex-direction:column}
+.price .amount{font-size:38px;font-weight:800;margin:10px 0 2px}
+.price .per{color:var(--muted);font-size:14px;margin-bottom:18px}
+.price ul{margin-bottom:24px;flex:1}
+.price .hot{border-color:rgba(201,138,75,.6);box-shadow:0 0 40px rgba(201,138,75,.18)}
+.price .old{font-size:20px;color:var(--muted);text-decoration:line-through;margin-right:8px;font-weight:600}.price .badge{display:inline-block;vertical-align:middle;margin-left:8px;padding:3px 10px;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--pink));color:#fff;font-size:13px;font-weight:800}.price .card .btn{justify-content:center}.price .extras{margin-top:18px}.price .extras p{margin:0}
+.ph{color:var(--pink);font-weight:700}
+
+/* faq */
+details{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-bottom:12px}
+details[open]{border-color:rgba(217,178,111,.5)}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--cyan);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:10px;font-size:15px}
+
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.flinks{display:flex;gap:14px;flex-wrap:wrap}.flinks a{color:var(--muted)}.flinks a:hover{color:var(--text)}
+.dl-card.soon{cursor:default}.dl-card.soon:hover{transform:none;border-color:var(--line)}
+:focus-visible{outline:2px solid #d9b26f;outline-offset:3px}
+.dl-card{display:grid;gap:6px;text-decoration:none;transition:border-color .2s,transform .2s}.dl-card:hover{border-color:var(--violet);transform:translateY(-2px)}
+.dl-card b{font-size:19px}.dl-card span{color:var(--muted);font-size:14px}.dl-card em{font-style:normal;color:var(--cyan);font-weight:700;margin-top:6px}
+.shots{grid-template-columns:2fr 2fr 1fr}.shot-tall img{max-height:420px;width:auto;margin:0 auto}@media(max-width:860px){.shots{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="kinozal.css">
+<link rel="stylesheet" href="site.css">
+<link rel="preload" as="image" href="media/hero-en.jpg">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>KADR <em>studio</em></a>
+    <div class="links">
+      <a href="#proof">Ejemplos</a>
+      <a href="#how">Cómo funciona</a>
+      <a href="#who">Para quién</a>
+      <a href="#req">¿Sin GPU?</a>
+      <a href="#pricing">Precios</a>
+      <a href="#faq">FAQ</a> <a href="landing-uk.html" hreflang="uk" lang="uk">UK</a> <a href="landing.html" hreflang="ru" lang="ru">RU</a> <a href="landing-en.html" hreflang="en" lang="en">EN</a> <a href="landing-es.html" hreflang="es" lang="es" aria-current="true">ES</a> <a href="landing-de.html" hreflang="de" lang="de">DE</a>    </div>
+    <a class="btn btn-ghost" href="#download" style="padding:9px 18px;font-size:14px">Descargar</a>
+  </div>
+</nav>
+
+<header class="hero hero2" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="tag">Una app para Windows y macOS</span>
+        <h1><span class="nw">Una frase:</span> <span class="grad">un vídeo terminado</span></h1>
+        <p class="lead">Escribe una idea y KADR Studio se encarga del guion, la voz, las imágenes, las escenas animadas, la música y los subtítulos, y te entrega un MP4 listo para TikTok, Shorts, Reels y YouTube.</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="#download" data-os-cta>Descargar KADR Studio</a>
+          <a class="btn btn-ghost" href="#reel">▶ Showreel, 25 s</a>
+        </div>
+        <p class="note">Windows y Mac: descarga ya · sin anuncios, sin telemetría</p>
+        <p class="mobile-hint">KADR Studio es una app de escritorio. Abre esta web en un Mac o un PC, o <button type="button" data-share>envíate el enlace</button>.</p>
+      </div>
+      <div class="hero-film">
+        <figure class="frame sprockets">
+          <video data-loop muted loop playsinline preload="none" poster="media/hero-en.jpg" width="1280" height="720" aria-label="Planos de la película «Why Does Your Brain Make Dreams Feel Real?», hecha en KADR Studio"><source data-src="media/hero-en.mp4" type="video/mp4"></video>
+        </figure>
+        <p class="cap frame-cap">No es material de archivo: son planos de «Why Does Your Brain Make Dreams Feel Real?» (17 minutos), una película que KADR Studio creó a partir de un solo encargo. Existe también una versión en ruso con los mismos planos.</p>
+      </div>
+    </div>
+    <ul class="facts">
+      <li><b>De 15 segundos a 30 minutos</b></li>
+      <li><b>9:16 · 16:9 · 1:1 · 4:5</b></li>
+      <li>voces <b>ES · DE · EN · UK · RU</b></li>
+      <li>funciona <b>sin claves</b></li>
+      <li>¿se va la luz? <b>sigue donde se quedó</b></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+<section id="proof">
+  <div class="wrap">
+    <span class="tag">Ejemplos reales</span>
+    <h2>Una frase → un vídeo</h2>
+    <p class="lead">Peticiones reales de nuestros proyectos y los vídeos que KADR Studio hizo con ellas. Se escribieron en ruso; aquí las ves traducidas. Toca cualquiera.</p>
+    <div class="demo" data-demo>
+      <div>
+        <div class="demo-tabs" role="tablist" aria-label="Peticiones de ejemplo">
+          <button type="button" role="tab" aria-selected="true" aria-controls="demo-panel" data-video="media/oleg.mp4" data-poster="media/oleg.jpg" data-shape="v" data-alt="Short: el taxista Oleg y una tarta olvidada por un pasajero" data-meta="Short 9:16|30 segundos|voz y subtítulos palabra a palabra" data-prompt="El taxista Oleg cuenta una historia divertida sobre un pasajero que se olvidó una tarta de cumpleaños en su coche">Taxi y tarta</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/oleg-tips.mp4" data-poster="media/oleg-tips.jpg" data-shape="v" data-alt="Short: el taxista Oleg da consejos" data-meta="Short 9:16|32 segundos|el mismo protagonista en cada plano" data-prompt="El taxista Oleg da 3 consejos para moverse en taxi por la ciudad pagando menos">3 consejos de taxi</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/cafe.mp4" data-poster="media/cafe.jpg" data-shape="v" data-alt="Anuncio de cafetería: cruasanes y café" data-meta="Anuncio 9:16|28 segundos|texto grande en pantalla" data-prompt="Un anuncio corto para una cafetería acogedora del barrio: mañana, olor a café recién hecho, cruasanes, una barista sonriente y, al final, una invitación a pasarse hoy mismo">Anuncio de café</button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="demo-panel" data-video="media/ocean.mp4" data-poster="media/ocean.jpg" data-shape="h" data-alt="Vídeo sobre el océano: una medusa y el Gran Agujero Azul" data-meta="YouTube 16:9|26 segundos|escenas animadas" data-prompt="Un vídeo sobre el océano: los lugares y criaturas más asombrosos que muy poca gente ha visto">Océano</button>
+        </div>
+        <div class="demo-prompt" aria-live="polite"><p>El taxista Oleg cuenta una historia divertida sobre un pasajero que se olvidó una tarta de cumpleaños en su coche</p><b aria-hidden="true">➤</b></div>
+        <ul class="demo-meta"><li>Short 9:16</li><li>30 segundos</li><li>voz y subtítulos palabra a palabra</li></ul>
+        <p class="demo-note">Fragmento sin sonido, con voz y subtítulos en ruso. Los clips completos con sonido están en el showreel de abajo.</p>
+      </div>
+      <div class="demo-stage" id="demo-panel" role="tabpanel">
+        <figure class="frame v"><img src="media/oleg.jpg" alt="Short: el taxista Oleg y una tarta olvidada por un pasajero" width="404" height="720" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reel">
+  <div class="wrap">
+    <span class="tag">Showreel</span>
+    <h2>25 segundos de resultados reales</h2>
+    <p class="lead">Solo lo que hizo la app: la película sobre los sueños, un Short recortado de ella, el Short del taxista, el anuncio de la cafetería y el vídeo del océano. Activa el sonido: la voz y la música son las de los propios vídeos.</p>
+    <div class="reel">
+      <figure class="frame">
+        <video data-reel controls playsinline preload="none" poster="media/reel-en.jpg" width="960" height="540" aria-label="Showreel de KADR Studio, 25 segundos, con sonido"><source data-src="media/reel-en.mp4" type="video/mp4"></video>
+      </figure>
+      <p class="cap reel-cap"><span>Fragmentos tal como los renderizó la app, unidos para esta web.</span><span>2 MB · con sonido</span></p>
+    </div>
+    <div class="cta-row" style="justify-content:flex-start;margin-top:26px">
+      <a class="btn btn-main" href="#download">Descargar KADR Studio</a>
+      <a class="btn btn-ghost" href="#how">Cómo funciona</a>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <span class="tag">Para quién</span>
+    <h2>Para quién es KADR Studio</h2>
+    <div class="uses">
+      <article class="card use">
+        <div class="use-media trio">
+          <video data-loop muted loop playsinline preload="none" poster="media/short-1.jpg" width="404" height="720" aria-label="Short de la película sobre los sueños: un retrato luminoso"><source data-src="media/short-1.mp4" type="video/mp4"></video>
+          <video data-loop muted loop playsinline preload="none" poster="media/short-2.jpg" width="404" height="720" aria-label="Short de la película sobre los sueños: un cerebro luminoso"><source data-src="media/short-2.mp4" type="video/mp4"></video>
+          <video data-loop muted loop playsinline preload="none" poster="media/short-3.jpg" width="404" height="720" aria-label="Short de la película sobre los sueños: primer plano de un ojo"><source data-src="media/short-3.mp4" type="video/mp4"></video>
+        </div>
+        <div class="use-body">
+          <h3>Creadores de TikTok, Shorts y Reels</h3>
+          <p>Vídeos verticales constantes sin grabar ni editar. «Cortar Shorts» convierte una película larga en 3–8 clips: título gancho, encuadre que sigue las caras, texto y hashtags para cada uno.</p>
+          <span class="src">Ejemplo: 7 Shorts sacados de una película sobre los sueños</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media solo"><img src="media/cafe.jpg" alt="Plano del anuncio de la cafetería: cruasanes y texto grande" width="404" height="720" loading="lazy"></div>
+        <div class="use-body">
+          <h3>Pequeños negocios</h3>
+          <p>Anuncios cortos para una cafetería, una tienda o un servicio en 9:16, 1:1 o 4:5. Define el producto o el protagonista con fotos y se mantiene igual en cada plano. Incluye la plantilla «Anuncio de producto».</p>
+          <span class="src">Ejemplo: anuncio de cafetería a partir de una frase, 28 segundos</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media"><video data-loop muted loop playsinline preload="none" poster="media/film.jpg" width="960" height="540" aria-label="Fragmento de la película sobre los sueños"><source data-src="media/film.mp4" type="video/mp4"></video></div>
+        <div class="use-body">
+          <h3>Divulgación en YouTube y canales sin cara</h3>
+          <p>Vídeos explicativos y películas de hasta 30 minutos con capítulos: el director IA escribe un guion con gancho y elige planos y ángulos. Textos de publicación incluidos: título, descripción con capítulos y hashtags.</p>
+          <span class="src">Ejemplo: la película sobre los sueños, 17 minutos, a partir de un solo encargo</span>
+        </div>
+      </article>
+      <article class="card use">
+        <div class="use-media pair">
+          <figure><img src="media/lang-en.jpg" alt="Plano de la película con subtítulos en inglés" width="800" height="450" loading="lazy"><span class="badge">EN</span></figure>
+          <figure><img src="media/lang-ru.jpg" alt="El mismo plano con subtítulos en ruso" width="800" height="450" loading="lazy"><span class="badge">RU</span></figure>
+        </div>
+        <div class="use-body">
+          <h3>En varios idiomas</h3>
+          <p>Las mismas imágenes en otro idioma: un narrador nativo y subtítulos traducidos. Voces neuronales gratuitas (también en español y alemán) o ElevenLabs con tu clave, incluida tu voz clonada.</p>
+          <span class="src">Ejemplo: la película sobre los sueños en inglés y en ruso</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <span class="tag">Cómo funciona</span>
+    <h2>Tres pasos de la idea al MP4</h2>
+    <p class="lead" style="margin-bottom:36px">Sin línea de tiempo ni edición. Tú describes lo que quieres y la app hace el resto.</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="step-n">1</div>
+        <h3>Escribe una idea</h3>
+        <p>Una frase o tu propio texto, de hasta 30 000 caracteres. Formato 9:16, 16:9, 1:1 o 4:5; duración de 15 segundos a 30 minutos. O elige una plantilla: Datos, Top 5, Historia, Anuncio de producto, Tutorial.</p>
+      </div>
+      <div class="card">
+        <div class="step-n">2</div>
+        <h3>Pulsa ➤</h3>
+        <p>KADR escribe el guion (Claude, OpenAI o Gemini con tu clave), lo locuta, dibuja los planos, anima las escenas clave, compone la música y coloca subtítulos palabra a palabra. ¿Quieres ver los planos antes? Activa el storyboard.</p>
+      </div>
+      <div class="card">
+        <div class="step-n">3</div>
+        <h3>Llévate el vídeo terminado</h3>
+        <p>Un MP4 con el volumen que piden las redes. La app revisa el vídeo ella misma y te dice con palabras claras qué conviene corregir; cualquier plano se vuelve a dibujar con un botón.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:22px">Tiempos en una RTX 3060: cerca de un minuto por plano, unos 2,5 minutos por escena animada, unas 4 horas para una película de 20 minutos. Sin claves ni GPU, un vídeo a partir de tu texto está listo en uno o dos minutos.</p>
+    <figure class="frame how-shot"><img src="img/home-en.jpg" alt="Pantalla de inicio de KADR Studio: campo de idea, formatos y plantillas" width="1280" height="820" loading="lazy"></figure>
+    <p class="cap frame-cap">La pantalla de inicio de la app: idea, formato, plantilla y ➤. La interfaz está en inglés, ucraniano y ruso; el español llegará más adelante.</p>
+  </div>
+</section>
+
+<section id="looks">
+  <div class="wrap">
+    <span class="tag">Cómo se verá</span>
+    <h2>El estilo visual, en un clic</h2>
+    <p class="lead">12 estilos, del cine y la fotografía documental al anime y la animación 3D. El mismo plano en distintos estilos:</p>
+    <div class="looks"><figure><img src="img/look-cinema.jpg" alt="Cine" loading="lazy"><figcaption>Cine</figcaption></figure><figure><img src="img/look-anime.jpg" alt="Anime" loading="lazy"><figcaption>Anime</figcaption></figure><figure><img src="img/look-cartoon3d.jpg" alt="Animación 3D" loading="lazy"><figcaption>Animación 3D</figcaption></figure><figure><img src="img/look-watercolor.jpg" alt="Acuarela" loading="lazy"><figcaption>Acuarela</figcaption></figure><figure><img src="img/look-neon.jpg" alt="Neón noir" loading="lazy"><figcaption>Neón noir</figcaption></figure><figure><img src="img/look-studio.jpg" alt="Anuncio de producto" loading="lazy"><figcaption>Anuncio de producto</figcaption></figure></div>
+  </div>
+</section>
+
+<section id="req">
+  <div class="wrap">
+    <span class="tag">Sinceros con el hardware</span>
+    <h2>¿Sin GPU? También funciona</h2>
+    <p class="lead">Lo que obtienes en tu ordenador: ni más ni menos de lo que la app hace hoy.</p>
+    <div class="tiers">
+      <div class="card tier">
+        <span class="who">PC CON NVIDIA 8–12 GB</span>
+        <h3>Todo en tu ordenador</h3>
+        <p>Planos, escenas animadas y música se generan en tu GPU, sin pagar por imagen. La app descarga e instala el generador (~28 GB) por sí sola.</p>
+        <p>Windows 10/11, 64 bits.</p>
+      </div>
+      <div class="card tier">
+        <span class="who">MAC CON APPLE M1–M4</span>
+        <h3>El Mac dibuja los planos</h3>
+        <p>Con 16 GB de memoria o más, el Mac dibuja los planos él mismo; en otros Mac lo hacen servicios de imagen con clave. Por ahora no hay escenas animadas en Mac.</p>
+        <p>Voz, subtítulos, montaje y render funcionan en cualquier Mac con macOS 12 o posterior, Intel incluido.</p>
+      </div>
+      <div class="card tier">
+        <span class="who">CUALQUIER ORDENADOR</span>
+        <h3>Un vídeo incluso sin claves</h3>
+        <p>Sin claves, una voz neuronal gratuita lee tu texto sobre palabras grandes y un fondo animado; el vídeo está listo en uno o dos minutos.</p>
+        <p>Con claves, la IA escribe el guion y los planos salen de servicios de imagen o de fotos gratuitas de Pexels y Pixabay. KADR Cloud con GPU RTX 5090: muy pronto.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3>Conviene saberlo antes</h3>
+      <ul class="clean warn">
+        <li>La velocidad depende de la GPU: en una RTX 3060 un plano tarda cerca de un minuto y una película de 20 minutos, unas 4 horas.</li>
+        <li>Un corte de luz no hace perder nada: la app sigue donde se quedó.</li>
+        <li>Los guiones con IA y las voces de ElevenLabs usan tus propias claves: pagas a esos servicios sus propias tarifas. La clave de Gemini es gratuita.</li>
+        <li>La interfaz de la app está en inglés, ucraniano y ruso. El español todavía no está disponible.</li>
+        <li>Primer arranque en Mac: macOS avisa de un desarrollador no identificado: «Ajustes del Sistema» → «Privacidad y seguridad» → «Abrir igualmente». Solo una vez.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <span class="tag">Qué incluye</span>
+    <h2>Toda la producción de vídeo en una ventana</h2>
+    <p class="lead" style="margin-bottom:36px">Cada fase funciona gratis en tu propio equipo, o conectas tus propias claves de servicio.</p>
+    <div class="grid feats">
+      <div class="card feat"><div class="ic">✎</div><div><h3>Guion con IA</h3><p>Claude, OpenAI o Gemini con tu clave. Sin clave, tu propio texto se convierte en el guion.</p></div></div>
+      <div class="card feat"><div class="ic">♪</div><div><h3>Locución</h3><p>ElevenLabs con tu clave (también voces clonadas), voces neuronales gratuitas (ES, DE, EN, UK, RU y más) o voces del sistema. Una sola voz en todo el vídeo.</p></div></div>
+      <div class="card feat"><div class="ic">▣</div><div><h3>Planos en tu GPU</h3><p>RealVisXL en tu NVIDIA; el generador se instala con un botón. Sin pagar por imagen.</p></div></div>
+      <div class="card feat"><div class="ic">▶</div><div><h3>Escenas animadas</h3><p>Los momentos clave cobran vida (Wan 2.2): unos 2,5 minutos por escena en una RTX 3060.</p></div></div>
+      <div class="card feat"><div class="ic">♫</div><div><h3>Música de fondo</h3><p>Compuesta en tu GPU (ACE-Step): olvídate de buscar pistas de stock.</p></div></div>
+      <div class="card feat"><div class="ic">Aa</div><div><h3>Subtítulos y sonido</h3><p>Subtítulos palabra a palabra y el volumen que piden las redes. El MP4 está listo para publicar.</p></div></div>
+      <div class="card feat"><div class="ic">✂</div><div><h3>Cortar Shorts</h3><p>3–8 clips verticales de una película larga, encuadre que sigue las caras, texto y hashtags.</p></div></div>
+      <div class="card feat"><div class="ic">☺</div><div><h3>Personajes propios y listos</h3><p>Un protagonista, un estilo o un producto a partir de una descripción o de fotos, igual en cada plano. Además, 12 personajes listos con su propia voz.</p></div></div>
+      <div class="card feat"><div class="ic">文</div><div><h3>Otros idiomas</h3><p>Las mismas imágenes, un narrador nativo y subtítulos traducidos.</p></div></div>
+      <div class="card feat"><div class="ic">✉</div><div><h3>Textos de publicación</h3><p>Título, descripción con capítulos, hashtags y un comentario fijado, con un solo botón.</p></div></div>
+      <div class="card feat"><div class="ic">✦</div><div><h3>Asistente IA y variantes</h3><p>El chat cambia escenas y estilo; antes de crear, la IA te propone 3 enfoques distintos para el vídeo.</p></div></div>
+      <div class="card feat"><div class="ic">⚿</div><div><h3>Configuración sencilla</h3><p>Pega una clave y la app reconoce el servicio. El sistema guarda las claves cifradas.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <span class="tag">Descargar</span>
+    <h2>Para Windows y Mac</h2>
+    <p class="lead">Un solo programa para ambos sistemas. Una vez instalado, te avisa de las actualizaciones.</p>
+    <div class="grid g3 dl" style="margin-top:30px">
+      <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/download/v3.0.2/KADR-Studio-Setup-3.0.2.exe"><b>Windows</b><span>10 y 11, 64 bits · instalador .exe · v3.0.2</span><em>Descargar para Windows</em></a>
+      <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-arm64.dmg"><b>Mac con Apple M1–M4</b><span>macOS 12 o posterior · .dmg</span><em>Descargar para Mac (chip M)</em></a>
+      <a class="card dl-card" href="https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-x86_64.dmg"><b>Mac con Intel</b><span>macOS 12 o posterior · .dmg</span><em>Descargar para Mac (Intel)</em></a>
+    </div>
+    <p class="note" style="margin-top:14px">¿Qué Mac tengo? Manzana en la esquina superior izquierda → «Acerca de este Mac»: «Chip Apple M…», el primer botón; «Procesador Intel», el segundo.</p>
+  </div>
+</section>
+
+<section id="pricing" class="price">
+  <div class="wrap">
+    <span class="tag">Precios</span>
+    <h2>Precios</h2>
+    <p class="lead" style="margin-bottom:36px">Pruébalo gratis y compra cuando te gusten los vídeos. Todo funciona en tu propio ordenador.</p>
+    <div class="grid g3">
+      <div class="card">
+        <h3>Prueba</h3>
+        <div class="amount">Gratis</div><div class="per">3 vídeos de hasta 60 segundos</div>
+        <ul><li>Sin tarjeta ni registro</li><li>Una pequeña marca «KADR Studio» en una esquina</li><li>Claves, tu propia GPU, estilos y personajes: todo funciona</li></ul>
+        <a class="btn btn-ghost" href="#download">Descargar gratis</a>
+      </div>
+      <div class="card hot">
+        <h3>Licencia de por vida <span class="badge">−40%</span></h3>
+        <div class="amount"><span class="old">$99</span>$59</div><div class="per">pago único · primeros 100 compradores</div>
+        <ul><li>Todo en tu PC, 1 año de actualizaciones</li><li>después, $99 para todos</li><li>Sin marca, sin límites</li><li>Reembolso en 14 días si no la has usado</li></ul>
+        <a class="btn btn-main" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Comprar con descuento →</a>
+      </div>
+      <div class="card">
+        <h3>Suscripción</h3>
+        <div class="amount">$9</div><div class="per">al mes · o $79 al año</div>
+        <ul><li>En lugar de la licencia, si la necesitas por un tiempo</li><li>Todo en tu PC, actualizaciones mientras estés suscrito</li><li>Cancela cuando quieras</li></ul>
+        <a class="btn btn-ghost" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Suscribirse</a>
+      </div>
+    </div>
+    <div class="grid g2 extras">
+      <div class="card"><h3>⚡ para la nube: muy pronto</h3><p>Paquetes de Energía desde $10, para Mac y PC sin GPU: planos, escenas animadas y música en una RTX 5090 alquilada. La app muestra el precio del vídeo antes de empezar; los ⚡ no caducan.</p></div>
+      <div class="card"><h3>Instalación llave en mano: $99–149</h3><p>Instalo la app y el generador, conecto tus claves y hacemos juntos el primer vídeo, en remoto.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">Con tu propia GPU los planos no cuestan nada por imagen; las claves de servicios de IA (opcionales) se pagan a esos servicios.</p>
+    <div class="notify" id="notify">
+      <p>Para comprar, escribe a kadrstudia8@gmail.com: te enviamos los datos de pago y activamos la app. El pago con tarjeta en la web llegará pronto.</p>
+      <div class="notify-row"><a class="btn btn-main" href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">Comprar: escríbenos un e-mail</a></div>
+      <p class="note">E-mail: kadrstudia8@gmail.com. Respuesta personal, sin newsletters ni rastreadores.</p>
+    </div>
+    <p class="note" style="margin-top:20px"><a href="terms-es.html">Condiciones</a> · <a href="refund-es.html">Reembolsos</a></p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:820px">
+    <span class="tag">FAQ</span>
+    <h2>Preguntas frecuentes</h2>
+    <div style="margin-top:28px">
+      <details open>
+        <summary>¿Es difícil?</summary>
+        <p>No. Un campo para la idea, un formato, una duración y ➤. Hay plantillas (Datos, Top 5, Historia, Anuncio de producto, Tutorial), 12 estilos visuales y 12 personajes listos. Solo pegas una clave y la app averigua a qué servicio pertenece. El generador de planos se instala dentro de la app con un botón.</p>
+      </details>
+      <details>
+        <summary>¿En qué idioma está la app?</summary>
+        <p>La interfaz está en inglés, ucraniano y ruso; la versión en español todavía no está lista. Los vídeos sí pueden ser en español: la app entiende tu idea en español y la locuta con una voz neuronal gratuita o con ElevenLabs.</p>
+      </details>
+      <details>
+        <summary>¿Necesito una GPU NVIDIA?</summary>
+        <p>Para planos, música y escenas animadas gratis, sí: una tarjeta NVIDIA con 8–12 GB de VRAM (en un Mac Apple M con 16 GB o más, el Mac dibuja los planos él mismo). Sin ella, los planos salen de servicios de imagen con clave o de fotos gratuitas de Pexels y Pixabay, y sin ninguna clave una voz gratuita lee tu texto sobre un fondo de color animado. KADR Cloud para ordenadores sin GPU llegará pronto.</p>
+      </details>
+      <details>
+        <summary>¿No parecerá una papilla barata de IA?</summary>
+        <p>Mira el showreel de arriba: eso es lo que sale de la app. Antes del render puedes activar el storyboard y volver a dibujar cualquier plano. Después del render, «Revisión del vídeo» detecta fallos, los explica con palabras claras y corrige por sí sola una vez los defectos graves. Con una clave de Gemini, una IA revisa las escenas animadas: la que sale mal se vuelve a rodar, y tras dos fallos la escena se queda como una buena imagen fija.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tarda un vídeo?</summary>
+        <p>Depende de la GPU. En una RTX 3060: cerca de un minuto por plano, unos 2,5 minutos por escena animada, unas 4 horas para una película de 20 minutos. Sin claves ni GPU, un vídeo a partir de tu texto está listo en uno o dos minutos.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto cuesta?</summary>
+        <p>La prueba es gratuita: 3 vídeos de hasta 60 segundos. La licencia de por vida cuesta <b>$59</b> para los primeros 100 compradores y después $99: todo en tu PC, 1 año de actualizaciones. En lugar de la licencia, una suscripción de $9 al mes o $79 al año. Instalación llave en mano: $99–149. La nube (paquetes de ⚡ desde $10) llegará pronto. Para comprar, <a href="mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">escribe a kadrstudia8@gmail.com</a>; el pago con tarjeta llegará pronto. Con tu propia GPU los planos no cuestan nada por imagen, y las claves de servicios de IA (opcionales) se pagan a esos servicios.</p>
+      </details>
+      <details>
+        <summary>¿Cómo obtengo acceso?</summary>
+        <p>Descarga KADR Studio para tu ordenador y regístrate en la app con tu e-mail. Sin pagar funciona la prueba (3 vídeos). Para comprar una licencia o suscripción, escribe a kadrstudia8@gmail.com desde el e-mail de tu cuenta y la activamos: desaparecen la marca y los límites. Suele tardar unos minutos en horario laboral. Recargar ⚡ es solo saldo para la nube; no desbloquea la app. Los contactos están en la página de <a href="support-es.html">Soporte</a>.</p>
+      </details>
+      <details>
+        <summary>¿Qué es la Energía ⚡?</summary>
+        <p>⚡ es la unidad interna de KADR para la nube: sin una GPU potente, la app alquila una durante el vídeo y descuenta ⚡ a medida que los planos y escenas están listos; ves el precio antes de empezar. ⚡ no es dinero ni una criptomoneda y no se puede transferir. Con tu propia GPU NVIDIA (o un Mac con chip Apple y 16 GB o más) los planos son gratis y no necesitas ⚡. La nube y los precios de ⚡ llegarán pronto.</p>
+      </details>
+      <details>
+        <summary>¿Funciona en Mac?</summary>
+        <p>Sí: macOS 12 o posterior, Mac con Apple M1–M4 o Intel. En los Mac con chip Apple y 16 GB o más, el ordenador dibuja los planos él mismo; en los demás, servicios de imagen con clave y, pronto, KADR Cloud. Por ahora no hay escenas animadas en Mac. Voz, subtítulos, montaje y render funcionan en cualquier Mac. En el primer arranque macOS pregunta una vez: «Ajustes del Sistema» → «Privacidad y seguridad» → «Abrir igualmente».</p>
+      </details>
+      <details>
+        <summary>¿Necesito claves de IA de pago?</summary>
+        <p>No. Sin claves, tu propio texto se convierte en el guion y la locución la hacen voces neuronales gratuitas o voces del sistema. Las claves de Claude, OpenAI o Gemini (la de Gemini es gratuita) permiten que la IA escriba el guion por ti; una clave de ElevenLabs desbloquea sus voces, incluidas las clonadas.</p>
+      </details>
+      <details>
+        <summary>¿Adónde van mis datos y claves?</summary>
+        <p>Los vídeos, guiones y proyectos se quedan en tu ordenador. La cuenta sirve solo para la activación y el saldo de ⚡; no hay telemetría. Las claves se guardan cifradas: en Windows por el sistema (DPAPI), en Mac en el Llavero. Si conectas servicios externos (Claude, OpenAI, Gemini, ElevenLabs), el texto de la petición va directamente a ellos con tu clave. Más información en la <a href="privacy-es.html">Política de privacidad</a>.</p>
+      </details>
+      <details>
+        <summary>¿Qué formatos y duraciones?</summary>
+        <p>9:16 para Shorts, TikTok y Reels, 16:9 para YouTube, además de 1:1 y 4:5. De 15 segundos a 30 minutos.</p>
+      </details>
+      <details>
+        <summary>¿Puedo pedir un reembolso?</summary>
+        <p>Las condiciones están en la página de <a href="refund-es.html">Reembolsos</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="card final">
+      <span class="tag">Pruébalo con tu propia idea</span>
+      <h2>Una frase y ➤</h2>
+      <p class="lead">Descarga KADR Studio, escribe de qué va el vídeo y mira lo que sale. ¿Dudas? Escríbenos: respondemos personalmente.</p>
+      <div class="cta-row">
+        <a class="btn btn-main" href="#download" data-os-cta>Descargar KADR Studio</a>
+        <a class="btn btn-ghost" href="support-es.html">Contactar con soporte</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="mcta" aria-label="Acciones rápidas"><a class="btn btn-main" href="#download">Descargar</a><a class="btn btn-ghost" href="#reel">▶ Showreel</a></div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: name / company]</span></span>
+    <span class="flinks"><a href="terms-es.html">Condiciones</a> <a href="privacy-es.html">Privacidad</a> <a href="refund-es.html">Reembolsos</a> <a href="licenses-es.html">Licencias</a> <a href="support-es.html">Soporte</a> <a href="mailto:kadrstudia8@gmail.com">Escríbenos</a></span>
+    <span>Windows 10/11 y macOS 12+ · Sin telemetría</span>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>

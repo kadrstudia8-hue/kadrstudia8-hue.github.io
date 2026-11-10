@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kadrstudia8-hue.github.io/sitemap.xml

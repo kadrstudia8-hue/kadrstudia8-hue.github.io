@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lizenzen — KADR Studio</title>
+<meta name="description" content="Offene Modelle, Software und Schriften in KADR Studio und ihre Lizenzen.">
+<link rel="canonical" href="https://kadrstudia8-hue.github.io/licenses-de.html">
+<link rel="alternate" hreflang="uk" href="https://kadrstudia8-hue.github.io/licenses-uk.html">
+<link rel="alternate" hreflang="ru" href="https://kadrstudia8-hue.github.io/licenses.html">
+<link rel="alternate" hreflang="en" href="https://kadrstudia8-hue.github.io/licenses-en.html">
+<link rel="alternate" hreflang="es" href="https://kadrstudia8-hue.github.io/licenses-es.html">
+<link rel="alternate" hreflang="de" href="https://kadrstudia8-hue.github.io/licenses-de.html">
+<link rel="alternate" hreflang="x-default" href="https://kadrstudia8-hue.github.io/licenses-uk.html">
+<meta name="theme-color" content="#0e0c0a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KADR Studio">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:url" content="https://kadrstudia8-hue.github.io/licenses-de.html">
+<meta property="og:title" content="Lizenzen — KADR Studio">
+<meta property="og:description" content="Offene Modelle, Software und Schriften in KADR Studio und ihre Lizenzen.">
+<meta property="og:image" content="https://kadrstudia8-hue.github.io/img/hero.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="landing-de.html"><i></i>KADR <em>studio</em></a>
+    <div class="links"><a href="terms-de.html">Nutzungsbedingungen</a> <a href="privacy-de.html">Datenschutz</a> <a href="refund-de.html">Rückerstattung</a> <a href="licenses-de.html" aria-current="page">Lizenzen</a> <a href="support-de.html">Support</a> <a href="licenses-uk.html" hreflang="uk" lang="uk">UK</a> <a href="licenses.html" hreflang="ru" lang="ru">RU</a> <a href="licenses-en.html" hreflang="en" lang="en">EN</a> <a href="licenses-es.html" hreflang="es" lang="es">ES</a> <a href="licenses-de.html" hreflang="de" lang="de" aria-current="true">DE</a></div>
+  </div>
+</nav>
+<main id="main" class="wrap doc">
+<span class="tag">Rechtliches</span>
+<h1>Lizenzen und offene Komponenten</h1>
+<p class="meta">Modelle, Software und Schriften, mit denen KADR Studio arbeitet · Fassung vom <span class="ph">[PLACEHOLDER: date]</span></p>
+
+<p>KADR Studio ist aus offenen Komponenten gebaut. Der Generator (ComfyUI) und die Modelle werden über den Button „Generator installieren“ aus ihren offiziellen Quellen auf Ihren Computer geladen; einige Bibliotheken sind im Installer enthalten. Jede Komponente wird unter ihrer eigenen Lizenz verbreitet, deren Bedingungen direkt für Sie gelten. Mit <span class="ph">[verify]</span> markierte Zeilen prüft der Inhaber vor dem Start an der Originalquelle.</p>
+
+<h2 id="models">1. KI-Modelle</h2>
+<div class="scroll"><table>
+  <tr><th>Modell</th><th>Aufgabe</th><th>Lizenz</th><th>Hinweis</th></tr>
+  <tr><td>RealVisXL V5.0 (auf Basis von Stable Diffusion XL)</td><td>Bilder</td><td>CreativeML OpenRAIL++-M</td><td>Nutzungseinschränkungen binden Sie – <a href="#openrail">unten</a> und in den <a href="terms-de.html#rules">Nutzungsbedingungen, Abschnitt 9</a></td></tr>
+  <tr><td>Wan 2.2 TI2V-5B und I2V-A14B (Wan-AI)</td><td>Lebendige Szenen</td><td>Apache-2.0</td><td>Die Autoren beanspruchen keine Rechte an Ergebnissen; der Nutzer ist für deren Verwendung verantwortlich</td></tr>
+  <tr><td>Wan 2.2 A14B im GGUF-Format (Community-Quantisierung)</td><td>Lebendige Szenen mit 12–24 GB</td><td>Apache-2.0 (wie das Basismodell) <span class="ph">[verify]</span></td><td></td></tr>
+  <tr><td>Wan 2.2 Lightning LoRA (lightx2v)</td><td>Schnelle lebendige Szenen (4 Schritte)</td><td>Apache-2.0 <span class="ph">[verify]</span></td><td></td></tr>
+  <tr><td>FastWan 2.2 (FastVideo, Hao AI Lab)</td><td>Schnelle 5B-Szenen</td><td><span class="ph">[PLACEHOLDER: weights licence not stated clearly — confirm with the authors or replace]</span></td><td>Bis zur Bestätigung keine gewerbliche Nutzung dieses Modells versprechen</td></tr>
+  <tr><td>UMT5-XXL (Google), Wan VAE</td><td>Textverständnis und Videokodierung für Wan</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>ACE-Step 1.5</td><td>Hintergrundmusik</td><td>MIT (Code und Gewichte; die Modellkarte erlaubt die gewerbliche Nutzung der erzeugten Musik)</td><td>Integrierte Musik – <a href="#music">unten</a>. Musik kann zufällig vorhandenen Titeln ähneln – vor der Veröffentlichung prüfen</td></tr>
+  <tr><td>Real-ESRGAN x4plus</td><td>Hochskalierung und Bilddetails</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>RIFE v4.26 (Practical-RIFE)</td><td>Flüssige Bewegung</td><td>MIT</td><td></td></tr>
+  <tr><td>YuNet (OpenCV Zoo)</td><td>Gesichtserkennung für den Shorts-Bildausschnitt</td><td>MIT</td><td></td></tr>
+</table></div>
+
+<h2 id="software">2. Software und Bibliotheken</h2>
+<div class="scroll"><table>
+  <tr><th>Komponente</th><th>Wo</th><th>Lizenz</th><th>Hinweis</th></tr>
+  <tr><td>ComfyUI</td><td>Generator, separat heruntergeladen</td><td>GPL-3.0</td><td>Quellcode – github.com/comfyanonymous/ComfyUI</td></tr>
+  <tr><td>ComfyUI-GGUF (city96)</td><td>Generator</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>ComfyUI Frame Interpolation</td><td>Generator (RIFE)</td><td>MIT <span class="ph">[verify]</span></td><td></td></tr>
+  <tr><td>PyTorch</td><td>Generator</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>MLX (Apple)</td><td>Bilder auf dem Mac</td><td>MIT</td><td></td></tr>
+  <tr><td>FFmpeg</td><td>Im Installer</td><td>GPL (verwendeter Build) / LGPL</td><td><span class="ph">[PLACEHOLDER: link to the source code of the exact FFmpeg builds in the installers (Windows and Mac) — required by the GPL; or switch to an LGPL build]</span></td></tr>
+  <tr><td>Qt 6 / PySide6</td><td>Im Installer (App-Fenster)</td><td>LGPL-3.0</td><td>Sie dürfen die Qt-Bibliotheken durch einen eigenen Build ersetzen; Quellcode – download.qt.io <span class="ph">[PLACEHOLDER: check how it is offered]</span></td></tr>
+  <tr><td>Python</td><td>Im Installer</td><td>PSF License</td><td></td></tr>
+  <tr><td>PyInstaller</td><td>Build</td><td>GPL-2.0 mit Bootloader-Ausnahme</td><td>Erstreckt sich nicht auf die App</td></tr>
+  <tr><td>edge-tts</td><td>Kostenlose neuronale Stimmen</td><td>LGPL-3.0 <span class="ph">[verify]</span></td><td>Die Stimmen sind ein Online-Dienst von Microsoft; <span class="ph">[PLACEHOLDER: check whether Microsoft allows commercial use of this service]</span></td></tr>
+  <tr><td>OpenCV</td><td>Im Installer</td><td>Apache-2.0</td><td></td></tr>
+  <tr><td>cryptography</td><td>Im Installer</td><td>Apache-2.0 / BSD</td><td></td></tr>
+  <tr><td>NumPy</td><td>Im Installer</td><td>BSD-3-Clause</td><td></td></tr>
+  <tr><td>Pillow</td><td>Im Installer</td><td>MIT-CMU (HPND)</td><td></td></tr>
+  <tr><td>uv (Astral)</td><td>Generator-Installation auf dem Mac</td><td>Apache-2.0 / MIT</td><td></td></tr>
+  <tr><td>7-Zip (7zr)</td><td>Entpacken des Generators unter Windows</td><td>LGPL-2.1+</td><td></td></tr>
+</table></div>
+<p><span class="ph">[PLACEHOLDER: before selling, generate the exact version list (SBOM) from the build and ship the licence texts in the installer — see THIRD_PARTY_NOTICES.md]</span></p>
+
+<h2 id="fonts">3. Schriften</h2>
+<p>Cormorant Garamond und Manrope – SIL Open Font License 1.1. In der App und auf der Website enthalten.</p>
+
+<h2 id="services">4. Dienste mit Ihren Schlüsseln und Inhalte</h2>
+<p>Claude (Anthropic), OpenAI, Gemini (Google), ElevenLabs – mit Ihren Schlüsseln und zu deren Bedingungen. Fotos und Videos von Pexels und Pixabay – unter den Lizenzen dieser Seiten (meist kostenlos für gewerbliche Nutzung, aber Sie dürfen sie nicht unverändert verkaufen oder erkennbare Personen in einem anstößigen Zusammenhang zeigen).</p>
+
+<h2 id="openverse">4a. Kostenlose Fotos ohne Schlüssel (Openverse)</h2>
+<p>Wenn nichts verbunden ist, das Bilder zeichnet, sucht die App über <a href="https://openverse.org">Openverse</a> Fotos für die Szenen (die Suchmaschine der WordPress Foundation für offen lizenzierte Bilder; ohne Schlüssel, mit Anfragelimit). Verwendet werden nur Lizenzen, die gewerbliche Nutzung und Änderungen erlauben: <b>CC0</b>, <b>Public Domain Mark</b> und <b>CC BY</b>. Nicht verwendet: NC (nicht kommerziell), ND (keine Bearbeitung – ein Bild im Video wird beschnitten und bewegt) und SA (Weitergabe unter gleichen Bedingungen würde das ganze Video unter CC BY-SA stellen). Fotos mit Personen werden übersprungen, außer die Szene handelt von Menschen: Der Käufer hat keine Freigabe von ihnen.</p>
+<p>Namensnennung. Für jedes Foto speichert die App Urheber, Titel, Lizenz und Quellseite und fügt selbst einen Block „Foto: Urheber, „Titel“, Lizenz – Link“ zu den Veröffentlichungstexten hinzu (YouTube-Beschreibung und die Datei „… — публикация.txt“). CC BY verlangt das: Behalten Sie die Zeile in der Beschreibung (bei TikTok/Reels – in einem Kommentar oder in der Profilbeschreibung). Openverse prüft Lizenzen nicht: Ist ein Foto für Ihr Geschäft wichtig, öffnen Sie den Link und prüfen Sie die Lizenz auf der Seite. Erstellt mit Openverse; Openverse unterstützt oder zertifiziert KADR Studio nicht. Nicht gewünscht – wählen Sie in den Videoeinstellungen „Szenenbilder: keine Bildgenerierung“.</p>
+
+<h2 id="music">4b. Integrierte Musik</h2>
+<p>12 Instrumentaltitel nach Stimmung (ruhig, beschwingt, filmisch, Corporate, Lo-Fi, emotional, Spannung, inspirierend, verspielt, Ambient, episch, akustisch), 60–80 s, nahtlose Loops, −16 LUFS. Erstellt vom Inhaber von KADR Studio mit ACE-Step 1.5 (MIT) auf der eigenen GPU; die Rechte liegen bei <span class="ph">[PLACEHOLDER: owner's name / business]</span>. Käufer der App dürfen sie in ihren Videos verwenden, auch gewerblich, ohne Namensnennung; die Titel einzeln zu verkaufen oder hochzuladen ist nicht erlaubt. Der Titel wird nach Vorlage, Stil oder den Wörtern der Idee gewählt, auf die Videolänge gekürzt oder geloopt und unter der Stimme abgesenkt.</p>
+
+<h2 id="openrail">5. CreativeML OpenRAIL++-M – Nutzungseinschränkungen</h2>
+<p>Die Modelle SDXL und RealVisXL werden unter der Lizenz CreativeML OpenRAIL++-M verbreitet. Deren Absatz 5 verlangt, die Nutzungseinschränkungen (Anhang A) an jeden Nutzer weiterzugeben. Sie sind in unseren <a href="terms-de.html#rules">Nutzungsbedingungen, Abschnitt 9</a> enthalten. Kurz gesagt dürfen das Modell und seine Ergebnisse nicht verwendet werden:</p>
+<ul>
+  <li>unter Verstoß gegen das Gesetz;</li>
+  <li>um Minderjährige auszubeuten oder ihnen zu schaden;</li>
+  <li>um nachweislich falsche Informationen zu erzeugen oder zu verbreiten, um anderen zu schaden;</li>
+  <li>um personenbezogene Informationen zu erzeugen oder zu verbreiten, um einer Person zu schaden;</li>
+  <li>um andere zu verleumden, herabzusetzen oder zu belästigen;</li>
+  <li>für vollautomatisierte Entscheidungen, die die gesetzlichen Rechte einer Person beeinträchtigen;</li>
+  <li>um aufgrund von Verhalten, persönlichen Merkmalen oder gesetzlich geschützten Merkmalen zu diskriminieren;</li>
+  <li>um die Verletzlichkeit von Personengruppen (Alter, soziale, körperliche, geistige Situation) zu deren Schaden auszunutzen;</li>
+  <li>um medizinischen Rat zu geben oder medizinische Ergebnisse zu interpretieren;</li>
+  <li>für Rechtspflege, Strafverfolgung, Einwanderungs- oder Asylentscheidungen.</li>
+</ul>
+<p>Vollständiger Lizenztext: <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md" rel="noopener">huggingface.co/stabilityai/stable-diffusion-xl-base-1.0 — LICENSE.md</a>. Die Lizenz gibt den Entwicklern des Modells keine Rechte an Ihren Ergebnissen; der Nutzer ist für deren Verwendung verantwortlich.</p>
+
+<h2 id="apache">6. Apache-2.0, MIT, BSD</h2>
+<p>Diese Lizenzen erlauben die gewerbliche Nutzung und verlangen, Urheberrechtshinweise und den Lizenztext beizubehalten. Texte: <a href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener">Apache-2.0</a>, <a href="https://opensource.org/license/mit" rel="noopener">MIT</a>, <a href="https://opensource.org/license/bsd-3-clause" rel="noopener">BSD-3-Clause</a>, <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">GPL-3.0</a>, <a href="https://www.gnu.org/licenses/lgpl-3.0.html" rel="noopener">LGPL-3.0</a>, <a href="https://openfontlicense.org" rel="noopener">SIL OFL 1.1</a>.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: name / company]</span></span>
+    <div class="flinks"><a href="terms-de.html">Nutzungsbedingungen</a> <a href="privacy-de.html">Datenschutz</a> <a href="refund-de.html">Rückerstattung</a> <a href="licenses-de.html">Lizenzen</a> <a href="support-de.html">Support</a></div>
+  </div>
+</footer>
+</body>
+</html>
