@@ -27,13 +27,14 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="lang.css">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt</a>
 <nav>
   <div class="wrap">
     <a class="logo" href="landing-de.html"><i></i>KADR <em>studio</em></a>
-    <div class="links"><a href="terms-de.html">Nutzungsbedingungen</a> <a href="privacy-de.html" aria-current="page">Datenschutz</a> <a href="refund-de.html">Rückerstattung</a> <a href="licenses-de.html">Lizenzen</a> <a href="support-de.html">Support</a> <a href="privacy-uk.html" hreflang="uk" lang="uk">UK</a> <a href="privacy.html" hreflang="ru" lang="ru">RU</a> <a href="privacy-en.html" hreflang="en" lang="en">EN</a> <a href="privacy-es.html" hreflang="es" lang="es">ES</a> <a href="privacy-de.html" hreflang="de" lang="de" aria-current="true">DE</a></div>
+    <div class="links"><a href="terms-de.html">Nutzungsbedingungen</a> <a href="privacy-de.html" aria-current="page">Datenschutz</a> <a href="refund-de.html">Rückerstattung</a> <a href="licenses-de.html">Lizenzen</a> <a href="support-de.html">Support</a> <details class="lang"><summary aria-haspopup="menu" aria-expanded="false" aria-label="Sprache"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lang-full">Deutsch</span><span class="lang-short">DE</span></summary><ul role="menu" aria-label="Sprache"><li><a role="menuitem" href="privacy-uk.html" hreflang="uk" lang="uk">Українська</a></li><li><a role="menuitem" href="privacy.html" hreflang="ru" lang="ru">Русский</a></li><li><a role="menuitem" href="privacy-en.html" hreflang="en" lang="en">English</a></li><li><a role="menuitem" href="privacy-es.html" hreflang="es" lang="es">Español</a></li><li><a role="menuitem" href="privacy-de.html" hreflang="de" lang="de" aria-current="true">Deutsch</a></li></ul></details></div>
   </div>
 </nav>
 <main id="main" class="wrap doc">
@@ -60,7 +61,7 @@
   <tr><td>Aktivierungsstatus, ⚡-Guthaben, Vorgangsprotokoll (Datum, Video, Aktion, ⚡)</td><td>Guthaben und Abbuchungen</td><td>Vertrag</td><td>Supabase (EU)</td></tr>
   <tr><td>Aufladungen: Betrag, Netzwerk, Token, Transaktions-Hash, Absender-Wallet-Adresse</td><td>Zahlung gutschreiben, Buchhaltung, Erstattungen</td><td>Vertrag, rechtliche Verpflichtung</td><td>Supabase (EU); die Überweisungen selbst sind auf BNB Smart Chain öffentlich</td></tr>
   <tr><td>Support-Konversationen und was Sie darin senden</td><td>Hilfe, Fehlerbehebung</td><td>Vertrag, berechtigtes Interesse</td><td>Gmail (Google)</td></tr>
-  <tr><td>Cloud-Generierungsaufträge (Prompts, Bilder) – sobald die Cloud läuft</td><td>Bilder, Szenen, Musik auf einer gemieteten Grafikkarte erzeugen</td><td>Vertrag</td><td>Gemietete Server über Clore.ai <span class="ph">[PLACEHOLDER: host countries, deletion after session]</span></td></tr>
+  <tr><td>Cloud-Generierungsaufträge (Prompts, Bilder) – sobald die Cloud läuft</td><td>Bilder, Szenen, Musik in der KADR Cloud erzeugen</td><td>Vertrag</td><td>Cloud-Infrastruktur KADR Cloud (Rechenanbieter, <span class="ph">[PLACEHOLDER: list sub-processors — lawyer]</span>) <span class="ph">[PLACEHOLDER: host countries, deletion after session]</span></td></tr>
   <tr><td>IP-Adresse und App-Version bei der Update-Prüfung</td><td>Update herunterladen</td><td>Berechtigtes Interesse</td><td>GitHub (USA) – wir erhalten diese Daten nicht</td></tr>
   <tr><td>IP-Adresse beim Besuch der Website</td><td>Betrieb der Website</td><td>Berechtigtes Interesse</td><td>GitHub Pages (USA). Schriften werden von der Website selbst geladen, nicht von Google.</td></tr>
   <tr><td>Website-Analyse</td><td><span class="ph">[PLACEHOLDER: none / a cookie-free service such as Plausible or GoatCounter]</span></td><td>Berechtigtes Interesse</td><td><span class="ph">[PLACEHOLDER]</span></td></tr>
@@ -75,7 +76,7 @@
 <ul>
   <li>Supabase Inc. – Kontendatenbank, Anmeldung, E-Mails (Server in der EU).</li>
   <li>GitHub Inc. – Hosting der Website und der Update-Dateien (USA).</li>
-  <li>Clore.ai und die Eigentümer gemieteter Server – nur Cloud-Generierungsaufträge, sobald die Cloud läuft.</li>
+  <li>Rechenanbieter der KADR Cloud <span class="ph">[PLACEHOLDER: list sub-processors — lawyer]</span> – nur Cloud-Generierungsaufträge, sobald die Cloud läuft.</li>
   <li><span class="ph">[PLACEHOLDER: e-mail (SMTP) service, payment provider if added, accountant]</span></li>
   <li>Behörden – nur auf rechtmäßige Anfrage.</li>
 </ul>
@@ -86,7 +87,7 @@
   <li>Konto und Guthaben – solange das Konto besteht.</li>
   <li>Zahlungsbelege und Vorgangsprotokoll – <span class="ph">[PLACEHOLDER: period required by tax law, e.g. 3 years]</span>, auch nach Löschung des Kontos.</li>
   <li>Support-Konversationen – <span class="ph">[PLACEHOLDER: e.g. 12 months]</span>.</li>
-  <li>Cloud-Generierungsdaten auf einem gemieteten Server werden nach der Sitzung mit dem Server gelöscht. <span class="ph">[PLACEHOLDER: confirm once the cloud is live]</span></li>
+  <li>Cloud-Generierungsdaten werden nach der Sitzung von den KADR-Cloud-Servern gelöscht. <span class="ph">[PLACEHOLDER: confirm once the cloud is live]</span></li>
 </ul>
 
 <h2 id="rights">7. Ihre Rechte</h2>
@@ -106,7 +107,9 @@
   <div class="wrap">
     <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: name / company]</span></span>
     <div class="flinks"><a href="terms-de.html">Nutzungsbedingungen</a> <a href="privacy-de.html">Datenschutz</a> <a href="refund-de.html">Rückerstattung</a> <a href="licenses-de.html">Lizenzen</a> <a href="support-de.html">Support</a></div>
+    <p class="flangs"><a href="privacy-uk.html" hreflang="uk" lang="uk">Українська</a> · <a href="privacy.html" hreflang="ru" lang="ru">Русский</a> · <a href="privacy-en.html" hreflang="en" lang="en">English</a> · <a href="privacy-es.html" hreflang="es" lang="es">Español</a> · <a href="privacy-de.html" hreflang="de" lang="de" aria-current="true">Deutsch</a></p>
   </div>
 </footer>
+<script src="lang.js" defer></script>
 </body>
 </html>

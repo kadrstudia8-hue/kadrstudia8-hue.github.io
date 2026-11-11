@@ -143,6 +143,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </style>
 <link rel="stylesheet" href="kinozal.css">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="lang.css">
 <link rel="preload" as="image" href="media/hero-en.jpg">
 </head>
 <body>
@@ -156,7 +157,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="#who">Para quién</a>
       <a href="#req">¿Sin GPU?</a>
       <a href="#pricing">Precios</a>
-      <a href="#faq">FAQ</a> <a href="landing-uk.html" hreflang="uk" lang="uk">UK</a> <a href="landing.html" hreflang="ru" lang="ru">RU</a> <a href="landing-en.html" hreflang="en" lang="en">EN</a> <a href="landing-es.html" hreflang="es" lang="es" aria-current="true">ES</a> <a href="landing-de.html" hreflang="de" lang="de">DE</a>    </div>
+      <a href="#faq">FAQ</a> <details class="lang"><summary aria-haspopup="menu" aria-expanded="false" aria-label="Idioma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lang-full">Español</span><span class="lang-short">ES</span></summary><ul role="menu" aria-label="Idioma"><li><a role="menuitem" href="landing-uk.html" hreflang="uk" lang="uk">Українська</a></li><li><a role="menuitem" href="landing.html" hreflang="ru" lang="ru">Русский</a></li><li><a role="menuitem" href="landing-en.html" hreflang="en" lang="en">English</a></li><li><a role="menuitem" href="landing-es.html" hreflang="es" lang="es" aria-current="true">Español</a></li><li><a role="menuitem" href="landing-de.html" hreflang="de" lang="de">Deutsch</a></li></ul></details>    </div>
     <a class="btn btn-ghost" href="#download" style="padding:9px 18px;font-size:14px">Descargar</a>
   </div>
 </nav>
@@ -342,7 +343,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <span class="who">CUALQUIER ORDENADOR</span>
         <h3>Un vídeo incluso sin claves</h3>
         <p>Sin claves, una voz neuronal gratuita lee tu texto sobre palabras grandes y un fondo animado; el vídeo está listo en uno o dos minutos.</p>
-        <p>Con claves, la IA escribe el guion y los planos salen de servicios de imagen o de fotos gratuitas de Pexels y Pixabay. KADR Cloud con GPU RTX 5090: muy pronto.</p>
+        <p>Con claves, la IA escribe el guion y los planos salen de servicios de imagen o de fotos gratuitas de Pexels y Pixabay. KADR Cloud, nuestros servidores con GPU potentes: muy pronto.</p>
       </div>
     </div>
     <div class="card" style="margin-top:18px">
@@ -420,7 +421,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </div>
     <div class="grid g2 extras">
-      <div class="card"><h3>⚡ para la nube: muy pronto</h3><p>Paquetes de Energía desde $10, para Mac y PC sin GPU: planos, escenas animadas y música en una RTX 5090 alquilada. La app muestra el precio del vídeo antes de empezar; los ⚡ no caducan.</p></div>
+      <div class="card"><h3>⚡ para la nube: muy pronto</h3><p>Paquetes de Energía desde $10, para Mac y PC sin GPU: planos, escenas animadas y música se calculan en KADR Cloud. La app muestra el precio del vídeo antes de empezar; los ⚡ no caducan.</p></div>
       <div class="card"><h3>Instalación llave en mano: $99–149</h3><p>Instalo la app y el generador, conecto tus claves y hacemos juntos el primer vídeo, en remoto.</p></div>
     </div>
     <p class="note" style="margin-top:18px">Con tu propia GPU los planos no cuestan nada por imagen; las claves de servicios de IA (opcionales) se pagan a esos servicios.</p>
@@ -468,7 +469,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </details>
       <details>
         <summary>¿Qué es la Energía ⚡?</summary>
-        <p>⚡ es la unidad interna de KADR para la nube: sin una GPU potente, la app alquila una durante el vídeo y descuenta ⚡ a medida que los planos y escenas están listos; ves el precio antes de empezar. ⚡ no es dinero ni una criptomoneda y no se puede transferir. Con tu propia GPU NVIDIA (o un Mac con chip Apple y 16 GB o más) los planos son gratis y no necesitas ⚡. La nube y los precios de ⚡ llegarán pronto.</p>
+        <p>⚡ es la unidad interna de KADR para la nube: sin una GPU potente, los planos, escenas animadas y música se calculan en KADR Cloud, en nuestros servidores, y los ⚡ se descuentan a medida que los planos están listos; ves el precio antes de empezar. ⚡ no es dinero ni una criptomoneda y no se puede transferir. Con tu propia GPU NVIDIA (o un Mac con chip Apple y 16 GB o más) los planos son gratis y no necesitas ⚡. La nube y los precios de ⚡ llegarán pronto.</p>
       </details>
       <details>
         <summary>¿Funciona en Mac?</summary>
@@ -516,9 +517,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <span>© 2026 KADR Studio · <span class="ph">[PLACEHOLDER: name / company]</span></span>
     <span class="flinks"><a href="terms-es.html">Condiciones</a> <a href="privacy-es.html">Privacidad</a> <a href="refund-es.html">Reembolsos</a> <a href="licenses-es.html">Licencias</a> <a href="support-es.html">Soporte</a> <a href="mailto:kadrstudia8@gmail.com">Escríbenos</a></span>
     <span>Windows 10/11 y macOS 12+ · Sin telemetría</span>
+    <p class="flangs"><a href="landing-uk.html" hreflang="uk" lang="uk">Українська</a> · <a href="landing.html" hreflang="ru" lang="ru">Русский</a> · <a href="landing-en.html" hreflang="en" lang="en">English</a> · <a href="landing-es.html" hreflang="es" lang="es" aria-current="true">Español</a> · <a href="landing-de.html" hreflang="de" lang="de">Deutsch</a></p>
   </div>
 </footer>
 
 <script src="site.js" defer></script>
+<script src="lang.js" defer></script>
 </body>
 </html>
