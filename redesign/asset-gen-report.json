@@ -195,7 +195,21 @@
       "background": null,
       "task_id": "task_01457c9f6ea002547a9bb13b8e8e590264fec50cacab891d",
       "generated": "2026-11-24T15:25:32.409Z"
+    },
+    "v4-prism-loop": {
+      "id": "v4-prism-loop",
+      "version": "v4",
+      "kind": "video",
+      "model": "seedance-2.0",
+      "file": "redesign/v4/public/gen/v4-prism-loop.mp4",
+      "usd": 0.7623,
+      "usd_is_estimate": false,
+      "usd_source": "balance-delta",
+      "note": null,
+      "background": null,
+      "task_id": "task_f78f194ffc4993f25e40121c0f22dbb0f583c47d6ebb4c36",
+      "generated": "2026-11-24T15:34:48.178Z"
     }
   },
-  "updated": "2026-11-24T15:25:32.409Z"
+  "updated": "2026-11-24T15:34:48.178Z"
 }

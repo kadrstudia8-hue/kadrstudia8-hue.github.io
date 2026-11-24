@@ -7,6 +7,8 @@ export const rig = {
   projector: new Vector3(-7.2, 4.4, -4.5),
   prism: new Vector3(1.6, 2.9, 0.4),
   prismRotY: 0,
+  prismScale: 1,
+  leftX: 700,           // px: left of it the scene is dimmed while the farm shows (cloud)
   beamEnd: new Vector3(),
   beamIntensity: 0,
   beamR0: 0.07,          // radius at lens

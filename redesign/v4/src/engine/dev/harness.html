@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V4 engine harness</title>
+<style>
+  html, body { margin: 0; background: #030304; color: #EDEBE6; font: 16px system-ui, sans-serif; }
+  section { position: relative; min-height: 100vh; z-index: 1; padding: 120px 80px; box-sizing: border-box; }
+  #top { min-height: 100vh; }
+  h2, h1 { margin: 0; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; }
+  h1 { font-size: 96px; line-height: .9; }
+  h2 { font-size: 64px; }
+  .slot { position: absolute; outline: 1px dashed rgba(255,255,255,.12); }
+  video[data-v4-video] { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+  .row { display: flex; gap: 40px; margin-top: 64px; }
+  .card { position: relative; width: 300px; height: 533px; outline: 1px dashed rgba(255,255,255,.12); }
+  .price { position: relative; width: 400px; height: 560px; border-radius: 20px; background: rgba(237,235,230,.04); backdrop-filter: blur(22px); }
+  .price.mid { height: 600px; margin-top: -20px; }
+  #how { min-height: 300vh; }
+  #how .pin { position: sticky; top: 0; height: 100vh; }
+  #hud { position: fixed; right: 8px; bottom: 8px; z-index: 5; font: 11px ui-monospace, monospace; color: #8A8892; }
+</style>
+</head>
+<body>
+<section id="top" data-v4-section>
+  <h1 data-v4-safe style="max-width: 760px">Одна фраза.<br>Готовое видео.</h1>
+  <div data-v4-slot="hero-prompt" style="position:absolute; left:80px; top:62%; width:560px; height:64px; border-radius:18px; outline:1px solid rgba(255,255,255,.18)"></div>
+  <div class="slot" data-v4-slot="hero-screen" style="left:760px; top:calc(46% - 158px); width:560px; height:315px"></div>
+  <video data-v4-video="hero" src="/media/hero-ru.mp4" poster="/media/hero-ru.jpg" muted loop playsinline autoplay preload="auto"></video>
+</section>
+<section id="facts" data-v4-section style="min-height:40vh"><p data-v4-safe>факты · факты · факты</p></section>
+<section id="proof" data-v4-section>
+  <h2 data-v4-safe>Одна фраза. Одно видео.</h2>
+  <div class="row">
+    <div class="card" data-v4-slot="proof-0"></div><div class="card" data-v4-slot="proof-1"></div>
+    <div class="card" data-v4-slot="proof-2"></div><div class="card" data-v4-slot="proof-3"></div>
+  </div>
+  <video data-v4-video="proof-0" src="/media/short-1.mp4" poster="/media/short-1.jpg" muted loop playsinline autoplay preload="auto"></video>
+  <video data-v4-video="proof-1" src="/media/short-2.mp4" poster="/media/short-2.jpg" muted loop playsinline preload="metadata"></video>
+  <video data-v4-video="proof-2" src="/media/short-3.mp4" poster="/media/short-3.jpg" muted loop playsinline preload="metadata"></video>
+  <video data-v4-video="proof-3" src="/media/short-4.mp4" poster="/media/short-4.jpg" muted loop playsinline preload="metadata"></video>
+</section>
+<section id="cloud" data-v4-section style="min-height:900px">
+  <h2 data-v4-safe style="max-width:560px">Наши видеокарты работают за вас</h2>
+  <div class="slot" data-v4-slot="cloud-stage" style="left:760px; top:120px; width:600px; height:600px"></div>
+</section>
+<section id="how" data-v4-section><div class="pin"><h2 data-v4-safe>Три шага до MP4</h2>
+  <div class="slot" data-v4-slot="how-track" style="left:80px; top:58%; width:1280px; height:220px"></div></div></section>
+<section id="reel" data-v4-section>
+  <h2 data-v4-safe>25 секунд</h2>
+  <div class="slot" data-v4-slot="reel-screen" style="left:240px; top:260px; width:960px; height:540px"></div>
+  <video data-v4-video="reel" src="/media/reel-ru.mp4" poster="/media/reel-ru.jpg" muted loop playsinline preload="metadata"></video>
+</section>
+<section id="who" data-v4-section><h2 data-v4-safe>Для кого</h2></section>
+<section id="looks" data-v4-section><h2 data-v4-safe>12 стилей</h2>
+  <div class="slot" data-v4-slot="prism" style="right:120px; top:200px; width:360px; height:360px"></div></section>
+<section id="features" data-v4-section><h2 data-v4-safe>Что внутри</h2></section>
+<section id="req" data-v4-section><h2 data-v4-safe>Железо</h2></section>
+<section id="pricing" data-v4-section><h2 data-v4-safe>Цены</h2>
+  <div class="row" style="align-items:flex-start">
+    <div class="price" data-v4-slot="price-0"></div><div class="price mid" data-v4-slot="price-1"></div><div class="price" data-v4-slot="price-2"></div>
+  </div></section>
+<section id="download" data-v4-section><h2 data-v4-safe>Windows и Mac</h2>
+  <div class="slot" data-v4-slot="download-object" style="right:160px; top:180px; width:420px; height:420px"></div></section>
+<section id="faq" data-v4-section><h2 data-v4-safe>FAQ</h2></section>
+<section id="contact" data-v4-section style="min-height:160vh"><h2 data-v4-safe>Одна фраза. И ➤</h2>
+  <div class="slot" data-v4-slot="cta-play" style="left:calc(50% - 140px); top:40vh; width:280px; height:280px"></div></section>
+<div id="hud"></div>
+<div id="root"></div>
+<script type="module" src="./harness.tsx"></script>
+</body>
+</html>

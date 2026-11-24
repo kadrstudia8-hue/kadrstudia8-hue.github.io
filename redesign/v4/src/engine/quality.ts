@@ -3,6 +3,8 @@ import type { Tier } from './contract'
 /** URL flags: ?still freezes time (for screenshots in a throttled panel), ?tier=N forces a tier. */
 export const params = typeof location !== 'undefined' ? new URLSearchParams(location.search) : new URLSearchParams()
 export const STILL = params.has('still')
+/** ?story=2.0 freezes the hero story at that second (QA of the text-to-dust phase). */
+export const STORY_AT = params.has('story') ? Number(params.get('story')) : null
 const forced = params.get('tier')
 export const FORCED_TIER: Tier | null = forced && /^[0-3]$/.test(forced) ? (Number(forced) as Tier) : null
 

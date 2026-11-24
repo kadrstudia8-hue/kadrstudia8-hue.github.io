@@ -2,21 +2,21 @@ import { useFrame } from '@react-three/fiber'
 import { useLayoutEffect, useMemo, useRef } from 'react'
 import {
   AdditiveBlending, BoxGeometry, Color, DoubleSide, Group, InstancedBufferAttribute, InstancedMesh, Matrix4,
-  MeshBasicMaterial, MeshStandardMaterial, Object3D, PlaneGeometry, Quaternion, ShaderMaterial, SRGBColorSpace,
+  MeshBasicMaterial, MeshStandardMaterial, NormalBlending, Object3D, PlaneGeometry, Quaternion, ShaderMaterial, SRGBColorSpace,
   Texture, TorusGeometry, Vector3,
 } from 'three'
 import { rig } from '../rig'
 import { E } from '../state'
-import { useOptionalTexture } from '../textures'
+import { genUrl, useOptionalTexture } from '../textures'
 
 const COLS = 6, ROWS = 4, N = COLS * ROWS
 const LIGHTS = ['#D7FF1F', '#F58BD0', '#B9A6FF']
-const SCREEN_POS = new Vector3(0, 2.7, -7.4)
+const SCREEN_POS = new Vector3(0, 3.55, -7.6)
 
 function boardMatrix(i: number, out: Object3D) {
   const c = i % COLS, r = Math.floor(i / COLS)
-  out.position.set((c - (COLS - 1) / 2) * 2.0, 0.22 + r * 0.5, -0.8 - r * 1.35)
-  out.rotation.set(0.42, 0, 0)
+  out.position.set((c - (COLS - 1) / 2) * 2.0, 0.3 + r * 0.62, -1.2 - r * 1.3)
+  out.rotation.set(0.8, 0, 0)
   out.scale.set(1, 1, 1)
   out.updateMatrix()
 }
@@ -108,6 +108,7 @@ void main() {
 
 const BASE = import.meta.env.BASE_URL
 
+/** Cloud section: render farm of 6x4 GPU boards with light pulses running to one screen. */
 export default function GpuFarm() {
   const group = useRef<Group>(null)
   const refs = {
@@ -115,7 +116,7 @@ export default function GpuFarm() {
     ring: useRef<InstancedMesh>(null), fan: useRef<InstancedMesh>(null), top: useRef<InstancedMesh>(null),
     trace: useRef<InstancedMesh>(null),
   }
-  const plate = useOptionalTexture(`${BASE}gen/v4-gpu-farm.webp`)
+  const plate = useOptionalTexture(genUrl('v4-gpu-farm.webp'))
   const shot = useOptionalTexture(`${BASE}media/film.jpg`)
 
   const g = useMemo(() => ({
@@ -137,7 +138,7 @@ export default function GpuFarm() {
   const m = useMemo(() => {
     const mk = (frag: string, add = true) => new ShaderMaterial({
       vertexShader: flowVert, fragmentShader: frag, transparent: add, depthWrite: !add,
-      blending: add ? AdditiveBlending : undefined, side: DoubleSide,
+      blending: add ? AdditiveBlending : NormalBlending, side: DoubleSide,
       uniforms: { uTime: { value: 0 }, uSpeed: { value: 0.4 }, uI: { value: 1 } },
     })
     return {
@@ -252,5 +253,3 @@ export default function GpuFarm() {
     </group>
   )
 }
-
-export { SRGBColorSpace }

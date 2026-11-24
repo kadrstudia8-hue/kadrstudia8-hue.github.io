@@ -1,6 +1,7 @@
 // LOOKS (#looks): 6 style frames + switcher; the prism turns on every change.
 import { useState } from 'react'
-import { gen, useT } from '../ui/env'
+import { CALM, gen, useT } from '../ui/env'
+import { AutoVideo } from '../ui/media'
 import { Heading } from '../ui/Heading'
 import { Chip, LIGHTS, Reveal, Section, cx } from '../ui/kit'
 import { emit } from '../ui/stage'
@@ -11,6 +12,7 @@ export function Looks() {
   const [i, setI] = useState(0)
   const styles = t.looks.styles.slice(0, 6)
   const prism = gen('v4-prism-macro.webp')
+  const prismLoop = gen('v4-prism-loop.mp4')
   const pick = (n: number) => { setI(n); emit({ type: 'looks:select', index: n }) }
   return (
     <Section id="looks" className="looks">
@@ -26,7 +28,8 @@ export function Looks() {
           </Reveal>
           <div className="looks-prism slot" data-v4-slot="prism" aria-hidden>
             <div className="fb prism-fb" style={{ transform: `rotate(${i * 60}deg)` }}>
-              {prism ? <img src={prism} alt="" loading="lazy" decoding="async" /> : <i className="prism-css" />}
+              {prismLoop && !CALM ? <AutoVideo src={prismLoop} poster={prism ?? undefined} hidden className="prism-v" />
+                : prism ? <img src={prism} alt="" loading="lazy" decoding="async" /> : <i className="prism-css" />}
             </div>
           </div>
         </div>

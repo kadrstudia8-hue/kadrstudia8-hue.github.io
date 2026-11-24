@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber'
 import { useMemo, useRef } from 'react'
-import { AdditiveBlending, BackSide, Color, Group, MeshPhysicalMaterial, ShaderMaterial } from 'three'
+import { AdditiveBlending, Color, FrontSide, Group, MeshPhysicalMaterial, ShaderMaterial } from 'three'
 import { SPECTRUM } from '../glsl'
 import { rig } from '../rig'
 import { extrudeTriangle } from '../shapes'
@@ -42,7 +42,7 @@ export default function Prism({ tier }: { tier: number }) {
   }), [])
   const inner = useMemo(() => new ShaderMaterial({
     vertexShader: innerVert, fragmentShader: innerFrag, transparent: true, depthWrite: false,
-    blending: AdditiveBlending, side: BackSide,
+    blending: AdditiveBlending, side: FrontSide,
     uniforms: { uTime: { value: 0 }, uI: { value: 0 } },
   }), [])
 
@@ -50,21 +50,22 @@ export default function Prism({ tier }: { tier: number }) {
     const o = g.current
     if (!o) return
     o.position.copy(rig.prism)
+    o.scale.setScalar(rig.prismScale)
     const t = E.time
     const sway = (4 * Math.PI) / 180
     o.rotation.set(Math.sin(t * 0.31) * sway * 0.6, -0.35 + Math.sin(t * 0.23) * sway, rig.prismRotY)
     inner.uniforms.uTime.value = t
-    inner.uniforms.uI.value = (0.12 + 0.35 * rig.beamIntensity) * rig.dim * (1 - rig.fold)
+    inner.uniforms.uI.value = (0.22 + 0.5 * rig.beamIntensity) * rig.dim * (1 - rig.fold)
   })
 
   return (
     <group>
       <group ref={g}>
         <mesh geometry={geo} material={glass} renderOrder={1} />
-        <mesh geometry={geo} material={inner} scale={0.985} renderOrder={2} />
+        <mesh geometry={geo} material={inner} scale={1.006} renderOrder={2} />
       </group>
       <Flare at={rig.prism} size={tier >= 3 ? 1.5 : 1.2} color="#F4F6FF" streak={0.9}
-        intensity={() => 0.55 * rig.beamIntensity * rig.dim * (1 - rig.fold)} />
+        intensity={() => 0.5 * rig.beamIntensity * rig.dim * (1 - rig.fold)} />
     </group>
   )
 }

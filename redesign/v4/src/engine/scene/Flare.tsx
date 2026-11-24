@@ -24,7 +24,7 @@ export default function Flare({ at, size, color, intensity, streak = 0.6 }: {
 }) {
   const ref = useRef<Mesh>(null)
   const mat = useMemo(() => new ShaderMaterial({
-    vertexShader: vert, fragmentShader: frag, transparent: true, depthWrite: false, depthTest: true,
+    vertexShader: vert, fragmentShader: frag, transparent: true, depthWrite: false, depthTest: false,
     blending: AdditiveBlending,
     uniforms: { uColor: { value: new Color(color) }, uI: { value: 0 }, uStreak: { value: streak } },
   }), [color, streak])

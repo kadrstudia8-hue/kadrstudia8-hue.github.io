@@ -1,38 +1,32 @@
 import { useEffect, useState } from 'react'
 import { SRGBColorSpace, Texture, TextureLoader } from 'three'
+import { gen, type GenId } from '../ui/env'
+
+/** URL of a generated asset in public/gen (list owned by INTERFACE in ui/env.ts), or null while it does not exist. */
+export function genUrl(name: GenId): string | null {
+  return gen(name)
+}
 
 const loader = new TextureLoader()
 const cache = new Map<string, Promise<Texture | null>>()
 
-function tryLoad(url: string): Promise<Texture | null> {
-  return new Promise((res) => {
-    loader.load(url, (t) => { t.colorSpace = SRGBColorSpace; res(t) }, undefined, () => res(null))
-  })
+function load(url: string): Promise<Texture | null> {
+  let p = cache.get(url)
+  if (!p) {
+    p = new Promise((res) => loader.load(url, (t) => { t.colorSpace = SRGBColorSpace; res(t) }, undefined, () => res(null)))
+    cache.set(url, p)
+  }
+  return p
 }
 
-/**
- * Optional texture (generated assets may not exist yet). Returns null until it loads;
- * retries every 20 s for a few minutes so assets generated during a dev session get picked up.
- */
-export function useOptionalTexture(url: string): Texture | null {
+/** Optional texture: null until loaded, or forever if the url is null / fails. */
+export function useOptionalTexture(url: string | null): Texture | null {
   const [tex, setTex] = useState<Texture | null>(null)
   useEffect(() => {
-    let alive = true, tries = 0
-    let timer = 0
-    const attempt = () => {
-      let p = cache.get(url)
-      if (!p) { p = tryLoad(url); cache.set(url, p) }
-      p.then((t) => {
-        if (!alive) return
-        if (t) setTex(t)
-        else {
-          cache.delete(url)
-          if (++tries < 12) timer = window.setTimeout(attempt, 20000)
-        }
-      })
-    }
-    attempt()
-    return () => { alive = false; clearTimeout(timer) }
+    if (!url) return
+    let alive = true
+    load(url).then((t) => { if (alive && t) setTex(t) })
+    return () => { alive = false }
   }, [url])
   return tex
 }

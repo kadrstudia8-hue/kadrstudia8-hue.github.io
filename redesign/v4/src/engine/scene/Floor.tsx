@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { useMemo } from 'react'
 import { AdditiveBlending, PlaneGeometry, ShaderMaterial, Texture } from 'three'
 import { rig } from '../rig'
-import { useOptionalTexture } from '../textures'
+import { genUrl, useOptionalTexture } from '../textures'
 
 const vert = /* glsl */ `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`
 const frag = /* glsl */ `
@@ -14,9 +14,9 @@ void main() {
   gl_FragColor = vec4(c * c * v * uI, 1.0);
 }`
 
-/** Black glossy floor with a soft reflection + optional generated room plate far behind (additive, dim). */
+/** Black glossy floor (MeshReflectorMaterial) with a soft reflection + optional generated room plate far behind (additive, dim). */
 export default function Floor({ tier }: { tier: number }) {
-  const room = useOptionalTexture(`${import.meta.env.BASE_URL}gen/v4-room.webp`)
+  const room = useOptionalTexture(genUrl('v4-room.webp'))
   const plate = useMemo(() => new ShaderMaterial({
     vertexShader: vert, fragmentShader: frag, transparent: true, depthWrite: false, blending: AdditiveBlending,
     uniforms: { uMap: { value: null as Texture | null }, uI: { value: 0 } },
@@ -42,6 +42,7 @@ export default function Floor({ tier }: { tier: number }) {
           maxDepthThreshold={1.4}
           mirror={0.6}
           color="#050507"
+          envMapIntensity={0.12}
         />
       </mesh>
       {room && <mesh geometry={geo} material={plate} position={[0, 4.5, -16]} scale={[34, 19, 1]} />}

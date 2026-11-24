@@ -1,10 +1,11 @@
 // REEL (#reel): 25 s showreel with sound, played only on click.
 import { Play } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useOnScreen } from '../ui/media'
 import { useT } from '../ui/env'
 import { Heading } from '../ui/Heading'
 import { Reveal, Section, useMagnetic } from '../ui/kit'
-import { emit } from '../ui/stage'
+import { emit, useSceneOwns } from '../ui/stage'
 import { clean } from '../ui/text'
 
 export function Reel() {
@@ -14,11 +15,24 @@ export function Reel() {
   const btn = useRef<HTMLButtonElement>(null)
   useMagnetic(btn)
   const [started, setStarted] = useState(false)
+  const owns = useSceneOwns()
+  const onScreen = useOnScreen(ref)
+  // the scene shows the reel as a texture: before the click it runs as a muted loop while on screen
+  const preview = owns && !started
+  const [armed, setArmed] = useState(false)
+  useEffect(() => { if (preview && onScreen) setArmed(true) }, [preview, onScreen])
+  useEffect(() => {
+    const el = ref.current
+    if (!el || !preview || !armed) return
+    if (onScreen) { el.muted = true; el.play().catch(() => {}) } else el.pause()
+  }, [preview, onScreen, armed])
   const start = () => {
     const el = ref.current
     if (!el) return
     setStarted(true)
+    el.loop = false
     el.muted = false
+    el.currentTime = 0
     el.play().catch(() => {})
   }
   return (
@@ -30,7 +44,9 @@ export function Reel() {
             <video
               ref={ref}
               className="vid"
-              src={started ? v.src : undefined}
+              src={started || armed ? v.src : undefined}
+              muted={!started}
+              loop={!started}
               poster={v.poster}
               preload="none"
               playsInline
@@ -38,7 +54,7 @@ export function Reel() {
               aria-label={clean(v.label)}
               aria-hidden={started ? undefined : true}
               data-v4-video="reel"
-              onPlay={() => emit({ type: 'reel:play' })}
+              onPlay={() => { if (started) emit({ type: 'reel:play' }) }}
               onPause={() => emit({ type: 'reel:pause' })}
               onEnded={() => emit({ type: 'reel:pause' })}
             />

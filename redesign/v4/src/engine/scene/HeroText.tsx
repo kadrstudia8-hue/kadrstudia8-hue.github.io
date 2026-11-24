@@ -102,7 +102,7 @@ export default function HeroText({ count }: { count: number }) {
         const w = new Vector3()
         pxToWorld(px, py, SCREEN_DEPTH, cam, w)
         pos.set([w.x, w.y, w.z], i * 3)
-        const t = 0.45 + Math.random() * 0.5
+        const t = 0.68 + Math.random() * 0.3
         const rr = (rig.beamR0 + (rig.beamR1 - rig.beamR0) * t) * Math.sqrt(Math.random()) * 0.8
         const ang = Math.random() * Math.PI * 2
         end.set([A.x + ax.x * t + Math.cos(ang) * rr, A.y + ax.y * t + Math.sin(ang) * rr, A.z + ax.z * t + Math.sin(ang + 1) * rr], i * 3)

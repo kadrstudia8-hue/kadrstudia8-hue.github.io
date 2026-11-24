@@ -1,38 +1,74 @@
 // Video helpers: lazy muted loops that only play on screen, and a modal player.
 import { X } from 'lucide-react'
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { Component, useEffect, useRef, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { useOverlay } from '@kadr/shared/ui/useOverlay'
 import { CALM } from './env'
 import { cx } from './kit'
-import { lockScroll } from './stage'
+import { lockScroll, onFrame, useSceneOwns } from './stage'
 
 /** Muted looping video: src is attached near the viewport, plays only while visible and `play` is true. */
-export function AutoVideo({ src, poster, label, play = true, className, slot, hidden, fit = 'cover' }: {
-  src: string; poster?: string; label?: string; play?: boolean; className?: string; slot?: string; hidden?: boolean; fit?: 'cover' | 'contain'
-}) {
-  const ref = useRef<HTMLVideoElement>(null)
-  const [near, setNear] = useState(false)
-  const [vis, setVis] = useState(false)
+/** Whether the element is on screen: IntersectionObserver plus a cheap rect poll (the scene hides slots with opacity 0). */
+export function useOnScreen(ref: React.RefObject<Element | null>, margin = 0) {
+  const [on, setOn] = useState(false)
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const io1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setNear(true); io1.disconnect() } }, { rootMargin: '600px 0px' })
-    const io2 = new IntersectionObserver(([e]) => setVis(e.isIntersecting), { threshold: 0.15 })
-    io1.observe(el); io2.observe(el)
-    return () => { io1.disconnect(); io2.disconnect() }
-  }, [])
+    const io = new IntersectionObserver(([e]) => setOn(e.isIntersecting), { rootMargin: `${margin}px 0px` })
+    io.observe(el)
+    let n = 0
+    const off = onFrame(() => {
+      if (++n % 12) return
+      const r = el.getBoundingClientRect()
+      const v = r.bottom > -margin && r.top < innerHeight + margin && r.width > 0
+      setOn((p) => (p === v ? p : v))
+    })
+    return () => { io.disconnect(); off() }
+  }, [ref, margin])
+  return on
+}
+
+type AutoVideoProps = {
+  src: string; poster?: string; label?: string; play?: boolean; className?: string; slot?: string; hidden?: boolean; fit?: 'cover' | 'contain'
+  /** Attach src right away (hero after hero:play). */
+  eager?: boolean
+}
+
+/** A failing video never takes the page down: it degrades to its poster. */
+class MediaBoundary extends Component<{ poster?: string; className?: string; children: ReactNode }, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  componentDidCatch(e: unknown) { console.warn('[v4] video disabled:', e) }
+  render() {
+    if (!this.state.failed) return this.props.children
+    return this.props.poster ? <img className={cx('vid', this.props.className)} src={this.props.poster} alt="" aria-hidden /> : null
+  }
+}
+
+export function AutoVideo(p: AutoVideoProps) {
+  return <MediaBoundary poster={p.poster} className={p.className}><AutoVideoInner {...p} /></MediaBoundary>
+}
+
+function AutoVideoInner({ src, poster, label, play = true, className, slot, hidden, fit = 'cover', eager }: AutoVideoProps) {
+  const ref = useRef<HTMLVideoElement>(null)
+  const owns = useSceneOwns()
+  const nearNow = useOnScreen(ref, 600)
+  const vis = useOnScreen(ref)
+  const [near, setNear] = useState(false)
+  useEffect(() => { if (nearNow || eager) setNear(true) }, [nearNow, eager])
+  // the scene draws slot videos as textures: they must have src and play even while the DOM copy is invisible
+  const live = owns && !!slot ? true : !CALM
   useEffect(() => {
     const el = ref.current
     if (!el || !near) return
-    if (play && vis && !CALM) el.play().catch(() => {})
+    if (play && vis && live) { el.muted = true; el.play().catch(() => {}) }
     else el.pause()
-  }, [play, vis, near])
+  }, [play, vis, near, live, src])
   return (
     <video
       ref={ref}
       className={cx('vid', fit === 'contain' && 'vid-contain', className)}
-      src={near && !CALM ? src : undefined}
+      src={near && live ? src : undefined}
       poster={poster}
       muted loop playsInline preload="none"
       aria-label={label}

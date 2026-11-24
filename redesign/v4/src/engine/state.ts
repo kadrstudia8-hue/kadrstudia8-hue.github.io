@@ -1,5 +1,5 @@
 ﻿import { onEvent, setOutput, stageInput, type StageOutput } from './contract'
-import { STILL } from './quality'
+import { STILL, STORY_AT } from './quality'
 
 /** Internal mutable engine state (no React re-renders). */
 export const E = {
@@ -25,6 +25,7 @@ export const HERO = { typing: 1.2, dust: 2.2, spectrum: 3.2, reveal: 4.0 }
 export function heroT(): number {
   if (STILL) return 99
   if (E.heroStart < 0) return -1
+  if (STORY_AT !== null) return STORY_AT
   return E.time - E.heroStart
 }
 

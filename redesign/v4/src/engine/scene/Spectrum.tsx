@@ -56,7 +56,7 @@ export default function Spectrum() {
     u.uA0.value.copy(rig.specAcross).normalize().multiplyScalar(0.07)
     u.uOpen.value = rig.specOpen
     u.uTime.value = E.time
-    u.uI.value = 0.55 * rig.specIntensity * rig.dim
+    u.uI.value = 0.95 * rig.specIntensity * rig.dim
   })
 
   return <mesh geometry={geo} material={mat} frustumCulled={false} renderOrder={4} />

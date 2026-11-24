@@ -2,7 +2,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useMemo, useRef } from 'react'
 import {
   CanvasTexture, LinearFilter, Mesh, PerspectiveCamera, PlaneGeometry, ShaderMaterial, SRGBColorSpace,
-  Texture, TextureLoader, Vector2,
+  Texture, TextureLoader, Vector2, VideoTexture,
 } from 'three'
 import { stageInput as I } from '../contract'
 import { dom } from '../dom'
@@ -17,7 +17,7 @@ const vert = /* glsl */ `varying vec2 vUv; void main(){ vUv = uv; gl_Position = 
 const frag = /* glsl */ `
 ${SPECTRUM}
 ${SDF}
-uniform sampler2D uMap; uniform float uHas; uniform vec2 uSize; uniform float uMargin; uniform float uTexAspect;
+uniform sampler2D uMap; uniform float uHas; uniform float uDecode; uniform vec2 uSize; uniform float uMargin; uniform float uTexAspect;
 uniform float uReveal; uniform float uTime; uniform float uSpill; uniform float uI; uniform float uRun; uniform float uRadius;
 varying vec2 vUv;
 void main() {
@@ -31,6 +31,7 @@ void main() {
   if (uTexAspect > sa) tuv.x *= sa / uTexAspect; else tuv.y *= uTexAspect / sa;
   tuv += 0.5;
   vec3 vid = uHas > 0.5 ? texture2D(uMap, tuv).rgb : vec3(0.0);
+  if (uDecode > 0.5) vid = pow(vid, vec3(2.2)); // VideoTexture is not hardware-decoded
   float lum = dot(vid, vec3(0.2126, 0.7152, 0.0722));
   float m = clamp((uReveal * 1.6 - (1.0 - pow(lum, 0.6))) / 0.6, 0.0, 1.0) * uHas;
   // dark glass when empty
@@ -49,6 +50,16 @@ void main() {
   float a = max(inside, max(rim, glow));
   gl_FragColor = vec4(outC * uI, a * clamp(uI * 1.5, 0.0, 1.0));
 }`
+
+/** VideoTexture without automatic per-frame uploads: we flag needsUpdate only for the active screen. */
+class ManualVideoTexture extends VideoTexture {
+  constructor(v: HTMLVideoElement) {
+    super(v)
+    const id = (this as unknown as { _requestVideoFrameCallbackId: number })._requestVideoFrameCallbackId
+    if (id && 'cancelVideoFrameCallback' in v) v.cancelVideoFrameCallback(id)
+  }
+  update() {}
+}
 
 const loader = new TextureLoader()
 const posterCache = new Map<string, Texture>()
@@ -69,7 +80,7 @@ export function Screen({ slot, video, isActive, reveal, run }: {
   const mat = useMemo(() => new ShaderMaterial({
     vertexShader: vert, fragmentShader: frag, transparent: true, depthWrite: false,
     uniforms: {
-      uMap: { value: null }, uHas: { value: 0 }, uSize: { value: new Vector2(1, 1) }, uMargin: { value: MARGIN },
+      uMap: { value: null }, uHas: { value: 0 }, uDecode: { value: 0 }, uSize: { value: new Vector2(1, 1) }, uMargin: { value: MARGIN },
       uTexAspect: { value: 16 / 9 }, uReveal: { value: 1 }, uTime: { value: 0 }, uSpill: { value: 0 },
       uI: { value: 1 }, uRun: { value: 0 }, uRadius: { value: 12 },
     },
@@ -116,7 +127,7 @@ export function Screen({ slot, video, isActive, reveal, run }: {
           s.canvas = document.createElement('canvas')
           s.canvas.width = 1280; s.canvas.height = Math.round((1280 * el.videoHeight) / el.videoWidth)
           s.tex = new CanvasTexture(s.canvas)
-        } else s.tex = new Texture(el)
+        } else s.tex = new ManualVideoTexture(el)
         s.tex.colorSpace = SRGBColorSpace
         s.tex.minFilter = LinearFilter; s.tex.magFilter = LinearFilter; s.tex.generateMipmaps = false
       }
@@ -125,10 +136,10 @@ export function Screen({ slot, video, isActive, reveal, run }: {
       s.hasFrame = true
       u.uTexAspect.value = el.videoWidth / el.videoHeight
     }
-    if (s.hasFrame && s.tex) { u.uMap.value = s.tex; u.uHas.value = 1 }
+    if (s.hasFrame && s.tex) { u.uMap.value = s.tex; u.uHas.value = 1; u.uDecode.value = s.canvas ? 0 : 1 }
     else if (el.poster) {
       const p = poster(el.poster)
-      u.uMap.value = p
+      u.uMap.value = p; u.uDecode.value = 0
       const img = p.image as HTMLImageElement | undefined
       u.uHas.value = img && img.width ? 1 : 0
       if (img && img.width) u.uTexAspect.value = img.width / img.height

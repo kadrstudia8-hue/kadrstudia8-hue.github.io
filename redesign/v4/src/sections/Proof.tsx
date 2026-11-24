@@ -9,8 +9,10 @@ import { emit, scrollToHash } from '../ui/stage'
 import { clean } from '../ui/text'
 import { PICK_EVENT } from './Hero'
 
+const QUOTES = { ru: ['«', '»'], uk: ['«', '»'], es: ['«', '»'], en: ['“', '”'], de: ['„', '“'] } as const
+
 export function Proof() {
-  const { t, c } = useT()
+  const { t, c, lang } = useT()
   const ex = t.proof.examples
   const [active, setActive] = useState(0)
   const [hover, setHover] = useState<number | null>(null)
@@ -115,7 +117,7 @@ export function Proof() {
         <Reveal className="proof-panel" id="proof-panel" data-v4-safe="">
           <div role="tabpanel" aria-live="polite">
             <p className="hud">{c.proof.prompt}</p>
-            <p key={active} className="proof-q">«{clean(a.prompt)}»</p>
+            <p key={active} className="proof-q">{QUOTES[lang][0]}{clean(a.prompt)}{QUOTES[lang][1]}</p>
             <ul className="proof-tags">
               {a.meta.slice(0, 3).map((m, i) => <li key={m}><Chip color={LIGHTS[(i + 2) % LIGHTS.length]}>{clean(m)}</Chip></li>)}
             </ul>

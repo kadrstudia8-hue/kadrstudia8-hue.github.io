@@ -1,6 +1,6 @@
 // HERO (#top): chip, H1, typing prompt, one CTA, showreel link, neon note, screen slot with the real hero video.
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CALM, OS_NAME, useT } from '../ui/env'
+import { CALM, OS_NAME, gen, useT } from '../ui/env'
 import { Heading } from '../ui/Heading'
 import { Btn, Chip, PlayLink, Rich, Scribble, cx } from '../ui/kit'
 import { AutoVideo } from '../ui/media'
@@ -90,7 +90,7 @@ function PromptField({ phrases, label, go, onGo, onFirstDone }: { phrases: strin
   const phrase = phrases[i] ?? ''
   const shown = fitTail(phrase.slice(0, n), w, font)
   return (
-    <div className="prompt glass" data-v4-safe>
+    <div className="prompt glass" data-v4-safe data-v4-slot="hero-prompt">
       <button type="button" className="prompt-go" aria-label={go} onClick={() => onGo(i, phrase)}>
         <span aria-hidden>➤</span>
       </button>
@@ -107,12 +107,14 @@ export function Hero() {
   const ctaLabel = useCtaLabel()
   const phrases = useMemo(() => t.proof.examples.map((e) => clean(e.prompt)), [t])
   const [lit, setLit] = useState(CALM)
+  const [played, setPlayed] = useState(false)
   const [copied, setCopied] = useState(false)
   const main = t.hero.ctas.find((x) => x.variant === 'main') ?? t.hero.ctas[0]
+  const room = gen('v4-room.webp')
 
   useEffect(() => {
     let alive = true
-    const fire = () => { if (alive) emit({ type: 'hero:play', phrase: phrases[0] ?? '' }) }
+    const fire = () => { if (alive) { emit({ type: 'hero:play', phrase: phrases[0] ?? '' }); setPlayed(true) } }
     if (document.fonts?.ready) document.fonts.ready.then(() => requestAnimationFrame(fire)); else fire()
     // DOM story on tier ≤ 1: the screen develops within 2 s at most
     const tm = setTimeout(() => setLit(true), 1600)
@@ -121,6 +123,7 @@ export function Hero() {
 
   const onGo = (i: number, s: string) => {
     emit({ type: 'hero:play', phrase: s })
+    setPlayed(true)
     pickProof(i)
   }
   const share = async () => {
@@ -134,7 +137,10 @@ export function Hero() {
 
   return (
     <section id="top" data-v4-section className="hero">
-      <div aria-hidden className="hero-beam fb"><i className="beam-cone" /><i className="beam-fan" /></div>
+      <div aria-hidden className="hero-beam fb">
+        {room && <img className="hero-room" src={room} alt="" decoding="async" />}
+        <i className="beam-cone" /><i className="beam-fan" />
+      </div>
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <Chip color="var(--lilac)" className="hero-chip">{c.hero.chip}</Chip>
@@ -149,7 +155,7 @@ export function Hero() {
         <div className="hero-side">
           <div className="hero-screen slot" data-v4-slot="hero-screen">
             <div className={cx('screen fb hero-fb', lit && 'lit')}>
-              <AutoVideo src={t.hero.video.src} poster={t.hero.video.poster} label={clean(t.hero.video.label)} slot="hero" />
+              <AutoVideo src={t.hero.video.src} poster={t.hero.video.poster} label={clean(t.hero.video.label)} slot="hero" eager={played} />
             </div>
           </div>
           <div className="hero-note"><Scribble color="var(--pink)" rotate={-4}>{c.hero.note}</Scribble></div>

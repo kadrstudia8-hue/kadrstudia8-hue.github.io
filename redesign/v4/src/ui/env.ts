@@ -38,10 +38,14 @@ function detectOS(): OS {
 export const OS_NAME: OS = detectOS()
 
 // ---------------------------------------------------------------- generated assets (public/gen)
-// The list comes from the file system at build/dev time, so a missing file is never requested (no 404).
-const GEN = import.meta.glob('../../public/gen/*.{webp,mp4,png,jpg}', { query: '?url', import: 'default', eager: true }) as Record<string, string>
+// Files that exist in public/gen (asset-slots.json, version v4). Served from the public dir as is (no hashing, no duplicates).
+// A file left out of this list is never requested; every user of gen() has a CSS/DOM fallback.
+const GEN_FILES: GenId[] = [
+  'v4-gpu-farm.webp', 'v4-gpu-farm-loop.mp4', 'v4-prism-macro.webp', 'v4-obj-play.webp', 'v4-room.webp',
+  'v4-obj-camera.webp', 'v4-obj-clapper.webp', 'v4-obj-reel.webp', 'v4-obj-mic.webp', 'v4-prism-loop.mp4',
+]
 const genByName: Record<string, string> = {}
-for (const k of Object.keys(GEN)) genByName[k.split('/').pop()!] = `gen/${k.split('/').pop()}`
+for (const k of GEN_FILES) genByName[k] = `gen/${k}`
 
 export type GenId =
   | 'v4-gpu-farm.webp' | 'v4-gpu-farm-loop.mp4' | 'v4-prism-macro.webp' | 'v4-obj-play.webp' | 'v4-room.webp'

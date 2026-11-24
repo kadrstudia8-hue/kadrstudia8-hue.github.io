@@ -62,7 +62,12 @@ export function MobileBar() {
   useEffect(() => {
     const on = () => {
       const over = (id: string) => { const r = document.getElementById(id)?.getBoundingClientRect(); return !!r && r.top < innerHeight && r.bottom > 0 }
-      setShow(scrollY > innerHeight * 0.8 && !over('download') && !over('footer'))
+      // one lime per screen: hide the bar while a section's primary button is in view
+      const lime = Array.from(document.querySelectorAll('main .btn-light')).some((b) => {
+        const r = b.getBoundingClientRect()
+        return r.height > 0 && r.top < innerHeight && r.bottom > 0
+      })
+      setShow(scrollY > innerHeight * 0.8 && !lime && !over('download') && !over('footer'))
     }
     on()
     addEventListener('scroll', on, { passive: true })
