@@ -2,13 +2,13 @@
 (function () {
   if (window.__kadrSwitch) return; window.__kadrSwitch = 1;
   var path = location.pathname;
-  var cur = /\/v1\.html$/.test(path) ? 'v1' : /\/v2\.html$/.test(path) ? 'v2' : /\/v3\.html$/.test(path) ? 'v3' : 'cur';
+  var m = path.match(/\/(v[1-4])\.html$/); var cur = m ? m[1] : 'cur';
   var lang = (document.documentElement.lang || 'uk').slice(0, 2);
   try { var q = new URLSearchParams(location.search).get('lang'); if (q) lang = q; } catch (e) {}
   var curPage = { uk: '/', ru: '/landing.html', en: '/landing-en.html', es: '/landing-es.html', de: '/landing-de.html' }[lang] || '/';
   var label = { uk: 'Дизайн', ru: 'Дизайн', en: 'Design', es: 'Diseño', de: 'Design' }[lang] || 'Design';
   var nowLabel = { uk: 'Поточний', ru: 'Текущий', en: 'Current', es: 'Actual', de: 'Aktuell' }[lang] || 'Current';
-  var items = [['cur', nowLabel, curPage], ['v1', 'V1', '/v1.html?lang=' + lang], ['v2', 'V2', '/v2.html?lang=' + lang], ['v3', 'V3', '/v3.html?lang=' + lang]];
+  var items = [['cur', nowLabel, curPage], ['v1', 'V1', '/v1.html?lang=' + lang], ['v2', 'V2', '/v2.html?lang=' + lang], ['v3', 'V3', '/v3.html?lang=' + lang], ['v4', 'V4', '/v4.html?lang=' + lang]];
 
   var css = '' +
     '.kds{position:fixed;z-index:2147483000;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);' +
