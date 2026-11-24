@@ -45,9 +45,13 @@ export function probe(): Probe {
 }
 
 /**
- * Frame-time monitor: benchmark over the first 90 valid frames, then on-the-fly downgrade
- * (30 consecutive frames > 24 ms => tier - 1, at most once per 5 s). Throttled frames
- * (hidden tab / hidden panel, dt > 100 ms) are ignored so a background panel does not kill the scene.
+ * Frame-time monitor. It only ever steps down one tier at a time, and it never asks for more than the display can give:
+ * frames are vsynced, so a healthy 60 Hz screen reports about 16.7 ms and must keep its tier.
+ *   benchmark (first 90 valid frames after warm-up):  tier 3 keeps up to 20 ms on average, otherwise drops to 2;
+ *                                                     tier 2 keeps up to 34 ms (30 fps), otherwise the scene is turned off.
+ *   afterwards: tier 3 drops to 2 after 30 consecutive frames over 24 ms; tier 2 turns off only after 90 consecutive
+ *               frames over 40 ms (under 25 fps for several seconds). At most one step per 5 s.
+ * Throttled frames (hidden tab / hidden panel, dt > 100 ms) are ignored so a background panel does not kill the scene.
  */
 export class FrameMonitor {
   private n = 0
@@ -57,9 +61,17 @@ export class FrameMonitor {
   benchDone = false
   constructor(private ceiling: Tier, private onTier: (t: Tier, reason: string) => void, private current: Tier) {}
 
+  private drop(nowMs: number, reason: string) {
+    this.slow = 0
+    this.lastDrop = nowMs
+    this.current = (this.current - 1) as Tier
+    this.onTier(this.current, reason)
+  }
+
   frame(dtMs: number, nowMs: number) {
     if (STILL || FORCED_TIER !== null) return
     if (document.hidden || dtMs > 100 || dtMs <= 0) return
+    if (this.current <= 1) return
     if (!this.benchDone) {
       this.n++
       if (this.n <= 12) return // shader compile warm-up
@@ -67,20 +79,14 @@ export class FrameMonitor {
       if (this.n >= 102) {
         this.benchDone = true
         const avg = this.sum / 90
-        let t: Tier = avg <= 12 ? 3 : avg <= 20 ? 2 : 1
-        if (t > this.ceiling) t = this.ceiling
         this.lastDrop = nowMs
-        if (t !== this.current) { this.current = t; this.onTier(t, `bench ${avg.toFixed(1)}ms`) }
+        if (avg > (this.current >= 3 ? 20 : 34)) this.drop(nowMs, `bench ${avg.toFixed(1)}ms`)
       }
       return
     }
-    if (dtMs > 24) this.slow++
+    const full = this.current >= 3
+    if (dtMs > (full ? 24 : 40)) this.slow++
     else this.slow = 0
-    if (this.slow >= 30 && nowMs - this.lastDrop > 5000 && this.current > 1) {
-      this.slow = 0
-      this.lastDrop = nowMs
-      this.current = (this.current - 1) as Tier
-      this.onTier(this.current, 'slow frames')
-    }
+    if (this.slow >= (full ? 30 : 90) && nowMs - this.lastDrop > 5000) this.drop(nowMs, 'slow frames')
   }
 }
