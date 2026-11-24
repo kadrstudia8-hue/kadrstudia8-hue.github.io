@@ -1,0 +1,986 @@
+// KADR Studio landing, ES content (sales rewrite, 2026-11).
+// Started as a verbatim copy of the live page; now edited copy on the same product facts.
+// Visible copy rules: no long dashes, no word «ролик» (except «Проверка ролика» / «Перевірка ролика»), short paragraphs.
+import type { SiteContent } from './types.ts'
+
+export const es: SiteContent = {
+  lang: "es",
+  meta: {
+    htmlLang: "es",
+    title: "KADR Studio. Una frase. Un vídeo listo.",
+    description: "Escribe una idea y KADR Studio hace el vídeo entero: guion, voz, imágenes, música y subtítulos. Windows, Mac y KADR Cloud.",
+    canonical: "https://kadrstudia8-hue.github.io/landing-es.html",
+    alternates: [
+      {
+        hreflang: "uk",
+        href: "https://kadrstudia8-hue.github.io/"
+      },
+      {
+        hreflang: "ru",
+        href: "https://kadrstudia8-hue.github.io/landing.html"
+      },
+      {
+        hreflang: "en",
+        href: "https://kadrstudia8-hue.github.io/landing-en.html"
+      },
+      {
+        hreflang: "es",
+        href: "https://kadrstudia8-hue.github.io/landing-es.html"
+      },
+      {
+        hreflang: "de",
+        href: "https://kadrstudia8-hue.github.io/landing-de.html"
+      },
+      {
+        hreflang: "x-default",
+        href: "https://kadrstudia8-hue.github.io/"
+      }
+    ],
+    themeColor: "#0e0c0a",
+    og: {
+      type: "website",
+      siteName: "KADR Studio",
+      locale: "es_ES",
+      localeAlternates: [
+        "uk_UA",
+        "ru_RU",
+        "en_US",
+        "de_DE"
+      ],
+      url: "https://kadrstudia8-hue.github.io/landing-es.html",
+      title: "KADR Studio. Una frase. Un vídeo listo.",
+      description: "Escribe una idea y KADR Studio hace el vídeo entero: guion, voz, imágenes, música y subtítulos. Windows, Mac y KADR Cloud.",
+      image: "https://kadrstudia8-hue.github.io/media/reel-en.jpg",
+      imageWidth: 960,
+      imageHeight: 540
+    },
+    twitterCard: "summary_large_image",
+    preloadImage: "media/hero-en.jpg",
+    favicon: "favicon.svg"
+  },
+  nav: {
+    logo: {
+      text: "KADR",
+      em: "studio",
+      href: "#top"
+    },
+    links: [
+      {
+        label: "Ejemplos",
+        href: "#proof"
+      },
+      {
+        label: "Cómo funciona",
+        href: "#how"
+      },
+      {
+        label: "Para quién",
+        href: "#who"
+      },
+      {
+        label: "Sin GPU",
+        href: "#req"
+      },
+      {
+        label: "Precios",
+        href: "#pricing"
+      },
+      {
+        label: "FAQ",
+        href: "#faq"
+      }
+    ],
+    langMenuLabel: "Idioma",
+    langCurrent: {
+      full: "Español",
+      short: "ES"
+    },
+    cta: {
+      label: "Descargar",
+      href: "#download",
+      variant: "ghost"
+    }
+  },
+  hero: {
+    id: "top",
+    tag: "Una app para Windows y macOS",
+    title: [
+      {
+        text: "Una frase.",
+        nowrap: true
+      },
+      {
+        text: "Un vídeo listo.",
+        accent: true
+      }
+    ],
+    lead: "Escribe una idea. KADR Studio crea el guion, la voz, las imágenes, la música y los subtítulos, y exporta un MP4.",
+    ctas: [
+      {
+        label: "Descargar KADR Studio",
+        href: "#download",
+        variant: "main",
+        osAware: true
+      },
+      {
+        label: "▶ Showreel, 25 s",
+        href: "#reel",
+        variant: "ghost"
+      }
+    ],
+    note: "Windows y Mac · sin anuncios ni telemetría",
+    mobileHint: [
+      "KADR Studio funciona en el ordenador. Abre esta web en un Mac o PC, o ",
+      {
+        button: "envíate el enlace",
+        action: "share"
+      },
+      "."
+    ],
+    video: {
+      src: "media/hero-en.mp4",
+      poster: "media/hero-en.jpg",
+      width: 1280,
+      height: 720,
+      label: "Planos de la película «Why Does Your Brain Make Dreams Feel Real?», hecha en KADR Studio"
+    },
+    caption: "No es material de archivo. Son planos de una película de 17 minutos sobre los sueños, hecha con un solo encargo.",
+    facts: [
+      [
+        {
+          b: "De 15 segundos a 30 minutos"
+        }
+      ],
+      [
+        {
+          b: "9:16 · 16:9 · 1:1 · 4:5"
+        }
+      ],
+      [
+        "voces ",
+        {
+          b: "ES · DE · EN · UK · RU"
+        }
+      ],
+      [
+        "funciona ",
+        {
+          b: "sin GPU"
+        }
+      ],
+      [
+        "tras un corte de luz ",
+        {
+          b: "sigue donde se quedó"
+        }
+      ]
+    ],
+    badges: [
+      "3 vídeos gratis",
+      "Sin GPU",
+      "Windows y Mac",
+      "Sin anuncios"
+    ]
+  },
+  promises: {
+    id: "promises",
+    tag: "Por qué KADR",
+    title: "Vídeo sin cámara ni editor",
+    items: [
+      {
+        icon: "Clapperboard",
+        title: "Sin rodar ni editar",
+        text: "Tú escribes la idea. KADR se encarga del guion, la voz, las imágenes y la música."
+      },
+      {
+        icon: "Timer",
+        title: "Tu primer vídeo en 2 minutos",
+        text: "Un tutorial corto te lleva de la idea al MP4 terminado."
+      },
+      {
+        icon: "Gift",
+        title: "3 vídeos gratis",
+        text: "Modo de prueba sin tarjeta. Compra cuando te guste el resultado."
+      },
+      {
+        icon: "Cloud",
+        title: "Funciona en cualquier ordenador",
+        text: "Nuestras GPU en KADR Cloud hacen el trabajo pesado."
+      },
+      {
+        icon: "Film",
+        title: "MP4 para cada plataforma",
+        text: "TikTok, Shorts, Reels y YouTube: 9:16, 16:9, 1:1 y 4:5."
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Sin anuncios ni telemetría",
+        text: "Tus proyectos y vídeos se quedan en tu ordenador."
+      }
+    ]
+  },
+  proof: {
+    id: "proof",
+    tag: "Ejemplos reales",
+    title: "Una frase → un vídeo",
+    lead: "Peticiones reales y los vídeos que KADR Studio hizo con ellas. Se escribieron en ruso; aquí van traducidas.",
+    tablistLabel: "Peticiones de ejemplo",
+    examples: [
+      {
+        label: "Taxi y tarta",
+        video: "media/oleg.mp4",
+        poster: "media/oleg.jpg",
+        shape: "v",
+        alt: "Short: el taxista Oleg y una tarta olvidada por un pasajero",
+        meta: [
+          "Short 9:16",
+          "31 segundos",
+          "voz y subtítulos palabra a palabra"
+        ],
+        prompt: "El taxista Oleg cuenta una historia divertida sobre un pasajero que se olvidó una tarta de cumpleaños en su coche"
+      },
+      {
+        label: "3 consejos de taxi",
+        video: "media/oleg-tips.mp4",
+        poster: "media/oleg-tips.jpg",
+        shape: "v",
+        alt: "Short: el taxista Oleg da consejos",
+        meta: [
+          "Short 9:16",
+          "30 segundos",
+          "el mismo protagonista en cada plano"
+        ],
+        prompt: "El taxista Oleg da 3 consejos para moverse en taxi por la ciudad pagando menos"
+      },
+      {
+        label: "Anuncio de café",
+        video: "media/cafe.mp4",
+        poster: "media/cafe.jpg",
+        shape: "v",
+        alt: "Anuncio de cafetería: cruasanes y café",
+        meta: [
+          "Anuncio 9:16",
+          "28 segundos",
+          "texto grande en pantalla"
+        ],
+        prompt: "Un anuncio corto para una cafetería acogedora del barrio: mañana, olor a café recién hecho, cruasanes, una barista sonriente y, al final, una invitación a pasarse hoy mismo"
+      },
+      {
+        label: "Océano",
+        video: "media/ocean.mp4",
+        poster: "media/ocean.jpg",
+        shape: "h",
+        alt: "Vídeo sobre el océano: una medusa y el Gran Agujero Azul",
+        meta: [
+          "YouTube 16:9",
+          "26 segundos",
+          "escenas animadas"
+        ],
+        prompt: "Un vídeo sobre el océano: los lugares y criaturas más asombrosos que muy poca gente ha visto"
+      }
+    ],
+    initial: {
+      prompt: "El taxista Oleg cuenta una historia divertida sobre un pasajero que se olvidó una tarta de cumpleaños en su coche",
+      meta: [
+        "Short 9:16",
+        "30 segundos",
+        "voz y subtítulos palabra a palabra"
+      ],
+      image: {
+        src: "media/oleg.jpg",
+        alt: "Short: el taxista Oleg y una tarta olvidada por un pasajero",
+        width: 404,
+        height: 720
+      }
+    },
+    note: "Fragmento sin sonido, con voz y subtítulos en ruso. Los clips completos con sonido están en el showreel."
+  },
+  reel: {
+    id: "reel",
+    tag: "Showreel",
+    title: "25 segundos de trabajo real",
+    lead: "Solo lo que hizo la app. Activa el sonido: la voz y la música también salen de la app.",
+    video: {
+      src: "media/reel-en.mp4",
+      poster: "media/reel-en.jpg",
+      width: 960,
+      height: 540,
+      label: "Showreel de KADR Studio, 25 segundos, con sonido"
+    },
+    captions: [
+      "Fragmentos tal como los renderizó la app. Solo los hemos unido.",
+      "2 MB · con sonido"
+    ],
+    ctas: [
+      {
+        label: "Descargar KADR Studio",
+        href: "#download",
+        variant: "main"
+      },
+      {
+        label: "Cómo funciona",
+        href: "#how",
+        variant: "ghost"
+      }
+    ]
+  },
+  tutorial: {
+    id: "tutorial",
+    tag: "Videotutorial",
+    title: "Tu primer vídeo en 2 minutos",
+    lead: "Dónde escribir la idea, cómo elegir formato y voz, y dónde encontrar el vídeo terminado.",
+    video: {
+      src: "media/tutorial-uk.mp4",
+      poster: "media/tutorial-uk.jpg",
+      width: 1280,
+      height: 720,
+      label: "Tutorial de KADR Studio: tu primer vídeo en 2 minutos (en ucraniano)"
+    },
+    captions: [
+      "El vídeo está en ucraniano · 2:01 · con sonido",
+      "4 MB"
+    ]
+  },
+  who: {
+    id: "who",
+    tag: "Para quién",
+    title: "Para quién es KADR Studio",
+    cards: [
+      {
+        media: {
+          kind: "trio",
+          videos: [
+            {
+              src: "media/short-1.mp4",
+              poster: "media/short-1.jpg",
+              width: 404,
+              height: 720,
+              label: "Short de la película sobre los sueños: un retrato luminoso"
+            },
+            {
+              src: "media/short-2.mp4",
+              poster: "media/short-2.jpg",
+              width: 404,
+              height: 720,
+              label: "Short de la película sobre los sueños: un cerebro luminoso"
+            },
+            {
+              src: "media/short-3.mp4",
+              poster: "media/short-3.jpg",
+              width: 404,
+              height: 720,
+              label: "Short de la película sobre los sueños: primer plano de un ojo"
+            }
+          ]
+        },
+        title: "Creadores de TikTok, Shorts y Reels",
+        text: "Vídeos verticales cada día sin rodar ni editar. Una película larga se convierte en una serie de Shorts.",
+        source: "Ejemplo: 7 Shorts sacados de una película sobre los sueños",
+        details: "«Cortar Shorts» saca de una película larga entre 3 y 8 clips, cada uno con título gancho, encuadre por la cara, texto y hashtags."
+      },
+      {
+        media: {
+          kind: "solo",
+          image: {
+            src: "media/cafe.jpg",
+            alt: "Plano del anuncio de la cafetería: cruasanes y texto grande",
+            width: 404,
+            height: 720
+          }
+        },
+        title: "Pequeños negocios",
+        text: "Anuncios para un café, una tienda o un servicio con una sola frase. Tu producto sale igual en cada plano.",
+        source: "Ejemplo: anuncio de cafetería a partir de una frase, 28 segundos",
+        details: "Formatos 9:16, 1:1 y 4:5. Define el producto o el personaje con fotos. Hay una plantilla «Anuncio de producto»."
+      },
+      {
+        media: {
+          kind: "video",
+          video: {
+            src: "media/film.mp4",
+            poster: "media/film.jpg",
+            width: 960,
+            height: 540,
+            label: "Fragmento de la película sobre los sueños"
+          }
+        },
+        title: "Divulgación en YouTube y canales sin cara",
+        text: "Vídeos explicativos y películas de hasta 30 minutos con capítulos. Un director de IA escribe el guion.",
+        source: "Ejemplo: la película sobre los sueños, 17 minutos, a partir de un solo encargo",
+        details: "Un guion que abre con gancho, planos y ángulos elegidos, y textos para publicar: título, descripción con capítulos, hashtags."
+      },
+      {
+        media: {
+          kind: "pair",
+          items: [
+            {
+              image: {
+                src: "media/lang-en.jpg",
+                alt: "Plano de la película con subtítulos en inglés",
+                width: 800,
+                height: 450
+              },
+              badge: "EN"
+            },
+            {
+              image: {
+                src: "media/lang-ru.jpg",
+                alt: "El mismo plano con subtítulos en ruso",
+                width: 800,
+                height: 450
+              },
+              badge: "RU"
+            }
+          ]
+        },
+        title: "En varios idiomas",
+        text: "Las mismas imágenes en otro idioma, con un narrador nativo y subtítulos traducidos.",
+        source: "Ejemplo: la película sobre los sueños en inglés y en ruso",
+        details: "Voces neuronales gratuitas, también en español y alemán. Con una clave de ElevenLabs tienes sus voces, incluida tu voz clonada."
+      }
+    ]
+  },
+  how: {
+    id: "how",
+    tag: "Cómo funciona",
+    title: "Tres pasos de la idea al MP4",
+    lead: "Sin línea de tiempo. Tú describes lo que necesitas y la app hace el resto.",
+    steps: [
+      {
+        n: "1",
+        title: "Escribe una idea",
+        text: "Una frase o tu propio texto, hasta 30.000 caracteres. Elige formato y duración.",
+        details: "Formatos 9:16, 16:9, 1:1 y 4:5, de 15 segundos a 30 minutos. Plantillas: Datos, Top 5, Historia, Anuncio de producto, Tutorial."
+      },
+      {
+        n: "2",
+        title: "Pulsa ➤",
+        text: "KADR escribe el guion, pone la voz, dibuja los planos, anima escenas, compone música y añade subtítulos.",
+        details: "Claude, OpenAI o Gemini escribe el guion con tu clave. Si quieres revisar los planos antes, activa el storyboard."
+      },
+      {
+        n: "3",
+        title: "Llévate el vídeo terminado",
+        text: "Un MP4 con el volumen listo para redes. Redibuja cualquier plano con un clic.",
+        details: "«Revisión del vídeo» detecta fallos por sí sola y te dice con palabras claras qué corregir."
+      }
+    ],
+    note: "En una RTX 3060 un plano tarda cerca de un minuto y una película de 20 minutos, unas 4 horas.",
+    screenshot: {
+      src: "img/home-en.jpg",
+      alt: "Pantalla de inicio de KADR Studio: campo de idea, formatos y plantillas",
+      width: 1280,
+      height: 820
+    },
+    caption: "La pantalla de inicio: idea, formato, plantilla y el botón ➤."
+  },
+  looks: {
+    id: "looks",
+    tag: "Cómo se verá",
+    title: "El estilo visual, en un clic",
+    lead: "12 estilos, del cine al anime y la animación 3D. El mismo plano en estilos distintos:",
+    styles: [
+      {
+        name: "Cine",
+        image: {
+          src: "img/look-cinema.jpg",
+          alt: "Cine"
+        }
+      },
+      {
+        name: "Anime",
+        image: {
+          src: "img/look-anime.jpg",
+          alt: "Anime"
+        }
+      },
+      {
+        name: "Animación 3D",
+        image: {
+          src: "img/look-cartoon3d.jpg",
+          alt: "Animación 3D"
+        }
+      },
+      {
+        name: "Acuarela",
+        image: {
+          src: "img/look-watercolor.jpg",
+          alt: "Acuarela"
+        }
+      },
+      {
+        name: "Neón noir",
+        image: {
+          src: "img/look-neon.jpg",
+          alt: "Neón noir"
+        }
+      },
+      {
+        name: "Anuncio de producto",
+        image: {
+          src: "img/look-studio.jpg",
+          alt: "Anuncio de producto"
+        }
+      }
+    ]
+  },
+  req: {
+    id: "req",
+    tag: "Sinceros con el hardware",
+    title: "No necesitas GPU",
+    lead: "Elige dónde renderizar: en nuestra nube o en tu propio ordenador.",
+    tiers: [
+      {
+        who: "PC CON NVIDIA DE 8 A 12 GB",
+        title: "Todo en tu GPU",
+        paragraphs: [
+          "Planos, escenas y música se generan en tu tarjeta. Sin pagar por imagen.",
+          "Windows 10/11, 64 bits."
+        ],
+        details: "La app descarga e instala el generador (unos 28 GB) por sí sola."
+      },
+      {
+        who: "MAC CON APPLE M1, M2, M3, M4",
+        title: "El Mac dibuja los planos",
+        paragraphs: [
+          "Con 16 GB de memoria o más, los planos se generan en el propio Mac.",
+          "Requiere macOS 12 o posterior. Los Mac con Intel también sirven."
+        ],
+        details: "KADR Cloud genera las escenas animadas para Mac. Voz, subtítulos, montaje y render funcionan en cualquier Mac."
+      },
+      {
+        who: "CUALQUIER ORDENADOR",
+        title: "KADR Cloud",
+        paragraphs: [
+          "Nuestras GPU potentes generan tus planos, escenas animadas y música.",
+          "Basta un portátil modesto. Solo gastas ⚡ en trabajo terminado."
+        ],
+        details: "Sin nube ni claves, una voz neuronal gratuita lee tu texto sobre un fondo animado. Listo en uno o dos minutos."
+      }
+    ],
+    notes: {
+      title: "Conviene saberlo antes",
+      items: [
+        "Con tu propia GPU, la velocidad depende de la tarjeta: en una RTX 3060 un plano tarda cerca de un minuto.",
+        "Si se va la luz, no pierdes nada: la app sigue donde se quedó.",
+        "Los guiones con IA y las voces de ElevenLabs usan tus propias claves. La clave de Gemini es gratuita.",
+        "La interfaz de la app está en inglés, ucraniano y ruso. El español llegará más adelante.",
+        "En el primer arranque en Mac, abre «Ajustes del Sistema» → «Privacidad y seguridad» → «Abrir igualmente»."
+      ]
+    }
+  },
+  cloud: {
+    id: "cloud",
+    tag: "KADR Cloud",
+    title: "Nuestras GPU trabajan por ti",
+    lead: "Haz vídeos desde cualquier dispositivo. No necesitas GPU: basta un portátil modesto o cualquier Mac.",
+    bullets: [
+      "Planos, escenas animadas y música se generan en GPU potentes que alquilamos.",
+      "La app te muestra el precio antes de empezar. Los ⚡ se descuentan según se terminan los planos.",
+      "Los paquetes de Energía cuestan desde $10 y se compran dentro de la app."
+    ],
+    cta: {
+      label: "Probar la nube",
+      href: "#download",
+      variant: "main"
+    }
+  },
+  mobileSoon: {
+    tag: "Próximamente",
+    title: "Pronto, versión móvil",
+    text: "Haz vídeos directamente desde tu teléfono. Ya estamos preparando la app."
+  },
+  features: {
+    id: "features",
+    tag: "Funciones",
+    title: "Todo un estudio de vídeo en una ventana",
+    lead: "Renderiza en KADR Cloud, en tu propia GPU o con tus propias claves.",
+    items: [
+      {
+        icon: "✎",
+        title: "Guion con IA",
+        text: "Claude, OpenAI o Gemini con tu clave. Sin clave, tu propio texto es el guion."
+      },
+      {
+        icon: "♪",
+        title: "Locución",
+        text: "Voces neuronales gratuitas, voces del sistema o ElevenLabs, incluida una copia de tu voz."
+      },
+      {
+        icon: "▣",
+        title: "Planos en la nube o en casa",
+        text: "KADR Cloud o RealVisXL en tu NVIDIA. El generador se instala con un clic."
+      },
+      {
+        icon: "▶",
+        title: "Escenas animadas",
+        text: "Los momentos clave cobran vida (Wan 2.2). Unos 2,5 minutos por escena en una RTX 3060."
+      },
+      {
+        icon: "♫",
+        title: "Música de fondo",
+        text: "La IA compone la música (ACE-Step). Olvídate de buscar pistas en bancos de audio."
+      },
+      {
+        icon: "Aa",
+        title: "Subtítulos y sonido",
+        text: "Subtítulos palabra por palabra y volumen listo para redes. El MP4 sale listo para publicar."
+      },
+      {
+        icon: "✂",
+        title: "Cortar Shorts",
+        text: "Entre 3 y 8 clips verticales de una película larga, con texto y hashtags."
+      },
+      {
+        icon: "☺",
+        title: "Personajes propios y listos",
+        text: "Un personaje o producto a partir de fotos sale igual en cada plano. Y 12 personajes listos con voz propia."
+      },
+      {
+        icon: "文",
+        title: "Otros idiomas",
+        text: "Las mismas imágenes, un narrador nativo y subtítulos traducidos."
+      },
+      {
+        icon: "✉",
+        title: "Textos para publicar",
+        text: "Título, descripción con capítulos, hashtags y comentario fijado con un clic."
+      },
+      {
+        icon: "✦",
+        title: "Asistente de IA",
+        text: "El chat cambia escenas y estilo. Antes de empezar, la IA te propone 3 versiones del vídeo."
+      },
+      {
+        icon: "⚿",
+        title: "Configuración sencilla",
+        text: "Pega una clave y la app reconoce el servicio. Las claves se guardan cifradas."
+      }
+    ]
+  },
+  download: {
+    id: "download",
+    tag: "Descargar",
+    title: "Para Windows y Mac",
+    lead: "Una sola app para los dos ordenadores. Las actualizaciones te las ofrece ella sola.",
+    platforms: [
+      {
+        os: "windows",
+        name: "Windows",
+        details: "10 y 11, 64 bits · instalador .exe · v3.0.3",
+        cta: "Descargar para Windows",
+        href: "https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/download/v3.0.3/KADR-Studio-Setup-3.0.3.exe"
+      },
+      {
+        os: "mac-arm",
+        name: "Mac con chip Apple",
+        details: "M1, M2, M3, M4 · macOS 12 o posterior · .dmg",
+        cta: "Descargar para Mac (chip M)",
+        href: "https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-arm64.dmg"
+      },
+      {
+        os: "mac-intel",
+        name: "Mac con Intel",
+        details: "macOS 12 o posterior · .dmg",
+        cta: "Descargar para Mac (Intel)",
+        href: "https://github.com/kadrstudia8-hue/kadr-studio-releases/releases/latest/download/KADR-Studio-3.0-x86_64.dmg"
+      }
+    ],
+    note: "Abre el menú Apple → «Acerca de este Mac». Con «Chip Apple M…» usa el primer botón; con «Procesador Intel», el segundo."
+  },
+  pricing: {
+    id: "pricing",
+    tag: "Precios",
+    title: "Precios",
+    lead: "Empieza gratis. Paga cuando te gusten los vídeos.",
+    currency: "USD",
+    plans: [
+      {
+        name: "Prueba",
+        price: {
+          display: "Gratis",
+          value: 0
+        },
+        per: "3 vídeos de hasta 60 segundos",
+        items: [
+          "Sin tarjeta",
+          "Una pequeña marca «KADR Studio» en una esquina",
+          "Todos los estilos, personajes y claves funcionan"
+        ],
+        cta: {
+          label: "Descargar gratis",
+          href: "#download",
+          variant: "ghost"
+        }
+      },
+      {
+        name: "Licencia de por vida",
+        badge: "−40%",
+        price: {
+          display: "$59",
+          value: 59,
+          old: "$99",
+          oldValue: 99
+        },
+        per: "pago único · primeros 100 compradores",
+        items: [
+          "1 año de actualizaciones",
+          "Después, $99 para todos",
+          "Sin marca, sin límites",
+          "Reembolso en 14 días si no la has usado"
+        ],
+        cta: {
+          label: "Comprar con descuento →",
+          href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+          variant: "main"
+        },
+        highlight: true
+      },
+      {
+        name: "Suscripción",
+        price: {
+          display: "$9",
+          value: 9
+        },
+        per: "al mes · o $79 al año",
+        items: [
+          "Para cuando la necesitas una temporada",
+          "Actualizaciones mientras dure la suscripción",
+          "Cancela cuando quieras"
+        ],
+        cta: {
+          label: "Suscribirse",
+          href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+          variant: "ghost"
+        }
+      }
+    ],
+    extras: [
+      {
+        title: "Energía ⚡ para la nube",
+        text: "Paquetes desde $10, recarga en la app. La nube genera planos, escenas y música; ves el precio antes."
+      },
+      {
+        title: "Instalación llave en mano, de $99 a $149",
+        text: "Instalo la app, conecto tus claves y hacemos juntos tu primer vídeo. En remoto."
+      }
+    ],
+    note: "Las claves de servicios de IA son opcionales. Si las añades, pagas directamente a esos servicios.",
+    buy: {
+      text: "Escribe a kadrstudia8@gmail.com: te enviamos los datos de pago y activamos la app. El pago con tarjeta llegará pronto.",
+      cta: {
+        label: "Comprar por e-mail",
+        href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+        variant: "main"
+      },
+      note: "Respondemos personalmente. Sin boletines ni rastreadores."
+    },
+    legal: [
+      {
+        label: "Condiciones",
+        href: "https://kadrstudia8-hue.github.io/terms-es.html"
+      },
+      {
+        label: "Reembolsos",
+        href: "https://kadrstudia8-hue.github.io/refund-es.html"
+      }
+    ],
+    highlight: "40% de descuento para los primeros 100 compradores"
+  },
+  faq: {
+    id: "faq",
+    tag: "FAQ",
+    title: "Preguntas frecuentes",
+    items: [
+      {
+        q: "¿Es difícil?",
+        a: [
+          "No. Escribe una idea, elige formato y duración y pulsa ➤. Hay plantillas, 12 estilos visuales y 12 personajes listos. Pega una clave y la app sabrá a qué servicio pertenece."
+        ],
+        open: true
+      },
+      {
+        q: "¿En qué idioma está la app?",
+        a: [
+          "La interfaz está en inglés, ucraniano y ruso; la versión en español aún no está lista. Los vídeos sí pueden ser en español: la app entiende tu idea en español y le pone voz con una voz neuronal gratuita o con ElevenLabs."
+        ]
+      },
+      {
+        q: "¿Necesito mi propia GPU?",
+        a: [
+          "No. KADR Cloud genera planos, escenas animadas y música en nuestras GPU, y pagas en ⚡. Con una NVIDIA de 8 a 12 GB, o un Mac con chip Apple y 16 GB o más, puedes generar los planos gratis en casa. Sin nube ni claves, una voz gratuita lee tu texto sobre un fondo de color animado."
+        ]
+      },
+      {
+        q: "¿No parecerá una papilla barata de IA?",
+        a: [
+          "Mira el showreel de arriba: es resultado real de la app. Antes del render, activa el storyboard y redibuja cualquier plano. Después, «Revisión del vídeo» explica los fallos con palabras claras y corrige una vez por sí sola los defectos graves. Con una clave de Gemini, una IA revisa las escenas animadas: si una sale mal se repite, y tras dos fallos queda como una buena imagen fija."
+        ]
+      },
+      {
+        q: "¿Cuánto tarda un vídeo?",
+        a: [
+          "Depende de dónde se genere. En una RTX 3060, un plano tarda cerca de un minuto, una escena animada unos 2,5 minutos y una película de 20 minutos unas 4 horas. Un vídeo a partir de tu texto, sin claves ni GPU, está listo en uno o dos minutos."
+        ]
+      },
+      {
+        q: "¿Cuánto cuesta?",
+        a: [
+          "La prueba es gratuita: 3 vídeos de hasta 60 segundos. La licencia de por vida cuesta ",
+          {
+            b: "$59"
+          },
+          " para los primeros 100 compradores y después $99, con 1 año de actualizaciones. La suscripción cuesta $9 al mes o $79 al año. Los paquetes de Energía ⚡ para la nube cuestan desde $10. La instalación llave en mano cuesta de $99 a $149. Para comprar, ",
+          {
+            a: "escribe a kadrstudia8@gmail.com",
+            href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F"
+          },
+          ". El pago con tarjeta llegará pronto."
+        ]
+      },
+      {
+        q: "¿Cómo obtengo acceso?",
+        a: [
+          "Descarga KADR Studio y regístrate con tu e-mail. Sin pagar tienes la prueba de 3 vídeos. Para quitar la marca y los límites, compra una licencia o suscripción: escribe a kadrstudia8@gmail.com desde el e-mail de tu cuenta y la activamos. Suele tardar unos minutos en horario laboral. Una recarga de ⚡ solo paga la nube y no activa la app. Los contactos están en la página de ",
+          {
+            a: "Soporte",
+            href: "https://kadrstudia8-hue.github.io/support-es.html"
+          },
+          "."
+        ]
+      },
+      {
+        q: "¿Qué es la Energía ⚡?",
+        a: [
+          "La unidad interna de KADR para la nube. Nuestros servidores generan planos, escenas animadas y música, y los ⚡ se descuentan según se terminan. Ves el precio antes de empezar. Si algo falla por nuestra culpa, no se descuenta nada. ⚡ no es dinero ni una criptomoneda y no se puede transferir. Recargas en la app, en la ventana «Energía», con USDT o USDC (red BEP-20)."
+        ]
+      },
+      {
+        q: "¿Funciona en Mac?",
+        a: [
+          "Sí: macOS 12 o posterior, Mac con chip Apple (M1, M2, M3, M4) o Intel. KADR Cloud genera planos, escenas animadas y música en cualquier Mac. En los Mac con chip Apple y 16 GB o más, los planos también se pueden generar en el propio ordenador. En el primer arranque, macOS pide permiso una vez: «Ajustes del Sistema» → «Privacidad y seguridad» → «Abrir igualmente»."
+        ]
+      },
+      {
+        q: "¿Necesito claves de IA de pago?",
+        a: [
+          "No. Sin claves, tu propio texto es el guion y lo leen voces neuronales gratuitas o voces del sistema. Con una clave de Claude, OpenAI o Gemini, la IA escribe el guion por ti; la de Gemini es gratuita. Una clave de ElevenLabs desbloquea sus voces, incluida tu voz clonada."
+        ]
+      },
+      {
+        q: "¿Adónde van mis datos y claves?",
+        a: [
+          "Los vídeos, guiones y proyectos se quedan en tu ordenador. La cuenta solo sirve para la activación y el saldo de ⚡; no hay telemetría. Las claves se guardan cifradas: con DPAPI en Windows y en el Llavero en Mac. Los servicios externos (Claude, OpenAI, Gemini, ElevenLabs) reciben el texto de la petición directamente con tu clave. Más en la ",
+          {
+            a: "Política de privacidad",
+            href: "https://kadrstudia8-hue.github.io/privacy-es.html"
+          },
+          "."
+        ]
+      },
+      {
+        q: "¿Qué formatos y duraciones?",
+        a: [
+          "9:16 para Shorts, TikTok y Reels, 16:9 para YouTube, además de 1:1 y 4:5. De 15 segundos a 30 minutos."
+        ]
+      },
+      {
+        q: "¿Puedo pedir un reembolso?",
+        a: [
+          "Sí. Te devolvemos la licencia en 14 días si no la has usado. Las condiciones completas están en la ",
+          {
+            a: "Política de reembolso",
+            href: "https://kadrstudia8-hue.github.io/refund-es.html"
+          },
+          "."
+        ]
+      }
+    ]
+  },
+  contact: {
+    id: "contact",
+    tag: "Pruébalo con tu propia idea",
+    title: "Una frase y ➤",
+    lead: "Descarga KADR Studio y escribe de qué va tu vídeo. Si tienes dudas, escríbenos y te respondemos en persona.",
+    ctas: [
+      {
+        label: "Descargar KADR Studio",
+        href: "#download",
+        variant: "main",
+        osAware: true
+      },
+      {
+        label: "Contactar con soporte",
+        href: "https://kadrstudia8-hue.github.io/support-es.html",
+        variant: "ghost"
+      }
+    ]
+  },
+  ctaBand: {
+    title: "Tu primer vídeo en 2 minutos",
+    subtitle: "3 vídeos gratis. Sin tarjeta y sin GPU.",
+    cta: {
+      label: "Descargar gratis",
+      href: "#download",
+      variant: "main"
+    }
+  },
+  mobileBar: {
+    label: "Acciones rápidas",
+    ctas: [
+      {
+        label: "Descargar",
+        href: "#download",
+        variant: "main"
+      },
+      {
+        label: "▶ Showreel",
+        href: "#reel",
+        variant: "ghost"
+      }
+    ]
+  },
+  footer: {
+    copyright: "© 2026 KADR Studio",
+    ownerPlaceholder: "[PLACEHOLDER: name / company]",
+    links: [
+      {
+        label: "Condiciones",
+        href: "https://kadrstudia8-hue.github.io/terms-es.html"
+      },
+      {
+        label: "Privacidad",
+        href: "https://kadrstudia8-hue.github.io/privacy-es.html"
+      },
+      {
+        label: "Reembolsos",
+        href: "https://kadrstudia8-hue.github.io/refund-es.html"
+      },
+      {
+        label: "Licencias",
+        href: "https://kadrstudia8-hue.github.io/licenses-es.html"
+      },
+      {
+        label: "Soporte",
+        href: "https://kadrstudia8-hue.github.io/support-es.html"
+      },
+      {
+        label: "Escríbenos",
+        href: "mailto:kadrstudia8@gmail.com"
+      }
+    ],
+    note: "Windows 10/11 y macOS 12+ · Sin telemetría"
+  },
+  ui: {
+    downloadMac: "Descargar para Mac",
+    downloadWindows: "Descargar para Windows",
+    linkCopied: "enlace copiado",
+    langHint: {
+      question: "¿Leer esta página en español?",
+      accept: "En español",
+      close: "Cerrar"
+    }
+  }
+}
+
+export default es
