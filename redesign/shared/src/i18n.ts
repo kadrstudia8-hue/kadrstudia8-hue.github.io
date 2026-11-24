@@ -1,8 +1,10 @@
 // Language state for the redesigned site: one global store + a React hook.
-// Initial language: ?lang= → localStorage 'kadr-lang' → browser language → 'uk'.
+// Initial language: the published page's own language → ?lang= → localStorage 'kadr-lang' → browser language → 'uk'.
+// On the published site every language has its own page, so changing the language opens that page.
 // Storage access is always wrapped in try/catch (private mode, blocked site data, sandboxed iframes).
 import { useCallback, useEffect, useSyncExternalStore } from 'react'
 import { content, DEFAULT_LANG, isLang, type Lang, type SiteContent } from './content/index.ts'
+import { onSite, openPage, pageLang, pageTheme } from './theme.ts'
 
 export const STORAGE_KEY = 'kadr-lang'
 const hasWindow = typeof window !== 'undefined'
@@ -33,6 +35,8 @@ function fromBrowser(): Lang | null {
 }
 
 export function getInitialLang(): Lang {
+  const p = pageLang()
+  if (isLang(p)) return p
   const q = fromQuery()
   if (q) return q
   const s = readStorage()?.toLowerCase()
@@ -61,6 +65,10 @@ export function getLang(): Lang {
 export function setLang(lang: Lang) {
   if (!isLang(lang)) return
   writeStorage(lang)
+  if (onSite()) {
+    if (lang !== current) openPage(pageTheme(), lang)
+    return
+  }
   // keep an explicit ?lang= in the address in sync, so a reload doesn't switch back
   if (hasWindow) {
     try {

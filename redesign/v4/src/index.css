@@ -332,6 +332,11 @@ html[data-v4-ready="1"] .grain { display: none; }
 .lang-pill { min-width: 44px; height: 44px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: none; color: var(--text-2); font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; transition: border-color var(--t-ui), color var(--t-ui); }
 .lang-pill:hover { border-color: var(--line-hi); color: var(--text); }
 .lang-pill.on { color: var(--void); background: var(--text); border-color: var(--text); }
+.theme-btn { flex: none; display: grid; place-items: center; padding: 0; }
+.theme-btn:hover svg { transform: rotate(45deg); }
+.theme-btn svg { transition: transform var(--t-ui) var(--ease-out); }
+.theme-pill { display: inline-flex; align-items: center; gap: 8px; }
+@media (prefers-reduced-motion: reduce) { .theme-btn svg { transition: none; } }
 .sheet { position: fixed; inset: 0; z-index: 90; pointer-events: auto; display: flex; flex-direction: column; gap: 28px; padding: 12px 16px 24px; background: rgba(3,3,4,.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .sheet-top { display: flex; align-items: center; justify-content: space-between; padding-left: 6px; }
 .sheet-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }

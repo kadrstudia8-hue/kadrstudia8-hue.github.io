@@ -1,8 +1,9 @@
 // Floating capsule nav (DESIGN-V4 2 / 9).
-import { Menu, X } from 'lucide-react'
+import { Menu, Sun, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { LANGS } from '@kadr/shared/content/index.ts'
 import { useOverlay } from '@kadr/shared/ui/useOverlay'
+import { switchTheme, THEME_LABEL } from '@kadr/shared/theme'
 import { useT } from '../ui/env'
 import { Btn, cx } from '../ui/kit'
 import { bare } from '../ui/text'
@@ -52,6 +53,17 @@ function LangMenu({ up }: { up?: boolean }) {
 }
 export { LangMenu }
 
+/** Opens the light design (V2) in the same language and remembers the choice. */
+function ThemeBtn({ pill }: { pill?: boolean }) {
+  const { lang } = useT()
+  const label = THEME_LABEL.light[lang]
+  return (
+    <button type="button" className={pill ? 'lang-pill theme-pill' : 'lang-btn theme-btn'} aria-label={label} title={pill ? undefined : label} onClick={() => switchTheme('light', lang)}>
+      <Sun size={pill ? 16 : 17} aria-hidden />{pill && <span>{label}</span>}
+    </button>
+  )
+}
+
 export function Nav() {
   const { t, c } = useT()
   const [small, setSmall] = useState(false)
@@ -83,6 +95,7 @@ export function Nav() {
           ))}
         </ul>
         <div className="nav-lang"><LangMenu /></div>
+        <ThemeBtn />
         <Btn kind="glass" size="sm" href="#download" className="nav-dl">{dl}</Btn>
         <button type="button" className="nav-burger" aria-label={c.nav.menu} aria-expanded={sheet} onClick={() => setSheet(true)}>
           <Menu size={20} />
@@ -100,6 +113,7 @@ export function Nav() {
           </ul>
           <div className="sheet-lang">
             <SheetLangs onPick={() => setSheet(false)} />
+            <ThemeBtn pill />
           </div>
           <Btn href="#download" onClick={() => setSheet(false)} className="w-full" arrow>{dl}</Btn>
         </div>

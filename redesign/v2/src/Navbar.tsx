@@ -1,8 +1,9 @@
-import { Globe, Menu, X } from 'lucide-react'
+import { Globe, Menu, Moon, X } from 'lucide-react'
 import { AnimatePresence, m } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import { LANGS, type Lang, type SiteContent } from '@kadr/shared/content/index'
 import { useOverlay } from '@kadr/shared/ui/useOverlay'
+import { switchTheme, THEME_LABEL } from '@kadr/shared/theme'
 import { LimeButton } from './ui'
 import { usePrefersReducedMotion } from './lib'
 
@@ -63,6 +64,9 @@ export function Navbar({ t, lang, setLang }: { t: SiteContent; lang: Lang; setLa
             {links.map(l => <a key={l.href} href={l.href} className="nav-link"><Marker /><span>{l.label}</span></a>)}
           </nav>
           <div className="ml-auto flex items-center gap-2 md:gap-3">
+            <button type="button" className="round-btn max-md:!hidden" aria-label={THEME_LABEL.dark[lang]} title={THEME_LABEL.dark[lang]} onClick={() => switchTheme('dark', lang)}>
+              <Moon size={20} strokeWidth={2} aria-hidden />
+            </button>
             <div ref={langRef} className="relative hidden md:block">
               <button type="button" className="round-btn" aria-label={`${t.nav.langMenuLabel}: ${cur.name}`} aria-expanded={langOpen} aria-haspopup="menu" onClick={() => setLangOpen(v => !v)}>
                 <Globe size={20} strokeWidth={2} aria-hidden />
@@ -126,6 +130,12 @@ export function Navbar({ t, lang, setLang }: { t: SiteContent; lang: Lang; setLa
                   </button>
                 ))}
               </div>
+            </div>
+            <div className="wrap mt-6">
+              <button type="button" onClick={() => switchTheme('dark', lang)}
+                className="inline-flex min-h-11 items-center gap-2 rounded-[12px] border-[1.5px] border-ink bg-ink px-4 text-[15px] font-bold text-white focus-visible:outline-3 focus-visible:outline-violet">
+                <Moon size={18} aria-hidden />{THEME_LABEL.dark[lang]}
+              </button>
             </div>
             <div className="wrap mb-10 mt-auto pt-10">
               <LimeButton href={t.nav.cta.href} className="w-full" onClick={() => setSheet(false)}>{t.nav.cta.label}</LimeButton>

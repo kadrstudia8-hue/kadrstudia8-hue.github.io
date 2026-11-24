@@ -106,7 +106,6 @@ void main() {
   gl_FragColor = vec4(c * v * uI, 1.0);
 }`
 
-const BASE = import.meta.env.BASE_URL
 
 /** Cloud section: render farm of 6x4 GPU boards with light pulses running to one screen. */
 export default function GpuFarm() {
@@ -117,7 +116,7 @@ export default function GpuFarm() {
     trace: useRef<InstancedMesh>(null),
   }
   const plate = useOptionalTexture(genUrl('v4-gpu-farm.webp'))
-  const shot = useOptionalTexture(`${BASE}media/film.jpg`)
+  const shot = useOptionalTexture('media/film.jpg') // site media sit next to the page, not under the build base
 
   const g = useMemo(() => ({
     body: new BoxGeometry(1.7, 0.08, 0.86),
