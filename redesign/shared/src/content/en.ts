@@ -8,7 +8,7 @@ export const en: SiteContent = {
   meta: {
     htmlLang: "en",
     title: "KADR Studio. One sentence. A finished video.",
-    description: "Write an idea and KADR Studio makes the whole video: script, voice, frames, music and subtitles. Windows, Mac and KADR Cloud.",
+    description: "Write an idea and KADR Studio makes the whole video: script, voice, frames, music and subtitles. For Windows and Mac.",
     canonical: "https://kadrstudia8-hue.github.io/landing-en.html",
     alternates: [
       {
@@ -49,7 +49,7 @@ export const en: SiteContent = {
       ],
       url: "https://kadrstudia8-hue.github.io/landing-en.html",
       title: "KADR Studio. One sentence. A finished video.",
-      description: "Write an idea and KADR Studio makes the whole video: script, voice, frames, music and subtitles. Windows, Mac and KADR Cloud.",
+      description: "Write an idea and KADR Studio makes the whole video: script, voice, frames, music and subtitles. For Windows and Mac.",
       image: "https://kadrstudia8-hue.github.io/media/reel-en.jpg",
       imageWidth: 960,
       imageHeight: 540
@@ -78,7 +78,7 @@ export const en: SiteContent = {
         href: "#who"
       },
       {
-        label: "No GPU needed",
+        label: "No GPU?",
         href: "#req"
       },
       {
@@ -163,9 +163,9 @@ export const en: SiteContent = {
         }
       ],
       [
-        "runs ",
+        "works ",
         {
-          b: "without a GPU"
+          b: "without keys"
         }
       ],
       [
@@ -177,9 +177,9 @@ export const en: SiteContent = {
     ],
     badges: [
       "3 free videos",
-      "No GPU needed",
       "Windows and Mac",
-      "No ads"
+      "No ads",
+      "Licence for 2 computers"
     ]
   },
   promises: {
@@ -204,8 +204,8 @@ export const en: SiteContent = {
       },
       {
         icon: "Cloud",
-        title: "Runs on any computer",
-        text: "Our GPUs in KADR Cloud do the heavy lifting."
+        title: "Cloud on RTX 5090, coming soon",
+        text: "You won’t need your own GPU: our servers will render the frames."
       },
       {
         icon: "Film",
@@ -527,8 +527,8 @@ export const en: SiteContent = {
   req: {
     id: "req",
     tag: "Honest about hardware",
-    title: "You don’t need a GPU",
-    lead: "Choose where to render: in our cloud or on your own computer.",
+    title: "No GPU? It still works",
+    lead: "What you get on your computer today. KADR Cloud on RTX 5090 is coming soon.",
     tiers: [
       {
         who: "PC WITH NVIDIA, 8 TO 12 GB",
@@ -546,22 +546,22 @@ export const en: SiteContent = {
           "With 16 GB of memory or more, frames render right on the Mac.",
           "Needs macOS 12 or later. Intel Macs work too."
         ],
-        details: "KADR Cloud renders live scenes for Macs. Voice, subtitles, editing and export work on any Mac."
+        details: "Live scenes don’t run on the Mac itself yet. Voice, subtitles, editing and export work on any Mac."
       },
       {
         who: "ANY COMPUTER",
-        title: "KADR Cloud",
+        title: "Video even without a GPU",
         paragraphs: [
-          "Our powerful GPUs render your frames, live scenes and music.",
-          "Even a weak laptop will do. You spend ⚡ only on finished work."
+          "AI frames come from a service with your key, or from free Pexels and Pixabay photos.",
+          "KADR Cloud is coming soon: our RTX 5090s will render the frames."
         ],
-        details: "Without the cloud or keys, a free neural voice reads your text over an animated backdrop. Ready in a minute or two."
+        details: "With no keys, a free neural voice reads your text over an animated backdrop. Ready in a minute or two."
       }
     ],
     notes: {
       title: "Good to know",
       items: [
-        "With your own GPU, speed depends on the card: on an RTX 3060 a frame takes about a minute.",
+        "Speed depends on the GPU: on an RTX 3060 a frame takes about a minute.",
         "If the power goes out, nothing is lost: the app picks up where it stopped.",
         "AI scripts and ElevenLabs voices use your own keys. A Gemini key is free.",
         "On first launch on a Mac, open “System Settings” → “Privacy & Security” → “Open Anyway”."
@@ -571,15 +571,15 @@ export const en: SiteContent = {
   cloud: {
     id: "cloud",
     tag: "KADR Cloud",
-    title: "Our GPUs work for you",
-    lead: "Make videos from any device. You don’t need a GPU: a weak laptop or any Mac will do.",
+    title: "Our RTX 5090s will work for you",
+    lead: "KADR Cloud is coming soon: videos from any computer, even a weak laptop or a Mac.",
     bullets: [
-      "Frames, live scenes and music render on powerful GPUs that we rent.",
-      "The app shows the price before it starts. ⚡ is charged as each frame is done.",
-      "Energy packs start at $10 and you buy them right in the app."
+      "Frames, live scenes and music will render on our servers with RTX 5090 cards.",
+      "You pay with Energy ⚡: packs from $10, and the app shows the price before it starts.",
+      "Energy top-ups open in the app when the cloud launches."
     ],
     cta: {
-      label: "Try the cloud",
+      label: "Download KADR Studio",
       href: "#download",
       variant: "main"
     }
@@ -593,7 +593,7 @@ export const en: SiteContent = {
     id: "features",
     tag: "Features",
     title: "A whole video studio in one window",
-    lead: "Render in KADR Cloud, on your own GPU, or plug in your own keys.",
+    lead: "Render on your own GPU or plug in your own keys. Cloud on RTX 5090 is coming soon.",
     items: [
       {
         icon: "✎",
@@ -607,8 +607,8 @@ export const en: SiteContent = {
       },
       {
         icon: "▣",
-        title: "Frames in the cloud or at home",
-        text: "KADR Cloud or RealVisXL on your NVIDIA. The generator installs with one click."
+        title: "Frames on your GPU",
+        text: "RealVisXL on your NVIDIA; the generator installs with one click. Without NVIDIA, frames come with a key."
       },
       {
         icon: "▶",
@@ -691,8 +691,8 @@ export const en: SiteContent = {
     id: "pricing",
     tag: "Pricing",
     title: "Pricing",
-    lead: "Start for free. Pay once you like the videos.",
-    currency: "USD",
+    lead: "Start with 3 free videos. Prices are in Ukrainian hryvnias (UAH); you pay in USDT at the day’s rate.",
+    currency: "UAH",
     plans: [
       {
         name: "Trial",
@@ -713,42 +713,42 @@ export const en: SiteContent = {
         }
       },
       {
-        name: "Lifetime licence",
-        badge: "−40%",
+        name: "“Founder” licence",
+        badge: "first 100",
         price: {
-          display: "$59",
-          value: 59,
-          old: "$99",
-          oldValue: 99
+          display: "UAH 1,999",
+          value: 1999,
+          old: "UAH 2,999",
+          oldValue: 2999
         },
         per: "one-time · first 100 buyers",
         items: [
-          "1 year of updates",
-          "Then $99 for everyone",
-          "No mark, no limits",
-          "14-day refund if unused"
+          "No watermark, no limits",
+          "Everything on your PC, 1 year of updates",
+          "Two computers",
+          "Try it free first: 3 videos"
         ],
         cta: {
-          label: "Buy at the discount →",
-          href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+          label: "Buy in the app",
+          href: "#download",
           variant: "main"
         },
         highlight: true
       },
       {
-        name: "Subscription",
+        name: "Done for you",
         price: {
-          display: "$9",
-          value: 9
+          display: "UAH 5,999",
+          value: 5999
         },
-        per: "a month · or $79 a year",
+        per: "one-time · remote",
         items: [
-          "For when you need it for a while",
-          "Updates while subscribed",
-          "Cancel any time"
+          "The “Founder” licence",
+          "We set up your PC",
+          "We make your first video together"
         ],
         cta: {
-          label: "Subscribe",
+          label: "Order Done for you",
           href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
           variant: "ghost"
         }
@@ -756,23 +756,23 @@ export const en: SiteContent = {
     ],
     extras: [
       {
-        title: "Energy ⚡ for the cloud",
-        text: "Packs from $10, topped up in the app. The cloud renders frames, scenes and music; you see the price first."
+        title: "Energy ⚡ for the cloud on RTX 5090",
+        text: "Packs from $10. Frames, scenes and music render on our RTX 5090s. Top-ups open in the app when the cloud launches."
       },
       {
-        title: "Done-for-you setup, $99 to $149",
-        text: "I install the app, connect your keys, and we make your first video together. Remotely."
+        title: "Pay in USDT",
+        text: "USDT on BNB Smart Chain (BEP-20) at the day’s rate. The licence opens on your account by itself."
       }
     ],
     note: "AI-service keys are optional. If you add them, you pay those services directly.",
     buy: {
-      text: "Write to kadrstudia8@gmail.com. We send the payment details and activate the app. Card payment is coming soon.",
+      text: "Buy right in the app: USDT (BEP-20) at the day’s rate. The licence opens on your account by itself.",
       cta: {
-        label: "Buy by e-mail",
-        href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+        label: "Download and buy",
+        href: "#download",
         variant: "main"
       },
-      note: "We reply personally. No newsletters, no trackers."
+      note: "Licence didn’t open? Write to kadrstudia8@gmail.com and we reply personally."
     },
     legal: [
       {
@@ -784,7 +784,7 @@ export const en: SiteContent = {
         href: "https://kadrstudia8-hue.github.io/refund-en.html"
       }
     ],
-    highlight: "40% off for the first 100 buyers"
+    highlight: "Price for the first 100 buyers"
   },
   faq: {
     id: "faq",
@@ -801,7 +801,7 @@ export const en: SiteContent = {
       {
         q: "Do I need my own GPU?",
         a: [
-          "No. KADR Cloud renders frames, live scenes and music on our GPUs, and you pay in ⚡. With an NVIDIA card with 8 to 12 GB, or an Apple-chip Mac with 16 GB or more, you can render frames for free at home. Without the cloud or keys, a free voice reads your text over an animated colour backdrop."
+          "No. The app works without NVIDIA: the licence removes the watermark and the trial limits, AI frames come from a service with your key, and with no keys it uses free Pexels and Pixabay photos. With an NVIDIA card with 8 to 12 GB, or an Apple-chip Mac with 16 GB or more, frames render for free at home. KADR Cloud is coming soon: our RTX 5090s will render the frames."
         ]
       },
       {
@@ -813,28 +813,28 @@ export const en: SiteContent = {
       {
         q: "How long does a video take?",
         a: [
-          "It depends on where it renders. On an RTX 3060 a frame takes about a minute, a live scene about 2.5 minutes, a 20-minute film about 4 hours. A video from your text with no keys and no GPU is ready in a minute or two."
+          "It depends on the GPU. On an RTX 3060 a frame takes about a minute, a live scene about 2.5 minutes, a 20-minute film about 4 hours. A video from your text with no keys and no GPU is ready in a minute or two."
         ]
       },
       {
         q: "How much does it cost?",
         a: [
-          "The trial is free: 3 videos up to 60 seconds. A lifetime licence costs ",
+          "The trial is free: 3 videos up to 60 seconds. The “Founder” licence costs ",
           {
-            b: "$59"
+            b: "UAH 1,999"
           },
-          " for the first 100 buyers, then $99, with 1 year of updates. A subscription costs $9 a month or $79 a year. Energy ⚡ packs for the cloud start at $10. Done-for-you setup costs $99 to $149. To buy, ",
+          " for the first 100 buyers, then UAH 2,999: no watermark and no limits, 1 year of updates, two computers. Done for you costs UAH 5,999. You pay in the app in USDT on BNB Smart Chain (BEP-20) at the day’s rate. Energy ⚡ for the cloud on RTX 5090 comes in packs from $10; top-ups open when the cloud launches. Questions about payment: write to ",
           {
-            a: "write to kadrstudia8@gmail.com",
+            a: "kadrstudia8@gmail.com",
             href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F"
           },
-          ". Card payment is coming soon."
+          "."
         ]
       },
       {
         q: "How do I get access?",
         a: [
-          "Download KADR Studio and sign up with your e-mail. Without paying, you get the trial with 3 videos. To remove the mark and the limits, buy a licence or a subscription: write to kadrstudia8@gmail.com from your account e-mail and we activate it. This usually takes a few minutes during working hours. A ⚡ top-up only pays for the cloud and does not activate the app. Contacts are on the ",
+          "Download KADR Studio: the trial with 3 videos works right away. To remove the watermark and the limits, buy a licence right in the app. Once you pay in USDT, the licence opens on your account by itself. If it doesn’t, write to us; contacts are on the ",
           {
             a: "Support",
             href: "https://kadrstudia8-hue.github.io/support-en.html"
@@ -845,13 +845,13 @@ export const en: SiteContent = {
       {
         q: "What is Energy ⚡?",
         a: [
-          "KADR’s internal unit for the cloud. Our servers render frames, live scenes and music, and ⚡ is charged as they are done. You see the price before you start. If something fails on our side, no ⚡ is charged. ⚡ is not money or a cryptocurrency and can’t be transferred. You top up in the app, in the “Energy” window, with USDT or USDC (BEP-20 network)."
+          "Energy ⚡ is how you pay for renting our servers with RTX 5090 cards. Frames, live scenes and music render on them, so you don’t need your own GPU. ⚡ is charged as frames are done, and you see the price before you start. Packs start at $10; top-ups open in the app when the cloud launches. ⚡ is not money or a cryptocurrency and can’t be transferred."
         ]
       },
       {
         q: "Does it work on Mac?",
         a: [
-          "Yes: macOS 12 or later, Macs with an Apple chip (M1, M2, M3, M4) or Intel. KADR Cloud renders frames, live scenes and music on any Mac. On Apple-chip Macs with 16 GB or more, frames can also render on the computer itself. On first launch macOS asks once: “System Settings” → “Privacy & Security” → “Open Anyway”."
+          "Yes: macOS 12 or later, Macs with an Apple chip (M1, M2, M3, M4) or Intel. On Apple-chip Macs with 16 GB or more, frames render on the computer itself; on others with a service key, and once the cloud launches on our RTX 5090s. Live scenes don’t run on the Mac itself yet. Voice, subtitles, editing and export work on any Mac. On first launch macOS asks once: “System Settings” → “Privacy & Security” → “Open Anyway”."
         ]
       },
       {
@@ -880,7 +880,7 @@ export const en: SiteContent = {
       {
         q: "Can I get a refund?",
         a: [
-          "Yes. We refund a licence within 14 days if you haven’t used it. Full terms are on the ",
+          "Sales are final, so try it free first: 3 videos up to 60 seconds. We refund you if a payment went through twice, or if the app doesn’t work on a computer that meets the requirements and support couldn’t help. Full terms are on the ",
           {
             a: "Refund Policy",
             href: "https://kadrstudia8-hue.github.io/refund-en.html"
@@ -911,7 +911,7 @@ export const en: SiteContent = {
   },
   ctaBand: {
     title: "Your first video in 2 minutes",
-    subtitle: "3 free videos. No card, no GPU.",
+    subtitle: "3 free videos. No card.",
     cta: {
       label: "Download for free",
       href: "#download",

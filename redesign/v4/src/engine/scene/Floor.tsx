@@ -1,8 +1,25 @@
 import { MeshReflectorMaterial } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { useMemo } from 'react'
-import { AdditiveBlending, PlaneGeometry, ShaderMaterial, Texture } from 'three'
+import { useMemo, useRef } from 'react'
+import { AdditiveBlending, Mesh, PlaneGeometry, ShaderMaterial, Texture, Vector3 } from 'three'
+import { NOISE, SPECTRUM } from '../glsl'
 import { rig } from '../rig'
+import { E } from '../state'
+
+/** Soft spectral pool of light on the floor, always in front of the camera: no section transition goes black. */
+const poolFrag = /* glsl */ `
+${SPECTRUM}
+${NOISE}
+uniform float uI; uniform float uTime; varying vec2 vUv;
+void main() {
+  vec2 p = vUv - 0.5;
+  float r = length(p * vec2(1.0, 1.8));
+  float fall = exp(-r * r * 14.0);
+  float caustic = 0.75 + 0.5 * v4fbm(vec3(p * 9.0, uTime * 0.08));
+  vec3 c = mix(vec3(0.75, 0.72, 0.85), v4spectrum(fract(vUv.x * 0.9 + 0.05)), 0.65);
+  gl_FragColor = vec4(c * fall * caustic * uI, 1.0);
+}`
+const fwd = new Vector3()
 import { genUrl, useOptionalTexture } from '../textures'
 
 const vert = /* glsl */ `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`
@@ -22,7 +39,20 @@ export default function Floor({ tier }: { tier: number }) {
     uniforms: { uMap: { value: null as Texture | null }, uI: { value: 0 } },
   }), [])
   const geo = useMemo(() => new PlaneGeometry(1, 1), [])
-  useFrame(() => {
+  const pool = useRef<Mesh>(null)
+  const poolMat = useMemo(() => new ShaderMaterial({
+    vertexShader: vert, fragmentShader: poolFrag, transparent: true, depthWrite: false, blending: AdditiveBlending,
+    uniforms: { uI: { value: 0 }, uTime: { value: 0 } },
+  }), [])
+  useFrame(({ camera }) => {
+    const m = pool.current
+    if (m) {
+      fwd.set(0, 0, -1).applyQuaternion(camera.quaternion).setY(0).normalize()
+      m.position.set(camera.position.x + fwd.x * 6.5, 0.012, camera.position.z + fwd.z * 6.5)
+      m.rotation.set(-Math.PI / 2, 0, Math.atan2(fwd.x, -fwd.z) * -1)
+      poolMat.uniforms.uTime.value = E.time
+      poolMat.uniforms.uI.value = 0.16 * rig.dim * (1 - rig.fold) * (1 - 0.7 * rig.farm)
+    }
     plate.uniforms.uMap.value = room
     plate.uniforms.uI.value = 0.22 * rig.dim * (1 - 0.8 * rig.farm) * (1 - rig.fold * 0.7)
   })
@@ -45,6 +75,7 @@ export default function Floor({ tier }: { tier: number }) {
           envMapIntensity={0.12}
         />
       </mesh>
+      <mesh ref={pool} geometry={geo} material={poolMat} scale={[11, 7, 1]} frustumCulled={false} renderOrder={1} />
       {room && <mesh geometry={geo} material={plate} position={[0, 4.5, -16]} scale={[34, 19, 1]} />}
     </>
   )

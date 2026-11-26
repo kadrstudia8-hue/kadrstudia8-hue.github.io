@@ -72,7 +72,7 @@ export function useMedia(query: string) {
 }
 
 /** true once the element has been in view (reveal once). In ?still it is always true. */
-export function useInView<T extends Element>(ref: React.RefObject<T | null>, margin = '0px 0px -12% 0px', once = true) {
+export function useInView<T extends Element>(ref: React.RefObject<T | null>, margin = '0px 0px -12% 0px', once = true, threshold = 0) {
   const [seen, setSeen] = useState(STILL)
   useEffect(() => {
     if (STILL) return
@@ -80,9 +80,9 @@ export function useInView<T extends Element>(ref: React.RefObject<T | null>, mar
     if (!el) return
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setSeen(true); if (once) io.disconnect() } else if (!once) setSeen(false)
-    }, { rootMargin: margin })
+    }, { rootMargin: margin, threshold })
     io.observe(el)
     return () => io.disconnect()
-  }, [ref, margin, once])
+  }, [ref, margin, once, threshold])
   return seen
 }

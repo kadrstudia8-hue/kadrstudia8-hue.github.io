@@ -8,7 +8,7 @@ export const de: SiteContent = {
   meta: {
     htmlLang: "de",
     title: "KADR Studio. Ein Satz. Ein fertiges Video.",
-    description: "Schreiben Sie eine Idee, KADR Studio macht das ganze Video: Drehbuch, Stimme, Bilder, Musik und Untertitel. Windows, Mac und KADR Cloud.",
+    description: "Schreiben Sie eine Idee, KADR Studio macht das ganze Video: Drehbuch, Stimme, Bilder, Musik und Untertitel. Für Windows und Mac.",
     canonical: "https://kadrstudia8-hue.github.io/landing-de.html",
     alternates: [
       {
@@ -49,7 +49,7 @@ export const de: SiteContent = {
       ],
       url: "https://kadrstudia8-hue.github.io/landing-de.html",
       title: "KADR Studio. Ein Satz. Ein fertiges Video.",
-      description: "Schreiben Sie eine Idee, KADR Studio macht das ganze Video: Drehbuch, Stimme, Bilder, Musik und Untertitel. Windows, Mac und KADR Cloud.",
+      description: "Schreiben Sie eine Idee, KADR Studio macht das ganze Video: Drehbuch, Stimme, Bilder, Musik und Untertitel. Für Windows und Mac.",
       image: "https://kadrstudia8-hue.github.io/media/reel-en.jpg",
       imageWidth: 960,
       imageHeight: 540
@@ -78,7 +78,7 @@ export const de: SiteContent = {
         href: "#who"
       },
       {
-        label: "Ohne GPU",
+        label: "Keine GPU?",
         href: "#req"
       },
       {
@@ -163,9 +163,9 @@ export const de: SiteContent = {
         }
       ],
       [
-        "läuft ",
+        "funktioniert ",
         {
-          b: "ohne GPU"
+          b: "ohne Schlüssel"
         }
       ],
       [
@@ -177,9 +177,9 @@ export const de: SiteContent = {
     ],
     badges: [
       "3 Videos gratis",
-      "Keine GPU nötig",
       "Windows und Mac",
-      "Keine Werbung"
+      "Keine Werbung",
+      "Lizenz für 2 Computer"
     ]
   },
   promises: {
@@ -204,8 +204,8 @@ export const de: SiteContent = {
       },
       {
         icon: "Cloud",
-        title: "Läuft auf jedem Computer",
-        text: "Die schwere Arbeit erledigen unsere GPUs in der KADR Cloud."
+        title: "Bald: Cloud mit RTX 5090",
+        text: "Eine eigene GPU brauchen Sie dann nicht: Unsere Server rechnen die Bilder."
       },
       {
         icon: "Film",
@@ -527,8 +527,8 @@ export const de: SiteContent = {
   req: {
     id: "req",
     tag: "Ehrlich zur Hardware",
-    title: "Sie brauchen keine GPU",
-    lead: "Wählen Sie, wo gerechnet wird: in unserer Cloud oder auf Ihrem Computer.",
+    title: "Auch ohne GPU",
+    lead: "Was Sie heute auf Ihrem Computer bekommen. Die KADR Cloud mit RTX 5090 kommt bald.",
     tiers: [
       {
         who: "PC MIT NVIDIA, 8 BIS 12 GB",
@@ -546,22 +546,22 @@ export const de: SiteContent = {
           "Ab 16 GB Arbeitsspeicher entstehen die Bilder direkt auf dem Mac.",
           "Ab macOS 12. Macs mit Intel funktionieren auch."
         ],
-        details: "Lebendige Szenen für den Mac rechnet die KADR Cloud. Stimme, Untertitel, Schnitt und Export laufen auf jedem Mac."
+        details: "Lebendige Szenen laufen auf dem Mac selbst noch nicht. Stimme, Untertitel, Schnitt und Export funktionieren auf jedem Mac."
       },
       {
         who: "JEDER COMPUTER",
-        title: "KADR Cloud",
+        title: "Video auch ohne GPU",
         paragraphs: [
-          "Unsere starken GPUs rechnen Ihre Bilder, lebendigen Szenen und Musik.",
-          "Ein schwacher Laptop reicht. ⚡ zahlen Sie nur für fertige Arbeit."
+          "KI-Bilder liefert ein Dienst mit Ihrem Schlüssel, oder kostenlose Fotos von Pexels und Pixabay.",
+          "Bald kommt die KADR Cloud: Dann rechnen unsere RTX 5090 die Bilder."
         ],
-        details: "Ohne Cloud und Schlüssel liest eine kostenlose neuronale Stimme Ihren Text vor einem animierten Hintergrund. In ein, zwei Minuten fertig."
+        details: "Ohne Schlüssel liest eine kostenlose neuronale Stimme Ihren Text vor einem animierten Hintergrund. In ein, zwei Minuten fertig."
       }
     ],
     notes: {
       title: "Gut zu wissen",
       items: [
-        "Mit eigener GPU hängt das Tempo von der Karte ab: Auf einer RTX 3060 dauert ein Bild etwa eine Minute.",
+        "Das Tempo hängt von der GPU ab: Auf einer RTX 3060 dauert ein Bild etwa eine Minute.",
         "Bei einem Stromausfall geht nichts verloren: Die App macht dort weiter, wo sie aufgehört hat.",
         "KI-Drehbücher und ElevenLabs-Stimmen laufen über Ihre eigenen Schlüssel. Ein Gemini-Schlüssel ist kostenlos.",
         "Die Oberfläche der App ist auf Englisch, Ukrainisch und Russisch. Deutsch folgt später.",
@@ -572,15 +572,15 @@ export const de: SiteContent = {
   cloud: {
     id: "cloud",
     tag: "KADR Cloud",
-    title: "Unsere GPUs arbeiten für Sie",
-    lead: "Machen Sie Videos auf jedem Gerät. Eine eigene GPU brauchen Sie nicht: Ein schwacher Laptop oder ein Mac reicht.",
+    title: "Unsere RTX 5090 arbeiten bald für Sie",
+    lead: "Die KADR Cloud kommt bald: Videos auf jedem Computer, auch auf einem schwachen Laptop oder einem Mac.",
     bullets: [
-      "Bilder, lebendige Szenen und Musik entstehen auf starken GPUs, die wir mieten.",
-      "Den Preis zeigt die App vor dem Start. ⚡ wird abgebucht, sobald jedes Bild fertig ist.",
-      "Energie-Pakete ab $10 kaufen Sie direkt in der App."
+      "Bilder, lebendige Szenen und Musik entstehen dann auf unseren Servern mit RTX 5090.",
+      "Sie zahlen mit Energie ⚡: Pakete ab $10, den Preis zeigt die App vor dem Start.",
+      "Das Aufladen von ⚡ öffnet in der App mit dem Start der Cloud."
     ],
     cta: {
-      label: "Cloud ausprobieren",
+      label: "KADR Studio herunterladen",
       href: "#download",
       variant: "main"
     }
@@ -594,7 +594,7 @@ export const de: SiteContent = {
     id: "features",
     tag: "Funktionen",
     title: "Ein ganzes Videostudio in einem Fenster",
-    lead: "Rechnen Sie in der KADR Cloud, auf Ihrer GPU oder mit Ihren eigenen Schlüsseln.",
+    lead: "Rechnen Sie auf Ihrer eigenen GPU oder mit Ihren eigenen Schlüsseln. Bald kommt die Cloud mit RTX 5090.",
     items: [
       {
         icon: "✎",
@@ -608,8 +608,8 @@ export const de: SiteContent = {
       },
       {
         icon: "▣",
-        title: "Bilder in der Cloud oder zu Hause",
-        text: "KADR Cloud oder RealVisXL auf Ihrer NVIDIA. Der Generator installiert sich per Klick."
+        title: "Bilder auf Ihrer GPU",
+        text: "RealVisXL auf Ihrer NVIDIA; der Generator installiert sich per Klick. Ohne NVIDIA kommen Bilder per Schlüssel."
       },
       {
         icon: "▶",
@@ -692,8 +692,8 @@ export const de: SiteContent = {
     id: "pricing",
     tag: "Preise",
     title: "Preise",
-    lead: "Starten Sie kostenlos. Zahlen Sie, wenn Ihnen die Videos gefallen.",
-    currency: "USD",
+    lead: "Starten Sie mit 3 Gratis-Videos. Preise in ukrainischen Hrywnja (UAH); bezahlt wird in USDT zum Tageskurs.",
+    currency: "UAH",
     plans: [
       {
         name: "Testversion",
@@ -714,42 +714,42 @@ export const de: SiteContent = {
         }
       },
       {
-        name: "Lebenslange Lizenz",
-        badge: "−40%",
+        name: "Lizenz „Gründer“",
+        badge: "erste 100",
         price: {
-          display: "$59",
-          value: 59,
-          old: "$99",
-          oldValue: 99
+          display: "1.999 UAH",
+          value: 1999,
+          old: "2.999 UAH",
+          oldValue: 2999
         },
         per: "einmalig · für die ersten 100 Käufer",
         items: [
-          "1 Jahr Updates",
-          "Danach $99 für alle",
-          "Kein Zeichen, keine Limits",
-          "14 Tage Rückerstattung, wenn ungenutzt"
+          "Kein Wasserzeichen, keine Limits",
+          "Alles auf Ihrem PC, 1 Jahr Updates",
+          "Zwei Computer",
+          "Erst kostenlos testen: 3 Videos"
         ],
         cta: {
-          label: "Mit Rabatt kaufen →",
-          href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+          label: "In der App kaufen",
+          href: "#download",
           variant: "main"
         },
         highlight: true
       },
       {
-        name: "Abo",
+        name: "Rundum-Service",
         price: {
-          display: "$9",
-          value: 9
+          display: "5.999 UAH",
+          value: 5999
         },
-        per: "pro Monat · oder $79 pro Jahr",
+        per: "einmalig · per Fernzugriff",
         items: [
-          "Wenn Sie die App nur eine Zeit lang brauchen",
-          "Updates, solange das Abo läuft",
-          "Jederzeit kündbar"
+          "Die Lizenz „Gründer“",
+          "Wir richten Ihren PC ein",
+          "Ihr erstes Video machen wir gemeinsam"
         ],
         cta: {
-          label: "Abonnieren",
+          label: "Rundum-Service anfragen",
           href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
           variant: "ghost"
         }
@@ -757,23 +757,23 @@ export const de: SiteContent = {
     ],
     extras: [
       {
-        title: "Energie ⚡ für die Cloud",
-        text: "Pakete ab $10, Aufladen in der App. Die Cloud rechnet Bilder, Szenen und Musik; den Preis sehen Sie vorher."
+        title: "Energie ⚡ für die Cloud mit RTX 5090",
+        text: "Pakete ab $10. Bilder, Szenen und Musik laufen auf unseren RTX 5090. Aufladen in der App, sobald die Cloud startet."
       },
       {
-        title: "Einrichtung als Rundum-Service, $99 bis $149",
-        text: "Ich installiere die App, verbinde Ihre Schlüssel, und wir machen gemeinsam Ihr erstes Video. Per Fernzugriff."
+        title: "Zahlung in USDT",
+        text: "USDT auf BNB Smart Chain (BEP-20) zum Tageskurs. Die Lizenz wird in Ihrem Konto automatisch freigeschaltet."
       }
     ],
     note: "Schlüssel für KI-Dienste sind optional. Wenn Sie welche nutzen, zahlen Sie diese Dienste direkt.",
     buy: {
-      text: "Schreiben Sie an kadrstudia8@gmail.com. Wir senden die Zahlungsdaten und aktivieren die App. Kartenzahlung folgt bald.",
+      text: "Kaufen Sie direkt in der App: USDT (BEP-20) zum Tageskurs. Die Lizenz wird in Ihrem Konto automatisch freigeschaltet.",
       cta: {
-        label: "Per E-Mail kaufen",
-        href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+        label: "Herunterladen und kaufen",
+        href: "#download",
         variant: "main"
       },
-      note: "Wir antworten persönlich. Keine Newsletter, keine Tracker."
+      note: "Lizenz nicht freigeschaltet? Schreiben Sie an kadrstudia8@gmail.com, wir antworten persönlich."
     },
     legal: [
       {
@@ -785,7 +785,7 @@ export const de: SiteContent = {
         href: "https://kadrstudia8-hue.github.io/refund-de.html"
       }
     ],
-    highlight: "40 % Rabatt für die ersten 100 Käufer"
+    highlight: "Preis für die ersten 100 Käufer"
   },
   faq: {
     id: "faq",
@@ -808,7 +808,7 @@ export const de: SiteContent = {
       {
         q: "Brauche ich eine eigene GPU?",
         a: [
-          "Nein. Die KADR Cloud rechnet Bilder, lebendige Szenen und Musik auf unseren GPUs, bezahlt wird in ⚡. Mit einer NVIDIA-Karte mit 8 bis 12 GB oder einem Mac mit Apple-Chip ab 16 GB rechnen Sie die Bilder kostenlos zu Hause. Ohne Cloud und Schlüssel liest eine kostenlose Stimme Ihren Text vor einem animierten Farbhintergrund."
+          "Nein. Die App läuft auch ohne NVIDIA: Die Lizenz entfernt Wasserzeichen und Testlimits, KI-Bilder liefert ein Dienst mit Ihrem Schlüssel, und ohne Schlüssel nutzt sie kostenlose Fotos von Pexels und Pixabay. Mit einer NVIDIA-Karte mit 8 bis 12 GB oder einem Mac mit Apple-Chip ab 16 GB entstehen die Bilder kostenlos bei Ihnen. Bald kommt die KADR Cloud: Dann rechnen unsere RTX 5090 die Bilder."
         ]
       },
       {
@@ -820,28 +820,28 @@ export const de: SiteContent = {
       {
         q: "Wie lange dauert ein Video?",
         a: [
-          "Das hängt davon ab, wo gerechnet wird. Auf einer RTX 3060 dauert ein Bild etwa eine Minute, eine lebendige Szene etwa 2,5 Minuten, ein 20-Minuten-Film etwa 4 Stunden. Ein Video aus Ihrem Text ohne Schlüssel und ohne GPU ist in ein bis zwei Minuten fertig."
+          "Das hängt von der GPU ab. Auf einer RTX 3060 dauert ein Bild etwa eine Minute, eine lebendige Szene etwa 2,5 Minuten, ein 20-Minuten-Film etwa 4 Stunden. Ein Video aus Ihrem Text ohne Schlüssel und ohne GPU ist in ein bis zwei Minuten fertig."
         ]
       },
       {
         q: "Was kostet es?",
         a: [
-          "Die Testversion ist kostenlos: 3 Videos bis 60 Sekunden. Eine lebenslange Lizenz kostet ",
+          "Die Testversion ist kostenlos: 3 Videos bis 60 Sekunden. Die Lizenz „Gründer“ kostet ",
           {
-            b: "$59"
+            b: "1.999 UAH"
           },
-          " für die ersten 100 Käufer, danach $99, mit 1 Jahr Updates. Ein Abo kostet $9 im Monat oder $79 im Jahr. Energie-Pakete ⚡ für die Cloud gibt es ab $10. Die Einrichtung als Rundum-Service kostet $99 bis $149. Zum Kaufen ",
+          " für die ersten 100 Käufer, danach 2.999 UAH: kein Wasserzeichen, keine Limits, 1 Jahr Updates, zwei Computer. Der Rundum-Service kostet 5.999 UAH. Bezahlt wird in der App in USDT auf BNB Smart Chain (BEP-20) zum Tageskurs. Energie ⚡ für die Cloud mit RTX 5090 gibt es in Paketen ab $10; das Aufladen öffnet mit dem Start der Cloud. Fragen zur Zahlung beantworten wir unter ",
           {
-            a: "schreiben Sie an kadrstudia8@gmail.com",
+            a: "kadrstudia8@gmail.com",
             href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F"
           },
-          ". Kartenzahlung folgt bald."
+          "."
         ]
       },
       {
         q: "Wie bekomme ich Zugang?",
         a: [
-          "Laden Sie KADR Studio herunter und registrieren Sie sich mit Ihrer E-Mail. Ohne Zahlung läuft die Testversion mit 3 Videos. Um Zeichen und Limits zu entfernen, kaufen Sie eine Lizenz oder ein Abo: Schreiben Sie von der E-Mail Ihres Kontos an kadrstudia8@gmail.com, und wir aktivieren es. Das dauert meist nur wenige Minuten zu Geschäftszeiten. Eine ⚡-Aufladung bezahlt nur die Cloud und aktiviert die App nicht. Kontakte finden Sie auf der Seite ",
+          "Laden Sie KADR Studio herunter: Die Testversion mit 3 Videos läuft sofort. Um Wasserzeichen und Limits zu entfernen, kaufen Sie die Lizenz direkt in der App. Nach der Zahlung in USDT wird die Lizenz in Ihrem Konto automatisch freigeschaltet. Falls nicht, schreiben Sie uns; die Kontakte stehen auf der Seite ",
           {
             a: "Support",
             href: "https://kadrstudia8-hue.github.io/support-de.html"
@@ -852,13 +852,13 @@ export const de: SiteContent = {
       {
         q: "Was ist Energie ⚡?",
         a: [
-          "Die interne Einheit von KADR für die Cloud. Unsere Server rechnen Bilder, lebendige Szenen und Musik, und ⚡ wird abgebucht, sobald sie fertig sind. Den Preis sehen Sie vor dem Start. Scheitert etwas durch unseren Fehler, wird nichts abgebucht. ⚡ ist weder Geld noch Kryptowährung und nicht übertragbar. Aufgeladen wird in der App, im Fenster „Energie“, mit USDT oder USDC (Netzwerk BEP-20)."
+          "Mit Energie ⚡ bezahlen Sie die Miete unserer Server mit RTX 5090. Darauf entstehen Bilder, lebendige Szenen und Musik, eine eigene GPU brauchen Sie nicht. ⚡ wird abgebucht, sobald Bilder fertig sind, den Preis sehen Sie vor dem Start. Pakete ab $10; das Aufladen öffnet in der App mit dem Start der Cloud. ⚡ ist weder Geld noch Kryptowährung und nicht übertragbar."
         ]
       },
       {
         q: "Läuft es auf dem Mac?",
         a: [
-          "Ja: macOS 12 und neuer, Macs mit Apple-Chip (M1, M2, M3, M4) oder Intel. Die KADR Cloud rechnet Bilder, lebendige Szenen und Musik auf jedem Mac. Auf Macs mit Apple-Chip ab 16 GB entstehen die Bilder auch direkt auf dem Computer. Beim ersten Start fragt macOS einmal nach: „Systemeinstellungen“ → „Datenschutz & Sicherheit“ → „Dennoch öffnen“."
+          "Ja: macOS 12 und neuer, Macs mit Apple-Chip (M1, M2, M3, M4) oder Intel. Auf Macs mit Apple-Chip ab 16 GB entstehen die Bilder direkt auf dem Computer, auf anderen mit dem Schlüssel eines Dienstes und nach dem Cloud-Start auf unseren RTX 5090. Lebendige Szenen laufen auf dem Mac selbst noch nicht. Stimme, Untertitel, Schnitt und Export funktionieren auf jedem Mac. Beim ersten Start fragt macOS einmal nach: „Systemeinstellungen“ → „Datenschutz & Sicherheit“ → „Dennoch öffnen“."
         ]
       },
       {
@@ -887,7 +887,7 @@ export const de: SiteContent = {
       {
         q: "Kann ich mein Geld zurückbekommen?",
         a: [
-          "Ja. Eine Lizenz erstatten wir innerhalb von 14 Tagen, wenn Sie sie nicht genutzt haben. Alle Bedingungen stehen in der ",
+          "Käufe sind endgültig, deshalb testen Sie zuerst kostenlos: 3 Videos bis 60 Sekunden. Geld erstatten wir, wenn eine Zahlung doppelt abgebucht wurde oder die App auf einem passenden Computer nicht läuft und der Support nicht helfen konnte. Alle Bedingungen stehen in der ",
           {
             a: "Rückerstattungsrichtlinie",
             href: "https://kadrstudia8-hue.github.io/refund-de.html"
@@ -918,7 +918,7 @@ export const de: SiteContent = {
   },
   ctaBand: {
     title: "Ihr erstes Video in 2 Minuten",
-    subtitle: "3 Videos gratis. Ohne Karte, ohne GPU.",
+    subtitle: "3 Videos gratis. Ohne Karte.",
     cta: {
       label: "Kostenlos herunterladen",
       href: "#download",

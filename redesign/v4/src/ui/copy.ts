@@ -31,10 +31,10 @@ const ru: Copy = {
   facts: ['от 15 секунд до 30 минут', '9:16 · 16:9 · 1:1 · 4:5', 'голоса UK · RU · EN', 'работает без ключей', 'свет погас? продолжит с места'],
   proof: { h: ['Одна фраза.', 'Одно видео.'], prev: 'Предыдущий пример', next: 'Следующий пример', prompt: 'Запрос', play: 'Смотреть пример' },
   cloud: {
-    h: ['Наши видеокарты', 'работают за вас'],
-    lead: 'Кадры, живые сцены и музыка считаются на наших серверах. Работает с любого компьютера.',
-    chips: ['без своей видеокарты', 'цена видна до старта', 'мобильная версия скоро'],
-    cta: 'Попробовать в облаке', stage: 'Серверы KADR Cloud с видеокартами',
+    h: ['Наши RTX 5090', 'работают за вас'],
+    lead: 'Облако KADR скоро. Аренду серверов оплачивает Энергия ⚡: пакеты от $10, пополнение в программе.',
+    chips: ['без своей видеокарты', 'цена в ⚡ видна до старта', 'мобильная версия скоро'],
+    cta: 'Скачать KADR Studio', stage: 'Серверы KADR Cloud с видеокартами',
   },
   how: {
     h: ['Три шага', 'до MP4'],
@@ -62,7 +62,7 @@ const ru: Copy = {
     cols: [
       { t: 'Своя NVIDIA', l: ['Кадры, сцены и музыка на вашей видеокарте.', 'Windows 10/11, от 8 ГБ видеопамяти.'] },
       { t: 'Mac с Apple M', l: ['От 16 ГБ памяти кадры рисует сам Mac.', 'macOS 12 и новее, Intel тоже.'] },
-      { t: 'Любой компьютер', l: ['Видео из вашего текста даже без ключей.', 'Кадры по ключу или в облаке KADR.'] },
+      { t: 'Любой компьютер', l: ['Видео из вашего текста даже без ключей.', 'Кадры по ключу. Облако KADR скоро.'] },
     ],
   },
   pricing: { h: ['', 'Цены'], extras: 'Ещё' },
@@ -78,10 +78,10 @@ const uk: Copy = {
   facts: ['від 15 секунд до 30 хвилин', '9:16 · 16:9 · 1:1 · 4:5', 'голоси UK · RU · EN', 'працює без ключів', 'зникло світло? продовжить з місця'],
   proof: { h: ['Одна фраза.', 'Одне відео.'], prev: 'Попередній приклад', next: 'Наступний приклад', prompt: 'Запит', play: 'Дивитися приклад' },
   cloud: {
-    h: ['Наші відеокарти', 'працюють за вас'],
-    lead: "Кадри, живі сцени й музика рахуються на наших серверах. Працює з будь-якого комп'ютера.",
-    chips: ['без своєї відеокарти', 'ціну видно до старту', 'мобільна версія скоро'],
-    cta: 'Спробувати в хмарі', stage: 'Сервери KADR Cloud з відеокартами',
+    h: ['Наші RTX 5090', 'працюють за вас'],
+    lead: 'Хмара KADR скоро. Оренду серверів оплачує Енергія ⚡: пакети від $10, поповнення в програмі.',
+    chips: ['без своєї відеокарти', 'ціну в ⚡ видно до старту', 'мобільна версія скоро'],
+    cta: 'Завантажити KADR Studio', stage: 'Сервери KADR Cloud з відеокартами',
   },
   how: {
     h: ['Три кроки', 'до MP4'],
@@ -109,7 +109,7 @@ const uk: Copy = {
     cols: [
       { t: 'Своя NVIDIA', l: ['Кадри, сцени й музика на вашій відеокарті.', "Windows 10/11, від 8 ГБ відеопам'яті."] },
       { t: 'Mac з Apple M', l: ["Від 16 ГБ пам'яті кадри малює сам Mac.", 'macOS 12 і новіше, Intel теж.'] },
-      { t: "Будь-який комп'ютер", l: ['Відео з вашого тексту навіть без ключів.', 'Кадри за ключем або в хмарі KADR.'] },
+      { t: "Будь-який комп'ютер", l: ['Відео з вашого тексту навіть без ключів.', 'Кадри за ключем. Хмара KADR скоро.'] },
     ],
   },
   pricing: { h: ['', 'Ціни'], extras: 'Ще' },
@@ -125,10 +125,10 @@ const en: Copy = {
   facts: ['15 seconds to 30 minutes', '9:16 · 16:9 · 1:1 · 4:5', 'voices UK · RU · EN', 'works without keys', 'power cut? resumes where it stopped'],
   proof: { h: ['One phrase.', 'One video.'], prev: 'Previous example', next: 'Next example', prompt: 'Prompt', play: 'Watch example' },
   cloud: {
-    h: ['Our GPUs', 'work for you'],
-    lead: 'Frames, live scenes and music render on our servers. Works from any computer.',
-    chips: ['no graphics card needed', 'price shown before start', 'mobile version soon'],
-    cta: 'Try it in the cloud', stage: 'KADR Cloud GPU servers',
+    h: ['Our RTX 5090s', 'work for you'],
+    lead: 'KADR Cloud is coming soon. Server time is paid with Energy ⚡: packs from $10, top up in the app.',
+    chips: ['no graphics card of your own', 'price in ⚡ shown before start', 'mobile version soon'],
+    cta: 'Download KADR Studio', stage: 'KADR Cloud GPU servers',
   },
   how: {
     h: ['Three steps', 'to MP4'],
@@ -156,7 +156,7 @@ const en: Copy = {
     cols: [
       { t: 'Your own NVIDIA', l: ['Frames, scenes and music on your graphics card.', 'Windows 10/11, 8 GB VRAM or more.'] },
       { t: 'Mac with Apple M', l: ['With 16 GB memory the Mac draws frames itself.', 'macOS 12 or newer, Intel too.'] },
-      { t: 'Any computer', l: ['Video from your text, even without keys.', 'Frames via keys or in KADR Cloud.'] },
+      { t: 'Any computer', l: ['Video from your text, even without keys.', 'Frames via keys. KADR Cloud soon.'] },
     ],
   },
   pricing: { h: ['', 'Pricing'], extras: 'Also' },
@@ -172,10 +172,10 @@ const es: Copy = {
   facts: ['de 15 segundos a 30 minutos', '9:16 · 16:9 · 1:1 · 4:5', 'voces UK · RU · EN', 'funciona sin claves', '¿apagón? sigue donde se quedó'],
   proof: { h: ['Una frase.', 'Un vídeo.'], prev: 'Ejemplo anterior', next: 'Ejemplo siguiente', prompt: 'Petición', play: 'Ver ejemplo' },
   cloud: {
-    h: ['Nuestras GPU', 'trabajan por ti'],
-    lead: 'Imágenes, escenas vivas y música se calculan en nuestros servidores. Funciona en cualquier ordenador.',
-    chips: ['sin tarjeta gráfica propia', 'precio visible antes de empezar', 'versión móvil pronto'],
-    cta: 'Probar en la nube', stage: 'Servidores con GPU de KADR Cloud',
+    h: ['Nuestras RTX 5090', 'trabajan por ti'],
+    lead: 'La nube KADR llega pronto. El alquiler se paga con Energía ⚡: paquetes desde $10, recarga en la app.',
+    chips: ['sin tarjeta gráfica propia', 'precio en ⚡ antes de empezar', 'versión móvil pronto'],
+    cta: 'Descargar KADR Studio', stage: 'Servidores con GPU de KADR Cloud',
   },
   how: {
     h: ['Tres pasos', 'hasta el MP4'],
@@ -203,7 +203,7 @@ const es: Copy = {
     cols: [
       { t: 'Tu NVIDIA', l: ['Imágenes, escenas y música en tu tarjeta gráfica.', 'Windows 10/11, desde 8 GB de VRAM.'] },
       { t: 'Mac con Apple M', l: ['Con 16 GB de memoria el Mac dibuja solo.', 'macOS 12 o posterior, también Intel.'] },
-      { t: 'Cualquier ordenador', l: ['Vídeo con tu texto, incluso sin claves.', 'Imágenes por clave o en la nube KADR.'] },
+      { t: 'Cualquier ordenador', l: ['Vídeo con tu texto, incluso sin claves.', 'Imágenes por clave. Nube KADR pronto.'] },
     ],
   },
   pricing: { h: ['', 'Precios'], extras: 'Además' },
@@ -219,10 +219,10 @@ const de: Copy = {
   facts: ['15 Sekunden bis 30 Minuten', '9:16 · 16:9 · 1:1 · 4:5', 'Stimmen UK · RU · EN', 'läuft ohne Schlüssel', 'Stromausfall? macht dort weiter'],
   proof: { h: ['Ein Satz.', 'Ein Video.'], prev: 'Vorheriges Beispiel', next: 'Nächstes Beispiel', prompt: 'Anfrage', play: 'Beispiel ansehen' },
   cloud: {
-    h: ['Unsere GPUs', 'arbeiten für Sie'],
-    lead: 'Bilder, Live-Szenen und Musik entstehen auf unseren Servern. Läuft auf jedem Computer.',
-    chips: ['ohne eigene Grafikkarte', 'Preis vor dem Start sichtbar', 'Mobilversion bald'],
-    cta: 'In der Cloud testen', stage: 'GPU-Server der KADR Cloud',
+    h: ['Unsere RTX 5090', 'arbeiten für Sie'],
+    lead: 'KADR Cloud kommt bald. Die Servermiete zahlen Sie mit Energie ⚡: Pakete ab $10, Aufladen in der App.',
+    chips: ['ohne eigene Grafikkarte', 'Preis in ⚡ vor dem Start', 'Mobilversion bald'],
+    cta: 'KADR Studio laden', stage: 'GPU-Server der KADR Cloud',
   },
   how: {
     h: ['Drei Schritte', 'zum MP4'],
@@ -250,7 +250,7 @@ const de: Copy = {
     cols: [
       { t: 'Eigene NVIDIA', l: ['Bilder, Szenen und Musik auf Ihrer Grafikkarte.', 'Windows 10/11, ab 8 GB VRAM.'] },
       { t: 'Mac mit Apple M', l: ['Ab 16 GB Speicher malt der Mac selbst.', 'macOS 12 oder neuer, auch Intel.'] },
-      { t: 'Jeder Computer', l: ['Video aus Ihrem Text, auch ohne Schlüssel.', 'Bilder per Schlüssel oder in der KADR Cloud.'] },
+      { t: 'Jeder Computer', l: ['Video aus Ihrem Text, auch ohne Schlüssel.', 'Bilder per Schlüssel. KADR Cloud bald.'] },
     ],
   },
   pricing: { h: ['', 'Preise'], extras: 'Dazu' },

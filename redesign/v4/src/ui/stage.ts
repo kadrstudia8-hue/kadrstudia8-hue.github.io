@@ -138,16 +138,45 @@ let wired = false
 function wire() {
   if (wired || typeof document === 'undefined') return
   wired = true
+  let last: StageOutput = getOutput()
   const apply = (o: StageOutput) => {
-    // Before/without the engine the page is tier 1 (0 with reduced motion). The engine may only lower it below 2 or raise it once ready.
-    const tier = (REDUCED ? 0 : !ENGINE_ALLOWED ? 1 : o.tier) as Tier
-    out = { ...o, tier }
+    last = o
+    // Before/without the engine the page is tier 1 (0 with reduced motion). The scene owns the slots only while
+    // the engine says ready, tier ≥ 2 AND its canvas is really alive; otherwise every DOM fallback comes back.
+    const alive = engineAlive()
+    const tier = (REDUCED ? 0 : !ENGINE_ALLOWED || engineDead ? 1 : o.tier) as Tier
+    const ready = o.ready && tier >= 2 && alive
+    const next = { ...o, tier, ready }
     const html = document.documentElement
     html.dataset.v4Tier = String(tier)
-    html.dataset.v4Ready = o.ready && tier >= 2 ? '1' : '0'
-    subs.forEach((f) => f())
+    html.dataset.v4Ready = ready ? '1' : '0'
+    if (next.tier !== out.tier || next.ready !== out.ready || next.heroPhase !== out.heroPhase) {
+      out = next
+      subs.forEach((f) => f())
+    }
   }
+  reapply = () => apply(last)
   subscribe(apply)
+  // watchdog: canvas removed, context lost or zero-sized → fallback (checked twice a second, cheap)
+  setInterval(() => reapply(), 500)
+}
+let engineDead = false
+let reapply = () => {}
+let lostCanvas: HTMLCanvasElement | null = null
+function engineAlive() {
+  const c = document.querySelector<HTMLCanvasElement>('.stage-host canvas')
+  if (!c || !c.isConnected || c.width === 0 || c.height === 0) return false
+  if (c !== lostCanvas && !c.dataset.v4Watch) {
+    c.dataset.v4Watch = '1'
+    c.addEventListener('webglcontextlost', () => { lostCanvas = c; reapply() })
+    c.addEventListener('webglcontextrestored', () => { lostCanvas = null; reapply() })
+  }
+  return c !== lostCanvas
+}
+/** Called when the engine crashed or was unmounted: the page goes back to DOM fallbacks for good. */
+export function markEngineDead() {
+  engineDead = true
+  reapply()
 }
 wire()
 
@@ -158,5 +187,5 @@ export function useStage(): StageOutput {
 /** True when the WebGL scene draws this slot, so the DOM fallback must be invisible. */
 export function useSceneOwns() {
   const o = useStage()
-  return o.ready && o.tier >= 2
+  return o.ready
 }

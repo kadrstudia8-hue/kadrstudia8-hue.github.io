@@ -28,10 +28,17 @@ function Runtime({ tier, ceiling, onTier }: { tier: Tier; ceiling: Tier; onTier:
   const frames = useRef(0)
   if (!mon.current) mon.current = new FrameMonitor(ceiling, (t) => onTier(t), tier)
 
+  const ctx = useRef({ scrolling: false, sectionChangedAt: 0, lastY: -1, lastMoveAt: 0, active: '' })
   useFrame((_, delta) => {
     frames.current++
     if (frames.current === 2) setOutput({ ready: true, tier })
-    mon.current!.frame(delta * 1000, performance.now())
+    const now = performance.now()
+    const c = ctx.current
+    const y = window.scrollY
+    if (y !== c.lastY) { c.lastY = y; c.lastMoveAt = now }
+    c.scrolling = now - c.lastMoveAt < 300 || Math.abs(I.velocity) > 0.5
+    if (I.active !== c.active) { c.active = I.active; c.sectionChangedAt = now }
+    mon.current!.frame(delta * 1000, now, c)
   })
 
   useEffect(() => {
@@ -85,10 +92,18 @@ function Scene({ tier }: { tier: Tier }) {
 
 /**
  * V4 Light Engine. Lazy-loaded by App; renders nothing on tier <= 1 (phone, reduced motion, weak GPU, no WebGL2).
+ * Once mounted the canvas is never removed: runtime downgrades stop at tier 2.
  */
 export default function Engine() {
   const [p] = useState(probe)
   const [tier, setTier] = useState<Tier>(p.tier)
+  const [fade, setFade] = useState(false)
+  // tier changes after mount are applied in place (no remount): DPR, particles, post. A short opacity dip hides the swap.
+  const changeTier = (t: Tier) => {
+    const next = (t < 2 ? 2 : t) as Tier
+    setFade(true)
+    window.setTimeout(() => { setTier(next); window.setTimeout(() => setFade(false), 120) }, 320)
+  }
 
   useEffect(() => initEvents(), [])
   useEffect(() => {
@@ -102,18 +117,17 @@ export default function Engine() {
   const dpr: [number, number] = tier >= 3 ? [1, 2] : [1, 1.5]
   return (
     <Canvas
-      key={tier}
       frameloop="demand"
       dpr={dpr}
       flat
       gl={{ antialias: false, alpha: false, stencil: false, powerPreference: 'high-performance', toneMapping: NoToneMapping }}
       camera={{ fov: 32, position: [0, 1.2, 9], near: 0.1, far: 80 }}
-      style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}
+      style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none', opacity: fade ? 0.35 : 1, transition: 'opacity 320ms cubic-bezier(.65,0,.35,1)' }}
       aria-hidden
       eventSource={undefined}
       events={undefined}
     >
-      <Runtime tier={tier} ceiling={p.tier} onTier={setTier} />
+      <Runtime tier={tier} ceiling={p.tier} onTier={changeTier} />
       <Scene tier={tier} />
     </Canvas>
   )

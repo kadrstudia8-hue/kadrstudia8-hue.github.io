@@ -24,12 +24,12 @@ const specA = new Vector3().copy(FLOOR_ACROSS)
 const right = new Vector3()
 
 const BEAM: Record<SectionId, number> = {
-  top: 1, facts: 0.9, proof: 0.8, cloud: 0.2, how: 0.5, reel: 1, who: 0.25, looks: 1,
-  features: 0.25, req: 0.25, pricing: 0.5, download: 0.7, faq: 0.25, contact: 1,
+  top: 1, facts: 0.9, proof: 0.8, cloud: 0.32, how: 0.5, reel: 1, who: 0.35, looks: 1,
+  features: 0.35, req: 0.35, pricing: 0.5, download: 0.7, faq: 0.35, contact: 1,
 }
 const OPEN: Record<SectionId, number> = {
-  top: 1, facts: 0.9, proof: 0.85, cloud: 0.12, how: 0.35, reel: 0.9, who: 0.2, looks: 1,
-  features: 0.2, req: 0.2, pricing: 0.2, download: 0.7, faq: 0.2, contact: 0,
+  top: 1, facts: 0.9, proof: 0.85, cloud: 0.35, how: 0.4, reel: 0.9, who: 0.35, looks: 1,
+  features: 0.35, req: 0.35, pricing: 0.3, download: 0.7, faq: 0.35, contact: 0,
 }
 
 function cameraKey(id: SectionId, t: number) {
@@ -157,7 +157,16 @@ export default function Director() {
     } else if (id === 'looks') {
       tmp.set(rig.prism.x + 1.2, 0.02, rig.prism.z + 2.2); tmp2.set(1.8, 0, 0); found = true
     }
-    if (!found) { tmp.copy(FLOOR_A); tmp2.copy(FLOOR_ACROSS) }
+    if (!found) {
+      // no target: the spectrum pools on the floor inside the current view (so gaps between sections never go black)
+      tmp.set(0.25, -0.62, 0.5).unproject(cam).sub(cam.position).normalize()
+      if (tmp.y < -0.02) {
+        const d = -cam.position.y / tmp.y
+        tmp.multiplyScalar(Math.min(d, 14)).add(cam.position)
+        tmp.y = 0.02
+        tmp2.set(1, 0, 0).applyQuaternion(cam.quaternion).setY(0).normalize().multiplyScalar(2.2)
+      } else { tmp.copy(FLOOR_A); tmp2.copy(FLOOR_ACROSS) }
+    }
     rig.specTargetName = !found ? '' : target ?? (id === 'download' ? 'download-object' : '')
     if (id === 'top') open *= ht < 0 ? 0 : smooth(HERO.dust, HERO.spectrum, ht)
     if (id === 'facts' && ht >= 0 && ht < HERO.spectrum) open *= smooth(HERO.dust, HERO.spectrum, ht)

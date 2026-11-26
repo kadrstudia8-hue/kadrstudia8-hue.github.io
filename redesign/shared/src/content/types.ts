@@ -290,7 +290,8 @@ export interface Pricing {
   tag: string
   title: string
   lead: string
-  currency: 'USD'
+  /** Currency of plan prices (UAH since the program's prices; Energy packs are quoted in $ in the copy). */
+  currency: 'USD' | 'UAH'
   plans: Plan[]
   extras: { title: string; text: string }[]
   note: string

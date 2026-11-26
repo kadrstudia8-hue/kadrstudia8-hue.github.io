@@ -1,6 +1,6 @@
 // H1/H2: flat heavy caps, line 1 plain, line 2 «burnt by light» (spectrum, scrubbed by scroll and cursor).
 // Fit: the longest word never exceeds the column width (long DE/ES words on 360px), so nothing overflows.
-import { useEffect, useLayoutEffect, useRef, type CSSProperties } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { CALM, STILL, useInView } from './env'
 import type { H } from './copy'
 import { cx } from './kit'
@@ -44,7 +44,14 @@ export function useFit(ref: React.RefObject<HTMLElement | null>, dep: unknown) {
 
 export function Heading({ h, as = 'h2', className, id, safe = true }: { h: H; as?: 'h1' | 'h2'; className?: string; id?: string; safe?: boolean }) {
   const ref = useRef<HTMLHeadingElement>(null)
-  const seen = useInView(ref, '0px 0px -8% 0px')
+  // reveal as soon as 10% is in frame; after the transition the mask is removed, so a line can never stay half-hidden
+  const seen = useInView(ref, '0px', true, 0.1)
+  const [done, setDone] = useState(STILL)
+  useEffect(() => {
+    if (!seen || done) return
+    const t = setTimeout(() => setDone(true), CALM ? 0 : 1100)
+    return () => clearTimeout(t)
+  }, [seen, done])
   useFit(ref, h.join('|'))
   // spectrum position follows scroll and cursor (only while on screen)
   useEffect(() => {
@@ -65,7 +72,7 @@ export function Heading({ h, as = 'h2', className, id, safe = true }: { h: H; as
   }, [h])
   const Tag = as
   return (
-    <Tag ref={ref} id={id} className={cx(as === 'h1' ? 'h1' : 'h2', seen && 'is-in', STILL && 'is-in', className)} data-v4-safe={safe ? '' : undefined}>
+    <Tag ref={ref} id={id} className={cx(as === 'h1' ? 'h1' : 'h2', seen && 'is-in', STILL && 'is-in', done && 'is-done', className)} data-v4-safe={safe ? '' : undefined}>
       {h[0] && <span className="ln" style={{ '--i': 0 } as CSSProperties}><span className="ln-i">{h[0]}</span></span>}
       {h[0] && h[1] && ' '}
       {h[1] && <span className="ln" style={{ '--i': 1 } as CSSProperties}><span className="ln-i spectral">{h[1]}</span></span>}

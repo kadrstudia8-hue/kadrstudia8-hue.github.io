@@ -104,6 +104,8 @@ button.ilink { font: inherit; background: none; border: 0; padding: 0; cursor: p
 .ln { display: block; clip-path: inset(-.3em -.3em -.3em -.3em); }
 .ln-i { display: inline-block; transform: translateY(150%); transition: transform var(--t-in) var(--ease-out); transition-delay: calc(var(--i, 0) * 90ms); }
 .is-in .ln-i, .still .ln-i { transform: none; }
+.is-done .ln { clip-path: none; }
+.is-done .ln-i { transform: none; transition: none; }
 .spectral {
   color: transparent;
   background: var(--spectrum);
@@ -305,7 +307,7 @@ html[data-v4-ready="1"] .grain { display: none; }
   transition: height var(--t-ui) var(--ease-out), background var(--t-ui); }
 @media (min-width: 768px) { .nav-cap { height: 52px; width: auto; max-width: none; gap: 6px; padding-left: 22px; } }
 @media (min-width: 1280px) { .nav-cap { height: 56px; } }
-.nav-small .nav-cap { height: 48px; background: linear-gradient(155deg in oklch, rgba(10,10,13,.78) 0%, rgba(10,10,13,.72) 50%, rgba(14,12,20,.74) 80%, rgba(10,10,13,.78) 100%) padding-box, var(--edge) border-box; }
+.nav-small .nav-cap { height: 48px; background: linear-gradient(155deg in oklch, rgba(10,10,13,.92) 0%, rgba(10,10,13,.9) 50%, rgba(14,12,20,.9) 80%, rgba(10,10,13,.92) 100%) padding-box, var(--edge) border-box; }
 .logo { display: inline-flex; gap: 5px; font-weight: 900; font-size: 18px; letter-spacing: -.02em; text-transform: uppercase; min-height: 44px; align-items: center; margin-right: auto; }
 .logo-s { font-family: "Caveat Variable", cursive; font-weight: 700; text-transform: none; font-size: 21px; letter-spacing: 0; color: var(--lilac); text-shadow: 0 0 14px rgba(185,166,255,.45); }
 .nav-links { display: none; list-style: none; margin: 0; padding: 0; }
@@ -426,7 +428,8 @@ html[data-v4-ready="1"] .grain { display: none; }
 
 /* ================================================================ cloud */
 .cloud-grid { display: grid; gap: 40px; align-items: center; }
-@media (min-width: 1024px) { .cloud-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; min-height: 700px; } }
+@media (min-width: 1024px) { .cloud-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; } }
+@media (min-width: 1024px) { html[data-v4-ready="1"] .cloud-grid { min-height: 700px; } }
 .cloud-copy { min-width: 0; }
 .cloud-chips ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 28px 0 32px; }
 .cloud-stage { width: 100%; aspect-ratio: 16/10; }
@@ -444,9 +447,9 @@ html[data-v4-ready="1"] .grain { display: none; }
 .how-pin { padding-block: var(--gap-sec); }
 @media (min-width: 768px) and (min-height: 720px) {
   .how { height: 240vh; }
-  .how-pin { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; padding-block: 88px 40px; }
+  .how-pin { position: sticky; top: 0; height: 100vh; display: flex; align-items: flex-start; padding-block: 112px 40px; }
 }
-@media (min-width: 1280px) and (min-height: 720px) { .how { height: 300vh; } }
+@media (min-width: 1280px) and (min-height: 720px) { .how { height: 300vh; } html:not([data-v4-ready="1"]) .how { height: 220vh; } }
 .how-inner { width: 100%; }
 .how-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; }
 .how-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
@@ -546,6 +549,7 @@ html[data-v4-ready="1"] .grain { display: none; }
 @media (max-width: 1023px) { .plans { max-width: 560px; margin-inline: auto; } .plan.hot { order: -1; } }
 @media (min-width: 1024px) { .plans { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: end; padding-top: 20px; } }
 @media (min-width: 1280px) { .plans { gap: 40px; } }
+@media (min-width: 1024px) { .plans-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; margin-inline: auto; } .plans-1 { grid-template-columns: minmax(0, 440px); justify-content: center; } }
 .plan { min-width: 0; }
 .plan-card { position: relative; display: flex; flex-direction: column; padding: 28px; border-radius: var(--r-panel); transition: transform 420ms var(--spring), box-shadow var(--t-ui); }
 @media (max-width: 767px) { .plan-card { padding: 22px; } }

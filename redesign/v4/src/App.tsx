@@ -2,7 +2,7 @@
 import { Component, lazy, Suspense, useEffect, useState, type ComponentType, type ReactNode } from 'react'
 import { ENGINE_ALLOWED, FINE, CALM, useT } from './ui/env'
 import { Divider } from './ui/kit'
-import { useStageDriver } from './ui/stage'
+import { markEngineDead, useStageDriver } from './ui/stage'
 import { Cloud } from './sections/Cloud'
 import { Contact, Footer, MobileBar } from './sections/Contact'
 import { Download } from './sections/Download'
@@ -27,7 +27,7 @@ const Stage = engineLoader ? lazy(engineLoader) : null
 class Boundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false }
   static getDerivedStateFromError() { return { failed: true } }
-  componentDidCatch(e: unknown) { console.warn('[v4] engine disabled:', e) }
+  componentDidCatch(e: unknown) { console.warn('[v4] engine disabled:', e); markEngineDead() }
   render() { return this.state.failed ? null : this.props.children }
 }
 

@@ -58,12 +58,27 @@ function AutoVideoInner({ src, poster, label, play = true, className, slot, hidd
   useEffect(() => { if (nearNow || eager) setNear(true) }, [nearNow, eager])
   // the scene draws slot videos as textures: they must have src and play even while the DOM copy is invisible
   const live = owns && !!slot ? true : !CALM
+  const should = near && play && vis && live
+  const shouldRef = useRef(should)
+  shouldRef.current = should
   useEffect(() => {
     const el = ref.current
     if (!el || !near) return
-    if (play && vis && live) { el.muted = true; el.play().catch(() => {}) }
+    if (should) { el.muted = true; el.play().catch(() => {}) }
     else el.pause()
-  }, [play, vis, near, live, src])
+  }, [should, near, src])
+  // watchdog: whoever paused it (autoplay policy, a slow first load, the engine), a visible loop keeps playing
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const kick = () => {
+      if (shouldRef.current && el.paused && el.currentSrc) { el.muted = true; el.play().catch(() => {}) }
+    }
+    el.addEventListener('canplay', kick)
+    el.addEventListener('pause', kick)
+    const t = setInterval(kick, 1000)
+    return () => { el.removeEventListener('canplay', kick); el.removeEventListener('pause', kick); clearInterval(t) }
+  }, [])
   return (
     <video
       ref={ref}

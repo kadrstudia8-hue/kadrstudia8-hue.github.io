@@ -3,7 +3,6 @@ import { useT, gen, CALM } from '../ui/env'
 import { Heading } from '../ui/Heading'
 import { Btn, Chip, LIGHTS, Reveal, Section } from '../ui/kit'
 import { AutoVideo } from '../ui/media'
-import { bare, clean } from '../ui/text'
 
 function FarmCSS() {
   return (
@@ -16,11 +15,12 @@ function FarmCSS() {
 }
 
 export function Cloud() {
-  const { t, c } = useT()
+  const { c } = useT()
   // content bullets are full sentences; chips stay short (V4 copy)
   const chips = c.cloud.chips
-  const cta = t.cloud?.cta ? bare(t.cloud.cta.label) : c.cloud.cta
-  const href = t.cloud?.cta?.href ?? '#download'
+  // the cloud is not launched yet (client): the section is an announcement, its button leads to the app download
+  const cta = c.cloud.cta
+  const href = '#download'
   const loop = gen('v4-gpu-farm-loop.mp4')
   const poster = gen('v4-gpu-farm.webp')
   return (

@@ -30,7 +30,7 @@ export function Pricing() {
     <Section id="pricing" className="pricing">
       <div className="wrap">
         <Heading h={c.pricing.h} className="head pricing-h" />
-        <ul className="plans">
+        <ul className={cx('plans', `plans-${plans.length}`)}>
           {plans.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 140}
               className={cx('plan', p.highlight && 'hot')}
