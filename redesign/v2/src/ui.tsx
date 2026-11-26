@@ -19,7 +19,7 @@ export function LimeButton({ arrow = true, small, className = '', children, ...p
 export function LimeAction({ arrow = true, small, className = '', children, ...p }: BProps) {
   return (
     <button type="button" {...p} className={`btn btn-lime ${small ? 'sm' : ''} ${className}`} onPointerDown={(e) => ripple(e)}>
-      <span>{children}</span>{arrow && <ArrowRight className="arr" size={small ? 17 : 19} strokeWidth={2.4} aria-hidden />}
+      <span className="inline-flex items-center gap-2">{children}</span>{arrow && <ArrowRight className="arr" size={small ? 17 : 19} strokeWidth={2.4} aria-hidden />}
     </button>
   )
 }

@@ -402,6 +402,153 @@ export interface Ui {
   langHint: { question: string; accept: string; close: string }
 }
 
+// ---------------------------------------------------------------- page: the 9-section CRO structure (CRO.md, sections 3, 4, 6)
+// One structure and one set of texts for every theme. Old fields above stay for the current builds; new layouts read `page`.
+// Media for these sections comes from the old fields: hero.video, proof.examples, reel.video, who.cards[i].media,
+// looks.styles, how.screenshot, tutorial.video, download.platforms (hrefs), footer.
+
+export type PageSectionId = 'top' | 'proof' | 'who' | 'how' | 'compare' | 'pc' | 'pricing' | 'faq' | 'download'
+
+/** A call to action of the new page. `action` tells the builder what to do instead of (or in addition to) following `href`. */
+export interface PageCta {
+  label: string
+  href: Href
+  variant: 'main' | 'ghost'
+  /** On Mac/Windows desktops swap the label to ui.downloadMac / ui.downloadWindows (final section only). */
+  osAware?: boolean
+  /**
+   * 'share': navigator.share / copy link (phones; label is the «send the link to yourself» line);
+   * 'play-reel': open reel.video; 'play-tutorial': open tutorial.video; 'disclose': open the section's `details`.
+   */
+  action?: 'share' | 'play-reel' | 'play-tutorial' | 'disclose'
+}
+
+/** Head shared by every section: tag (eyebrow, optional), H2 (≤ 5 words), subtitle (≤ 12 words), one CTA. */
+export interface PageSection<Id extends PageSectionId> {
+  id: Id
+  tag?: string
+  title: string
+  subtitle: string
+  cta: PageCta
+}
+
+export interface PageHero extends Omit<PageSection<'top'>, 'title'> {
+  /** Same shape as hero.title: first part nowrap, second accent. */
+  title: TitlePart[]
+  /** Quiet second link (reel). */
+  secondary: PageCta
+  /** 3 chips under the button. */
+  chips: string[]
+  /** Handwritten note. */
+  note: string
+  sticker: string
+  /** Phones: the main CTA is «send the link to yourself» (action 'share'); caption goes under it. */
+  mobile: { cta: PageCta; caption: string }
+}
+
+export interface PageProof extends PageSection<'proof'> {
+  /** Label above the prompt under each example ("the author's whole job"). */
+  promptLabel: string
+  /** Caption of the 5th, wide reel card. */
+  reelCard: string
+}
+
+export interface PageWho extends PageSection<'who'> {
+  /** 4 cards in the order of who.cards (their media). */
+  cards: { title: string; text: string }[]
+  /** Line above the 6 style polaroids (looks.styles). */
+  stylesTitle: string
+}
+
+export interface PageHow extends PageSection<'how'> {
+  /** 3 one-line steps. */
+  steps: string[]
+  screenshotCaption: string
+  /** Handwritten note (an example idea). */
+  note: string
+}
+
+export interface PageCompare extends PageSection<'compare'> {
+  before: { title: string; items: string[] }
+  after: { title: string; text: string }
+  /** Small honest line under the right column (no invented numbers). */
+  note: string
+  /** Disclosure with what else the app does (no model names). */
+  more: { label: string; items: string[] }
+}
+
+export interface PagePc extends PageSection<'pc'> {
+  /** Tile 0: own computer; tile 1: KADR Cloud (badge «soon»). */
+  tiles: { title: string; badge?: string; text: string }[]
+  /** Chip «mobile version soon». */
+  mobileChip: string
+  /** Opened by the 'disclose' CTA: the technical answer (GPU memory, keys, free photos, first launch on Mac). */
+  details: string[]
+}
+
+export interface PagePlan {
+  id: 'trial' | 'founder' | 'turnkey'
+  /** 'entry' = trial (main lime button), 'center' = founder (visual centre), 'premium' = turnkey (black card). */
+  tone: 'entry' | 'center' | 'premium'
+  /** Label above the price, e.g. «НАЧНИТЕ ЗДЕСЬ». */
+  label: string
+  name: string
+  price: { display: string; value: number; old?: string; oldValue?: number }
+  /** Anchor under the price, e.g. «потом 2 999 грн». */
+  then?: string
+  per: string
+  items: string[]
+  cta: PageCta
+  /** Line under the button. */
+  note?: string
+}
+
+export interface PagePricing extends PageSection<'pricing'> {
+  /** Plan prices are in UAH; the app converts them to USDT at the day's rate. Energy packs are quoted in $. */
+  currency: 'UAH'
+  /** Order: trial, founder, turnkey. No «N of 100» counter (no real source yet). */
+  plans: PagePlan[]
+  /** «Возвратов нет. Поэтому сначала 3 видео бесплатно.» full width under the cards. */
+  honest: string
+  /** Next to the price: «программа пересчитает в USDT по курсу дня». */
+  currencyNote: string
+  /** 3-step payment scheme + help line. */
+  pay: { title: string; steps: string[]; help: string }
+  /** One quiet line about the cloud and Energy ⚡ (no button). */
+  cloud: string
+}
+
+export interface PageFaq extends PageSection<'faq'> {
+  /** 6 questions; the first one open. */
+  items: FaqItem[]
+  /** «All questions» → support page. */
+  all: Link
+}
+
+export interface PageFinal extends PageSection<'download'> {
+  /** Line under the button: the three builds. */
+  platforms: string
+  /** Disclosure «Which Mac do I have?». */
+  macHelp: { label: string; text: string }
+  support: Link
+}
+
+export interface Page {
+  order: PageSectionId[]
+  nav: { links: Link[]; cta: PageCta }
+  hero: PageHero
+  proof: PageProof
+  who: PageWho
+  how: PageHow
+  compare: PageCompare
+  pc: PagePc
+  pricing: PagePricing
+  faq: PageFaq
+  final: PageFinal
+  /** Phones: [share, prices]. */
+  mobileBar: { ctas: PageCta[] }
+}
+
 // ---------------------------------------------------------------- whole page
 
 export interface SiteContent {
@@ -428,4 +575,6 @@ export interface SiteContent {
   mobileBar: MobileBar
   footer: Footer
   ui: Ui
+  /** New 9-section page (CRO). Optional until every build reads it. */
+  page?: Page
 }

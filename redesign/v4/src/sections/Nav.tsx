@@ -6,7 +6,7 @@ import { useOverlay } from '@kadr/shared/ui/useOverlay'
 import { switchTheme, THEME_LABEL } from '@kadr/shared/theme'
 import { useT } from '../ui/env'
 import { Btn, cx } from '../ui/kit'
-import { bare } from '../ui/text'
+import { bare, clean } from '../ui/text'
 import { lockScroll, onFrame } from '../ui/stage'
 import { stageInput } from '../engine/contract'
 
@@ -65,7 +65,7 @@ function ThemeBtn({ pill }: { pill?: boolean }) {
 }
 
 export function Nav() {
-  const { t, c } = useT()
+  const { c, p } = useT()
   const [small, setSmall] = useState(false)
   const [active, setActive] = useState('')
   const [sheet, setSheet] = useState(false)
@@ -81,8 +81,8 @@ export function Nav() {
       if (na !== a) { a = na; setActive(na) }
     })
   }, [])
-  const links = c.nav.links
-  const dl = bare(t.nav.cta.label)
+  const links = p.nav.links.map((l) => ({ label: clean(l.label), href: l.href }))
+  const dl = bare(p.nav.cta.label)
   return (
     <header className={cx('nav', small && 'nav-small')}>
       <nav className="nav-cap glass" aria-label="KADR Studio">
@@ -96,7 +96,7 @@ export function Nav() {
         </ul>
         <div className="nav-lang"><LangMenu /></div>
         <ThemeBtn />
-        <Btn kind="glass" size="sm" href="#download" className="nav-dl">{dl}</Btn>
+        <Btn kind="glass" size="sm" href={p.nav.cta.href} className="nav-dl">{dl}</Btn>
         <button type="button" className="nav-burger" aria-label={c.nav.menu} aria-expanded={sheet} onClick={() => setSheet(true)}>
           <Menu size={20} />
         </button>
@@ -115,7 +115,7 @@ export function Nav() {
             <SheetLangs onPick={() => setSheet(false)} />
             <ThemeBtn pill />
           </div>
-          <Btn href="#download" onClick={() => setSheet(false)} className="w-full" arrow>{dl}</Btn>
+          <Btn href={p.nav.cta.href} onClick={() => setSheet(false)} className="w-full" arrow>{dl}</Btn>
         </div>
       )}
     </header>

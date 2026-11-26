@@ -1,6 +1,7 @@
 // KADR Studio landing, ES content (sales rewrite, 2026-11).
 // Started as a verbatim copy of the live page; now edited copy on the same product facts.
-// Visible copy rules: no long dashes, no word «ролик» (except «Проверка ролика» / «Перевірка ролика»), short paragraphs.
+// Visible copy rules: no long dashes, no word «ролик», short paragraphs.
+// `page` holds the 9-section CRO structure (redesign/CRO.md); old fields stay for current builds.
 import type { SiteContent } from './types.ts'
 
 export const es: SiteContent = {
@@ -979,6 +980,395 @@ export const es: SiteContent = {
       question: "¿Leer esta página en español?",
       accept: "En español",
       close: "Cerrar"
+    }
+  },
+  page: {
+    order: [
+      "top",
+      "proof",
+      "who",
+      "how",
+      "compare",
+      "pc",
+      "pricing",
+      "faq",
+      "download"
+    ],
+    nav: {
+      links: [
+        {
+          label: "Ejemplos",
+          href: "#proof"
+        },
+        {
+          label: "Cómo funciona",
+          href: "#how"
+        },
+        {
+          label: "Precios",
+          href: "#pricing"
+        }
+      ],
+      cta: {
+        label: "Probar",
+        href: "#download",
+        variant: "main"
+      }
+    },
+    hero: {
+      id: "top",
+      title: [
+        {
+          text: "Una frase.",
+          nowrap: true
+        },
+        {
+          text: "Un vídeo listo.",
+          accent: true
+        }
+      ],
+      subtitle: "La app escribe el guion, pone la voz, dibuja los planos y monta el vídeo.",
+      cta: {
+        label: "Pruébalo gratis",
+        href: "#download",
+        variant: "main"
+      },
+      secondary: {
+        label: "Showreel, 25 s",
+        href: "#proof",
+        variant: "ghost",
+        action: "play-reel"
+      },
+      chips: [
+        "3 vídeos gratis",
+        "Sin tarjeta",
+        "Windows y Mac"
+      ],
+      note: "sin rodar ni editar",
+      sticker: "3 vídeos gratis",
+      mobile: {
+        cta: {
+          label: "Envíate el enlace",
+          href: "#top",
+          variant: "main",
+          action: "share"
+        },
+        caption: "La app funciona en el ordenador. Abre el enlace en un PC o Mac."
+      }
+    },
+    proof: {
+      id: "proof",
+      tag: "Ejemplos reales",
+      title: "Esto lo hizo la app",
+      subtitle: "Toca un vídeo. Debajo está la frase de la que salió.",
+      promptLabel: "Todo lo que escribió el autor",
+      reelCard: "Showreel con sonido, 25 segundos",
+      cta: {
+        label: "Ver el showreel, 25 s",
+        href: "#proof",
+        variant: "ghost",
+        action: "play-reel"
+      }
+    },
+    who: {
+      id: "who",
+      title: "Para quién es",
+      subtitle: "Elige lo tuyo. Te enseñamos un ejemplo y un estilo.",
+      cards: [
+        {
+          title: "Shorts y Reels",
+          text: "Vídeos verticales cada día. Sin cámara."
+        },
+        {
+          title: "Anuncios de negocio",
+          text: "Un café, una tienda o un servicio con una frase."
+        },
+        {
+          title: "YouTube sin cara",
+          text: "Películas de hasta 30 minutos con capítulos."
+        },
+        {
+          title: "Otros idiomas",
+          text: "El mismo vídeo con otro narrador."
+        }
+      ],
+      stylesTitle: "12 estilos. Un clic.",
+      cta: {
+        label: "Pruébalo con tu idea",
+        href: "#download",
+        variant: "main"
+      }
+    },
+    how: {
+      id: "how",
+      title: "Tres pasos al vídeo",
+      subtitle: "Escribes la idea. Pulsas el botón. Te llevas el archivo.",
+      steps: [
+        "Escribe una idea",
+        "Pulsa ➤",
+        "Llévate el vídeo"
+      ],
+      screenshotCaption: "Así es la app",
+      note: "«¿Te acuerdas de la Game Boy?»",
+      cta: {
+        label: "Tutorial, 2 minutos",
+        href: "#how",
+        variant: "ghost",
+        action: "play-tutorial"
+      }
+    },
+    compare: {
+      id: "compare",
+      title: "Antes y con KADR",
+      subtitle: "Seis tareas y seis personas. O una sola frase.",
+      before: {
+        title: "Antes",
+        items: [
+          "Guion",
+          "Narrador",
+          "Rodaje",
+          "Montaje",
+          "Música",
+          "Subtítulos"
+        ]
+      },
+      after: {
+        title: "Con KADR",
+        text: "Una frase y ➤"
+      },
+      note: "Un vídeo sencillo a partir de tu texto está listo en uno o dos minutos.",
+      more: {
+        label: "Qué más hace la app",
+        items: [
+          "Escenas animadas: los momentos clave cobran vida",
+          "Subtítulos palabra por palabra y volumen listo para redes",
+          "Corta una película larga en Shorts",
+          "Tu personaje o producto a partir de fotos en cada plano",
+          "Versiones en otros idiomas",
+          "Título, descripción y hashtags con un clic",
+          "Un asistente de IA cambia escenas y estilo",
+          "3 versiones del vídeo para elegir antes de empezar"
+        ]
+      },
+      cta: {
+        label: "Pruébalo gratis",
+        href: "#download",
+        variant: "main"
+      }
+    },
+    pc: {
+      id: "pc",
+      title: "Tu ordenador sirve",
+      subtitle: "¿Tienes GPU? Todo gratis en casa. ¿No? Te ayuda nuestra nube.",
+      tiles: [
+        {
+          title: "Tu propio ordenador",
+          text: "Windows o Mac. Los planos y la música se generan en tu equipo."
+        },
+        {
+          title: "KADR Cloud",
+          badge: "Pronto",
+          text: "Pronto nuestras RTX 5090 trabajarán por ti. Pago con Energía ⚡ desde $10."
+        }
+      ],
+      mobileChip: "Versión móvil pronto",
+      details: [
+        "Los planos se generan gratis en casa con una NVIDIA de 8 a 12 GB o en un Mac con chip Apple y 16 GB de memoria o más. La app descarga sola el generador (unos 28 GB).",
+        "Sin esa tarjeta la app también funciona: la licencia quita la marca y los límites de la prueba, y los planos los hace un servicio con tu clave o salen de fotos gratuitas de Pexels y Pixabay.",
+        "Necesitas Windows 10/11 (64 bits) o macOS 12 o posterior. Las escenas animadas aún no se generan en el propio Mac.",
+        "En el primer arranque en Mac, abre «Ajustes del Sistema» → «Privacidad y seguridad» → «Abrir igualmente»."
+      ],
+      cta: {
+        label: "¿Qué ordenador tengo?",
+        href: "#pc",
+        variant: "ghost",
+        action: "disclose"
+      }
+    },
+    pricing: {
+      id: "pricing",
+      title: "Primero, gratis",
+      subtitle: "No hay reembolsos. Por eso los 3 primeros vídeos van por nuestra cuenta.",
+      currency: "UAH",
+      plans: [
+        {
+          id: "trial",
+          tone: "entry",
+          label: "Empieza aquí",
+          name: "Prueba",
+          price: {
+            display: "0 UAH",
+            value: 0
+          },
+          per: "3 vídeos de hasta 60 segundos",
+          items: [
+            "Sin tarjeta",
+            "Todos los estilos y personajes",
+            "Una pequeña marca KADR en la esquina"
+          ],
+          cta: {
+            label: "Descargar y probar",
+            href: "#download",
+            variant: "main"
+          }
+        },
+        {
+          id: "founder",
+          tone: "center",
+          label: "Para los primeros 100 compradores",
+          name: "Licencia «Fundador»",
+          price: {
+            display: "1.999 UAH",
+            value: 1999,
+            old: "2.999 UAH",
+            oldValue: 2999
+          },
+          then: "después 2.999 UAH",
+          per: "Un pago. Para siempre.",
+          items: [
+            "Sin marca ni límites",
+            "Dos ordenadores",
+            "1 año de actualizaciones"
+          ],
+          cta: {
+            label: "Comprar por 1.999 UAH",
+            href: "#download",
+            variant: "ghost"
+          },
+          note: "Se compra dentro de la app, después de la prueba"
+        },
+        {
+          id: "turnkey",
+          tone: "premium",
+          label: "Premium",
+          name: "Llave en mano",
+          price: {
+            display: "5.999 UAH",
+            value: 5999
+          },
+          per: "Lo configuramos todo por ti. En remoto.",
+          items: [
+            "Incluye la licencia «Fundador»",
+            "Instalación y configuración de tu PC",
+            "Tu primer vídeo, hecho juntos"
+          ],
+          cta: {
+            label: "Pedir llave en mano",
+            href: "mailto:kadrstudia8@gmail.com?subject=KADR%20Studio%3A%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F",
+            variant: "ghost"
+          }
+        }
+      ],
+      honest: "No hay reembolsos. Por eso primero tienes 3 vídeos gratis.",
+      currencyNote: "La app lo convierte a USDT al cambio del día.",
+      pay: {
+        title: "Cómo pagar",
+        steps: [
+          "Descarga la app",
+          "Pulsa «Comprar» dentro",
+          "Paga en USDT, red BEP-20"
+        ],
+        help: "¿No tienes USDT? La app incluye una guía para comprarlo."
+      },
+      cloud: "La nube con nuestras RTX 5090 llega pronto. Se paga con Energía ⚡, paquetes desde $10.",
+      cta: {
+        label: "Descargar y probar",
+        href: "#download",
+        variant: "main"
+      }
+    },
+    faq: {
+      id: "faq",
+      title: "Respuestas claras",
+      subtitle: "Seis preguntas que se hacen antes de comprar.",
+      items: [
+        {
+          q: "¿Es difícil?",
+          a: [
+            "No. Escribe una idea, elige formato y duración y pulsa ➤. Hay plantillas, 12 estilos visuales y 12 personajes listos."
+          ],
+          open: true
+        },
+        {
+          q: "¿No parecerá una papilla barata de IA?",
+          a: [
+            "Mira los ejemplos de arriba: es resultado real de la app. Antes del render puedes revisar el storyboard y redibujar cualquier plano. Después, «Revisión del vídeo» explica los fallos con palabras claras y corrige una vez por sí sola los defectos graves."
+          ]
+        },
+        {
+          q: "¿Necesito una GPU potente?",
+          a: [
+            "No. La app funciona en Windows 10/11 y en Mac con macOS 12 o posterior. Con una NVIDIA de 8 GB o más, o un Mac con chip Apple y 16 GB o más, los planos se generan gratis en casa. Sin ella, los planos los hace un servicio con clave o salen de fotos gratuitas. Pronto llega KADR Cloud con nuestras RTX 5090."
+          ]
+        },
+        {
+          q: "¿Cuánto tarda un vídeo?",
+          a: [
+            "Depende del ordenador. Un vídeo a partir de tu texto, sin GPU, está listo en uno o dos minutos. En una RTX 3060, un plano tarda cerca de un minuto y una película de 20 minutos, unas 4 horas."
+          ]
+        },
+        {
+          q: "¿Cómo pago y por qué USDT?",
+          a: [
+            "Compras dentro de la app. Pulsa «Comprar»: la app convierte el precio a USDT al cambio del día y te muestra el importe y la dirección. Pagas en USDT en BNB Smart Chain (BEP-20). Así el pago se comprueba automáticamente y la licencia se abre sola, sin esperas."
+          ]
+        },
+        {
+          q: "¿Puedo pedir un reembolso?",
+          a: [
+            "No. Por eso hay una prueba: 3 vídeos gratis, sin tarjeta. Compra cuando te guste el resultado. Las excepciones que exige la ley están en la ",
+            {
+              a: "Política de reembolsos",
+              href: "https://kadrstudia8-hue.github.io/refund-es.html"
+            },
+            "."
+          ]
+        }
+      ],
+      all: {
+        label: "Todas las preguntas",
+        href: "https://kadrstudia8-hue.github.io/support-es.html"
+      },
+      cta: {
+        label: "Escríbenos",
+        href: "https://kadrstudia8-hue.github.io/support-es.html",
+        variant: "ghost"
+      }
+    },
+    final: {
+      id: "download",
+      title: "Una frase. Y ➤",
+      subtitle: "3 vídeos gratis. Sin tarjeta ni registro en la web.",
+      cta: {
+        label: "Descargar KADR Studio",
+        href: "#download",
+        variant: "main",
+        osAware: true
+      },
+      platforms: "Windows · Mac con chip M · Mac Intel",
+      macHelp: {
+        label: "¿Qué Mac tengo?",
+        text: "Abre el menú Apple → «Acerca de este Mac». Con «Chip Apple M…» usa el segundo botón; con «Procesador Intel», el tercero."
+      },
+      support: {
+        label: "Escribir a soporte. Respondemos en persona.",
+        href: "https://kadrstudia8-hue.github.io/support-es.html"
+      }
+    },
+    mobileBar: {
+      ctas: [
+        {
+          label: "Envíate el enlace",
+          href: "#top",
+          variant: "main",
+          action: "share"
+        },
+        {
+          label: "Precios",
+          href: "#pricing",
+          variant: "ghost"
+        }
+      ]
     }
   }
 }

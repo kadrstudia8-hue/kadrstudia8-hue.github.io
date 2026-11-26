@@ -59,6 +59,9 @@ for (const app of Object.values(APPS)) {
   if (existsSync(gen)) cpSync(gen, join(site, 'gen'), { recursive: true })
 }
 
+// ---------------------------------------------------------------- site extras (AI manager widget)
+cpSync(join(root, 'site-extras', 'ai-manager.js'), join(site, 'ai-manager.js'))
+
 // ---------------------------------------------------------------- old previews
 for (const f of ['v1.html', 'v2.html', 'v3.html', 'v4.html', 'design-switch.js']) rmSync(join(site, f), { force: true })
 for (const d of ['redesign/v1', 'redesign/v3']) rmSync(join(site, d), { recursive: true, force: true })
@@ -91,6 +94,8 @@ function shell(theme, lang) {
     ...(b.style ? [b.style] : []),
     ...b.preload,
     ...b.tags,
+    // AI sales manager (Supabase function sales-chat); without the function it answers with the support contacts
+    '<script src="ai-manager.js" defer></script>',
   ]
   const htmlAttrs = [`lang="${meta[lang].htmlLang}"`, 'data-site', `data-theme="${theme}"`, `data-page-lang="${lang}"`, b.htmlAttrs].filter(Boolean).join(' ')
   return `<!doctype html>

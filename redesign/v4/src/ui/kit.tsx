@@ -23,6 +23,7 @@ type BtnProps = {
   disabled?: boolean
   label?: string
   download?: boolean
+  expanded?: boolean
 }
 
 function ripple(e: RPE<HTMLElement>) {
@@ -39,7 +40,7 @@ function ripple(e: RPE<HTMLElement>) {
 }
 
 /** Primary «Свет» (magnetic) and secondary «Стекло». */
-export function Btn({ kind = 'primary', size = 'md', href, onClick, children, className, arrow, icon, disabled, label, download }: BtnProps) {
+export function Btn({ kind = 'primary', size = 'md', href, onClick, children, className, arrow, icon, disabled, label, download, expanded }: BtnProps) {
   const ref = useRef<HTMLElement>(null)
   useMagnetic(ref, kind === 'primary' && !disabled)
   const cls = cx('btn', kind === 'primary' ? 'btn-light' : 'btn-glass', size === 'sm' && 'btn-sm', className)
@@ -66,7 +67,7 @@ export function Btn({ kind = 'primary', size = 'md', href, onClick, children, cl
     )
   }
   return (
-    <button ref={ref as React.RefObject<HTMLButtonElement>} type="button" className={cls} aria-label={label} onPointerDown={ripple} onPointerMove={spot} onClick={onClick} disabled={disabled} {...hover}>
+    <button ref={ref as React.RefObject<HTMLButtonElement>} type="button" className={cls} aria-label={label} onPointerDown={ripple} onPointerMove={spot} onClick={onClick} disabled={disabled} aria-expanded={expanded} {...hover}>
       {inner}
     </button>
   )

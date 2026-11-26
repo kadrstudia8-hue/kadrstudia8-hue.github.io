@@ -48,8 +48,8 @@ export function Navbar({ t, lang, setLang }: { t: SiteContent; lang: Lang; setLa
     return () => { document.removeEventListener('mousedown', close); document.removeEventListener('keydown', esc) }
   }, [langOpen])
 
-  const want = ['#proof', '#how', '#pricing', '#faq']
-  const links = want.map(h => t.nav.links.find(l => l.href === h)).filter(Boolean) as { label: string; href: string }[]
+  const links = t.page?.nav.links ?? t.nav.links.filter(l => ['#proof', '#how', '#pricing', '#faq'].includes(l.href))
+  const navCta = t.page?.nav.cta ?? t.nav.cta
   const cur = LANGS.find(l => l.code === lang)!
 
   return (
@@ -90,7 +90,7 @@ export function Navbar({ t, lang, setLang }: { t: SiteContent; lang: Lang; setLa
                 )}
               </AnimatePresence>
             </div>
-            <LimeButton href={t.nav.cta.href} small className="!h-[44px] max-md:!px-3.5">{t.nav.cta.label}</LimeButton>
+            <LimeButton href={navCta.href} small className="!h-[44px] max-md:!px-3.5">{navCta.label}</LimeButton>
             <button type="button" className="round-btn !size-11 xl:!hidden" aria-label={MENU[lang]} aria-expanded={sheet} onClick={() => setSheet(true)}>
               <Menu size={24} aria-hidden />
             </button>
@@ -112,7 +112,7 @@ export function Navbar({ t, lang, setLang }: { t: SiteContent; lang: Lang; setLa
               </button>
             </div>
             <nav className="wrap mt-6 flex flex-col gap-1" aria-label="mobile">
-              {t.nav.links.map((l, i) => (
+              {links.map((l, i) => (
                 <m.a key={l.href} href={l.href} onClick={() => setSheet(false)}
                   initial={reduced ? false : { opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.04 * i + 0.05, type: 'spring', stiffness: 300, damping: 26 }}
                   className="font-puffy flex min-h-[52px] items-center text-[34px] font-black uppercase leading-none text-ink focus-visible:outline-3 focus-visible:outline-violet">
@@ -138,7 +138,7 @@ export function Navbar({ t, lang, setLang }: { t: SiteContent; lang: Lang; setLa
               </button>
             </div>
             <div className="wrap mb-10 mt-auto pt-10">
-              <LimeButton href={t.nav.cta.href} className="w-full" onClick={() => setSheet(false)}>{t.nav.cta.label}</LimeButton>
+              <LimeButton href={navCta.href} className="w-full" onClick={() => setSheet(false)}>{navCta.label}</LimeButton>
             </div>
           </m.div>
         )}

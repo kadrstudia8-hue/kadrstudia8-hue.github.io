@@ -1,22 +1,17 @@
-// HERO (#top): chip, H1, typing prompt, one CTA, showreel link, neon note, screen slot with the real hero video.
+// HERO (#top): sticker, H1, subtitle, typing prompt, one CTA (phones: share), reel link, 3 chips, neon note, real hero video.
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CALM, OS_NAME, gen, useT } from '../ui/env'
+import { CALM, gen, useT } from '../ui/env'
 import { Heading } from '../ui/Heading'
-import { Btn, Chip, PlayLink, Rich, Scribble, cx } from '../ui/kit'
+import type { H } from '../ui/copy'
+import { Cta } from '../ui/cta'
+import { Chip, LIGHTS, Scribble, cx } from '../ui/kit'
 import { AutoVideo } from '../ui/media'
 import { emit } from '../ui/stage'
-import { bare, clean, cleanRich } from '../ui/text'
+import { clean } from '../ui/text'
 
 export const PICK_EVENT = 'v4:proof-pick'
 export function pickProof(i: number) {
   dispatchEvent(new CustomEvent(PICK_EVENT, { detail: i }))
-}
-
-/** Label of an osAware CTA: «Скачать для Mac/Windows» on those desktops. */
-export function useCtaLabel() {
-  const { t } = useT()
-  return (label: string, osAware?: boolean) =>
-    bare(osAware && OS_NAME === 'mac' ? t.ui.downloadMac : osAware && OS_NAME === 'win' ? t.ui.downloadWindows : label)
 }
 
 let measureCtx: CanvasRenderingContext2D | null = null
@@ -103,14 +98,13 @@ function PromptField({ phrases, label, go, onGo, onFirstDone }: { phrases: strin
 }
 
 export function Hero() {
-  const { t, c, lang } = useT()
-  const ctaLabel = useCtaLabel()
+  const { t, p, c, lang } = useT()
+  const h = p.hero
   const phrases = useMemo(() => t.proof.examples.map((e) => clean(e.prompt)), [t])
   const [lit, setLit] = useState(CALM)
   const [played, setPlayed] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const main = t.hero.ctas.find((x) => x.variant === 'main') ?? t.hero.ctas[0]
   const room = gen('v4-room.webp')
+  const title: H = [clean(h.title[0]?.text ?? ''), clean(h.title.slice(1).map((x) => x.text).join(' '))]
 
   useEffect(() => {
     let alive = true
@@ -126,14 +120,6 @@ export function Hero() {
     setPlayed(true)
     pickProof(i)
   }
-  const share = async () => {
-    const url = location.href.split('#')[0]
-    try {
-      if (navigator.share) { await navigator.share({ title: t.meta.title, url }); return }
-      await navigator.clipboard.writeText(url)
-      setCopied(true); setTimeout(() => setCopied(false), 2400)
-    } catch { /* cancelled */ }
-  }
 
   return (
     <section id="top" data-v4-section className="hero">
@@ -143,14 +129,22 @@ export function Hero() {
       </div>
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <Chip color="var(--lilac)" className="hero-chip">{c.hero.chip}</Chip>
-          <Heading as="h1" h={c.hero.h1} className="hero-h1" />
+          <span className="sticker hero-sticker">{clean(h.sticker)}</span>
+          <Heading as="h1" h={title} className="hero-h1" />
+          <p className="lead hero-sub" data-v4-safe>{clean(h.subtitle)}</p>
           <PromptField phrases={phrases} label={c.hero.promptLabel} go={c.hero.go} onGo={onGo} onFirstDone={() => setLit(true)} />
-          <div className="hero-ctas" data-v4-safe>
-            <Btn href={main.href} arrow>{ctaLabel(main.label, main.osAware)}</Btn>
-            <PlayLink href="#reel">{c.hero.reel}</PlayLink>
+          <div className="hero-ctas hero-ctas-desk" data-v4-safe>
+            <Cta cta={h.cta} />
+            <Cta cta={h.secondary} kind="play" />
           </div>
-          <p className="hero-mobile muted"><Rich value={cleanRich(t.hero.mobileHint)} onShare={share} shareLabel={copied ? clean(t.ui.linkCopied) : undefined} /></p>
+          <div className="hero-ctas hero-ctas-phone" data-v4-safe>
+            <Cta cta={h.mobile.cta} full />
+            <p className="hero-cap muted">{clean(h.mobile.caption)}</p>
+            <Cta cta={h.secondary} kind="play" />
+          </div>
+          <ul className="hero-chips">
+            {h.chips.map((s, i) => <li key={s}><Chip color={LIGHTS[[0, 2, 1][i] ?? 1]}>{clean(s)}</Chip></li>)}
+          </ul>
         </div>
         <div className="hero-side">
           <div className="hero-screen slot" data-v4-slot="hero-screen">
@@ -158,7 +152,7 @@ export function Hero() {
               <AutoVideo src={t.hero.video.src} poster={t.hero.video.poster} label={clean(t.hero.video.label)} slot="hero" eager={played} />
             </div>
           </div>
-          <div className="hero-note"><Scribble color="var(--pink)" rotate={-4}>{c.hero.note}</Scribble></div>
+          <div className="hero-note"><Scribble color="var(--pink)" rotate={-4}>{clean(h.note)}</Scribble></div>
         </div>
       </div>
     </section>

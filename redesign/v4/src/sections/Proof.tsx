@@ -8,11 +8,17 @@ import { AutoVideo } from '../ui/media'
 import { emit, scrollToHash } from '../ui/stage'
 import { clean } from '../ui/text'
 import { PICK_EVENT } from './Hero'
+import { toH } from '../ui/copy'
+import { Cta, PLAY_REEL } from '../ui/cta'
+import { Play } from 'lucide-react'
+import { useMagnetic } from '../ui/kit'
+import { emit as emitStage, useSceneOwns } from '../ui/stage'
+import { useOnScreen } from '../ui/media'
 
 const QUOTES = { ru: ['«', '»'], uk: ['«', '»'], es: ['«', '»'], en: ['“', '”'], de: ['„', '“'] } as const
 
 export function Proof() {
-  const { t, c, lang } = useT()
+  const { t, c, p, lang } = useT()
   const ex = t.proof.examples
   const [active, setActive] = useState(0)
   const [hover, setHover] = useState<number | null>(null)
@@ -84,7 +90,11 @@ export function Proof() {
     <Section id="proof" className="proof">
       <div className="wrap">
         <div className="head proof-head">
-          <Heading h={c.proof.h} />
+          <div className="head-copy">
+            {p.proof.tag && <p className="hud head-tag">{clean(p.proof.tag)}</p>}
+            <Heading h={toH(clean(p.proof.title))} />
+            <p className="lead head-sub" data-v4-safe>{clean(p.proof.subtitle)}</p>
+          </div>
           <div className="proof-arrows" data-v4-safe>
             <button type="button" className="round-btn prev" aria-label={c.proof.prev} onClick={() => select(active - 1)}><ChevronLeft size={22} /></button>
             <button type="button" className="round-btn next" aria-label={c.proof.next} onClick={() => select(active + 1)}><ChevronRight size={22} /></button>
@@ -116,14 +126,80 @@ export function Proof() {
         </div>
         <Reveal className="proof-panel" id="proof-panel" data-v4-safe="">
           <div role="tabpanel" aria-live="polite">
-            <p className="hud">{c.proof.prompt}</p>
+            <p className="hud">{clean(p.proof.promptLabel)}</p>
             <p key={active} className="proof-q">{QUOTES[lang][0]}{clean(a.prompt)}{QUOTES[lang][1]}</p>
             <ul className="proof-tags">
               {a.meta.slice(0, 3).map((m, i) => <li key={m}><Chip color={LIGHTS[(i + 2) % LIGHTS.length]}>{clean(m)}</Chip></li>)}
             </ul>
           </div>
         </Reveal>
+        <ReelCard />
+        <div className="sec-cta" data-v4-safe><Cta cta={p.proof.cta} /></div>
       </div>
     </Section>
+  )
+}
+
+/** 5th, wide card: the 25 s showreel with sound (plays on click or on «watch the showreel» anywhere on the page). */
+function ReelCard() {
+  const { t, c, p } = useT()
+  const v = t.reel.video
+  const ref = useRef<HTMLVideoElement>(null)
+  const btn = useRef<HTMLButtonElement>(null)
+  useMagnetic(btn)
+  const [started, setStarted] = useState(false)
+  const owns = useSceneOwns()
+  const onScreen = useOnScreen(ref)
+  const preview = owns && !started
+  const [armed, setArmed] = useState(false)
+  useEffect(() => { if (preview && onScreen) setArmed(true) }, [preview, onScreen])
+  useEffect(() => {
+    const el = ref.current
+    if (!el || !preview || !armed) return
+    if (onScreen) { el.muted = true; el.play().catch(() => {}) } else el.pause()
+  }, [preview, onScreen, armed])
+  const start = () => {
+    const el = ref.current
+    if (!el) return
+    setStarted(true)
+    el.src = v.src
+    el.loop = false
+    el.muted = false
+    el.currentTime = 0
+    el.play().catch(() => {})
+  }
+  useEffect(() => {
+    const on = () => { start(); ref.current?.closest('.reel-frame')?.scrollIntoView({ behavior: CALM ? 'auto' : 'smooth', block: 'center' }) }
+    addEventListener(PLAY_REEL, on)
+    return () => removeEventListener(PLAY_REEL, on)
+  })
+  return (
+    <Reveal className="reel-frame slot" data-v4-slot="reel-screen">
+      <div className="screen reel-screen">
+        <video
+          ref={ref}
+          className="vid"
+          src={started || armed ? v.src : undefined}
+          poster={v.poster}
+          preload="none"
+          playsInline
+          muted={!started}
+          loop={!started}
+          controls={started}
+          aria-label={clean(v.label)}
+          aria-hidden={started ? undefined : true}
+          data-v4-video="reel"
+          onPlay={() => { if (started) emitStage({ type: 'reel:play' }) }}
+          onPause={() => emitStage({ type: 'reel:pause' })}
+          onEnded={() => emitStage({ type: 'reel:pause' })}
+        />
+        {!started && (
+          <button ref={btn} type="button" className="reel-play" onClick={start} aria-label={`${clean(p.proof.reelCard)}. ${c.proof.play}`}>
+            <span className="reel-play-c" aria-hidden><Play size={30} fill="currentColor" strokeWidth={0} /></span>
+          </button>
+        )}
+      </div>
+      <p className="reel-cap muted">{clean(p.proof.reelCard)}</p>
+    </Reveal>
   )
 }

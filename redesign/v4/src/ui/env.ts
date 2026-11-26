@@ -1,6 +1,7 @@
 // Environment flags and small shared helpers for V4 INTERFACE.
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { useLang } from '@kadr/shared/i18n'
+import type { Page } from '@kadr/shared/content/index.ts'
 import { COPY } from './copy'
 
 const q = typeof location !== 'undefined' ? new URLSearchParams(location.search) : new URLSearchParams()
@@ -59,7 +60,8 @@ export function gen(id: GenId): string | null {
 // ---------------------------------------------------------------- copy
 export function useT() {
   const { lang, t, setLang } = useLang()
-  return { lang, t, c: COPY[lang], setLang }
+  // `page` (CRO structure) is filled in every language; V4 reads all its texts from there
+  return { lang, t, p: t.page as Page, c: COPY[lang], setLang }
 }
 
 // ---------------------------------------------------------------- media query hook
