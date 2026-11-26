@@ -4,7 +4,7 @@ import {
   BlendFunction, BloomEffect, Effect, EffectAttribute, EffectComposer, EffectPass, RenderPass, ToneMappingEffect,
   ToneMappingMode, VignetteEffect,
 } from 'postprocessing'
-import { Color, DataTexture, HalfFloatType, LinearFilter, RedFormat, RepeatWrapping, Uniform, UnsignedByteType, Vector2, Vector4 } from 'three'
+import { Color, DataTexture, HalfFloatType, NearestFilter, RedFormat, RepeatWrapping, Uniform, UnsignedByteType, Vector2, Vector4 } from 'three'
 import { dom } from '../dom'
 import { rig } from '../rig'
 import { STILL } from '../quality'
@@ -79,20 +79,18 @@ class LensEffect extends Effect {
 const grainFrag = /* glsl */ `
 uniform float uGrain; uniform sampler2D uNoise; uniform vec2 uOff;
 void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
-  // soft monochrome film grain: 256 px noise tile sampled at ~1.6 px grains with bilinear filtering,
-  // random offset every frame; strongest in the shadows, almost none on bright areas. Amplitude ~0.025.
-  vec2 g = (gl_FragCoord.xy / 1.6 + uOff) / 256.0;
-  float n = texture2D(uNoise, g).r * 0.6 + texture2D(uNoise, g * 1.37 + 0.31).r * 0.4;
+  // 256 px white-noise tile, random offset every frame: no regular hatching
+  float n = texture2D(uNoise, (gl_FragCoord.xy + uOff) / 256.0).r;
   float lum = dot(inputColor.rgb, vec3(0.2126, 0.7152, 0.0722));
-  float k = uGrain * mix(1.0, 0.25, smoothstep(0.02, 0.5, lum));
-  outputColor = vec4(inputColor.rgb + vec3((n - 0.5) * 2.0 * k), inputColor.a);
+  float k = uGrain * mix(1.0, 0.45, smoothstep(0.05, 0.6, lum));
+  outputColor = vec4(inputColor.rgb + (n - 0.5) * k, inputColor.a);
 }`
 function noiseTile() {
   const d = new Uint8Array(256 * 256)
   for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 256) | 0
   const t = new DataTexture(d, 256, 256, RedFormat, UnsignedByteType)
   t.wrapS = t.wrapT = RepeatWrapping
-  t.magFilter = t.minFilter = LinearFilter
+  t.magFilter = t.minFilter = NearestFilter
   t.needsUpdate = true
   return t
 }
@@ -101,7 +99,7 @@ class GrainEffect extends Effect {
   constructor() {
     super('V4Grain', grainFrag, {
       blendFunction: BlendFunction.NORMAL,
-      uniforms: new Map<string, Uniform>([['uGrain', new Uniform(0.025)], ['uNoise', new Uniform(noiseTile())], ['uOff', new Uniform(new Vector2())]]),
+      uniforms: new Map<string, Uniform>([['uGrain', new Uniform(0.055)], ['uNoise', new Uniform(noiseTile())], ['uOff', new Uniform(new Vector2())]]),
     })
   }
 }

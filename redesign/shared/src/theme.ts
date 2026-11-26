@@ -1,4 +1,4 @@
-// Site theme = which design is shown: dark (V4, the default) or light (V2).
+// Site theme = which design is shown: light (V2, the default since 26.11) or dark (V4).
 // The two designs are separate pages. The toggle remembers the choice and opens the matching page in the same language.
 // Published pages carry <html data-site data-theme="dark|light" data-page-lang="uk|ru|en|es|de"> (see tools/publish.mjs);
 // in dev and standalone builds those attributes are absent and nothing navigates.
@@ -9,8 +9,8 @@ export const THEME_KEY = 'kadr-theme'
 
 /** Page file per theme and language, relative to the site folder ('' = the folder index). */
 export const PAGES: Record<Theme, Record<Lang, string>> = {
-  dark: { uk: '', ru: 'landing.html', en: 'landing-en.html', es: 'landing-es.html', de: 'landing-de.html' },
-  light: { uk: 'light.html', ru: 'light-ru.html', en: 'light-en.html', es: 'light-es.html', de: 'light-de.html' },
+  light: { uk: '', ru: 'landing.html', en: 'landing-en.html', es: 'landing-es.html', de: 'landing-de.html' },
+  dark: { uk: 'dark.html', ru: 'dark-ru.html', en: 'dark-en.html', es: 'dark-es.html', de: 'dark-de.html' },
 }
 
 /** Button label: the theme the button switches to. */
@@ -27,7 +27,7 @@ export function onSite(): boolean {
 }
 
 /** Theme of the page that is open. */
-export function pageTheme(fallback: Theme = 'dark'): Theme {
+export function pageTheme(fallback: Theme = 'light'): Theme {
   const v = root()?.dataset.theme
   return v === 'light' || v === 'dark' ? v : fallback
 }

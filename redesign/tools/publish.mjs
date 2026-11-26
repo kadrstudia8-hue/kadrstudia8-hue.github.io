@@ -19,8 +19,10 @@ if (!site || !existsSync(join(site, 'sitemap.xml'))) {
 const noBuild = process.argv.includes('--no-build')
 
 const LANGS = ['uk', 'ru', 'en', 'es', 'de']
-const DARK = { uk: 'index.html', ru: 'landing.html', en: 'landing-en.html', es: 'landing-es.html', de: 'landing-de.html' }
-const LIGHT = { uk: 'light.html', ru: 'light-ru.html', en: 'light-en.html', es: 'light-es.html', de: 'light-de.html' }
+// Light (V2) is the default design on the main URLs (owner, 26.11); dark (V4) lives on dark*.html.
+const LIGHT = { uk: 'index.html', ru: 'landing.html', en: 'landing-en.html', es: 'landing-es.html', de: 'landing-de.html' }
+const DARK = { uk: 'dark.html', ru: 'dark-ru.html', en: 'dark-en.html', es: 'dark-es.html', de: 'dark-de.html' }
+const OLD_LIGHT = { uk: 'light.html', ru: 'light-ru.html', en: 'light-en.html', es: 'light-es.html', de: 'light-de.html' }
 const APPS = { dark: 'v4', light: 'v2' }
 const meta = JSON.parse(readFileSync(join(here, 'page-meta.json'), 'utf8'))
 const NOSCRIPT = {
@@ -73,18 +75,19 @@ function shell(theme, lang) {
   const app = APPS[theme]
   const b = built(app)
   const dark = theme === 'dark'
+  const main = theme === 'light'   // the indexed page on the main URL
   const head = [
     '<meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">',
     ...pick(lang, /^<title>|^<meta name="description"|^<link rel="canonical"/),
-    // the light page is the same content in another design: it points at the dark page and stays out of the index
-    ...(dark ? pick(lang, /^<link rel="alternate"/) : ['<meta name="robots" content="noindex,follow">']),
+    // the dark page is the same content in another design: it points at the main (light) page and stays out of the index
+    ...(main ? pick(lang, /^<link rel="alternate"/) : ['<meta name="robots" content="noindex,follow">']),
     `<meta name="theme-color" content="${b.theme}">`,
     `<meta name="color-scheme" content="${dark ? 'dark' : 'light'}">`,
     ...pick(lang, /^<meta property="og:|^<meta name="twitter:/),
     '<link rel="icon" href="favicon.svg" type="image/svg+xml">',
-    // dark is the default; a visitor who chose the light theme is taken to it before anything is painted
-    ...(dark ? [`<script>try{if(localStorage.getItem("kadr-theme")==="light")location.replace("${LIGHT[lang]}"+location.hash)}catch(e){}</script>`] : []),
+    // light is the default; a visitor who chose the dark theme is taken to it before anything is painted
+    ...(main ? [`<script>try{if(localStorage.getItem("kadr-theme")==="dark")location.replace("${DARK[lang]}"+location.hash)}catch(e){}</script>`] : []),
     ...(b.style ? [b.style] : []),
     ...b.preload,
     ...b.tags,
@@ -111,5 +114,8 @@ for (const lang of LANGS) {
   writeFileSync(join(site, DARK[lang]), shell('dark', lang))
   writeFileSync(join(site, LIGHT[lang]), shell('light', lang))
 }
-writeFileSync(join(site, 'landing-uk.html'), shell('dark', 'uk')) // same page as the index, kept for old links
+writeFileSync(join(site, 'landing-uk.html'), shell('light', 'uk'))
+// old light*.html links (25.11) open the same page on the main URL
+for (const lang of LANGS) writeFileSync(join(site, OLD_LIGHT[lang]), `<!doctype html><html lang="${meta[lang].htmlLang}"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="canonical" href="${LIGHT[lang]}"><script>location.replace("${LIGHT[lang]}"+location.hash)</script></head><body><a href="${LIGHT[lang]}">KADR Studio</a></body></html>
+`) // same page as the index, kept for old links
 console.log(`published to ${site}: ${LANGS.length * 2 + 1} pages`)

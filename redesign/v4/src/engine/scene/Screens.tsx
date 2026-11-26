@@ -120,13 +120,7 @@ export function Screen({ slot, video, isActive, reveal, run }: {
     if (el !== s.el) { s.tex?.dispose(); s.tex = null; s.el = el; s.hasFrame = false; s.lastT = -1 }
     if (!el) { u.uHas.value = 0; return }
     const ready = el.readyState >= 2 && el.videoWidth > 0
-    const active = isActive()
-    // the active screen's muted loop must run (INTERFACE also keeps it playing); never touches src
-    if (active && el.paused && el.muted && el.currentSrc && el.readyState >= 2) el.play().catch(() => {})
-    // upload only real, advancing frames of a playing video: a paused never-played video can upload black
-    // on some drivers (D3D11), so until then the screen shows the poster (same image as frame 0)
-    const live = ready && !el.paused && el.currentTime > 0
-    if (live && active && el.currentTime !== s.lastT) {
+    if (ready && isActive() && el.currentTime !== s.lastT) {
       s.lastT = el.currentTime
       if (!s.tex) {
         if (el.videoWidth > 1280) {
